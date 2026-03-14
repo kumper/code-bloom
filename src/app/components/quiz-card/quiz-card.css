@@ -1,0 +1,125 @@
+:host {
+  --pink-primary: #ff6b9d;
+  --pink-light: #ffc3a0;
+  --pink-dark: #c44569;
+}
+
+.quiz-card {
+  border-radius: 35px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quiz-card::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-light) 25%, var(--pink-primary) 50%, var(--pink-dark) 75%, var(--pink-primary) 100%);
+  border-radius: 35px;
+  z-index: -1;
+}
+
+.quiz-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  border-radius: 31px;
+  z-index: -1;
+}
+
+.question-number {
+  color: var(--pink-primary) !important;
+}
+
+.code-snippet {
+  border-left: 4px solid var(--pink-primary);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.answer-option {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.answer-option:hover,
+.answer-option.selected {
+  background: #fff5f7 !important;
+  border-color: var(--pink-primary) !important;
+  transform: translateX(5px);
+}
+
+.answer-option input[type="radio"] {
+  accent-color: var(--pink-primary);
+  cursor: pointer;
+}
+
+.answer-content {
+  font-family: 'Fira Code', monospace;
+}
+
+.answer-label {
+  color: var(--pink-primary);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-dark) 100%);
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.question-tag {
+  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-light) 100%);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .quiz-card {
+    border-radius: 30px;
+  }
+
+  .quiz-card::before {
+    border-radius: 30px;
+  }
+
+  .quiz-card::after {
+    border-radius: 26px;
+  }
+
+  .code-snippet {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .quiz-card {
+    border-radius: 25px;
+  }
+
+  .quiz-card::before {
+    border-radius: 25px;
+  }
+
+  .quiz-card::after {
+    border-radius: 21px;
+  }
+
+  .code-snippet {
+    font-size: 0.8rem;
+  }
+}

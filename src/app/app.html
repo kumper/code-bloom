@@ -1,1 +1,12 @@
-<app-quiz-card></app-quiz-card>
+<div class="container py-4">
+  <h1 class="text-center mb-4 text-dark fw-semibold">Java Quiz</h1>
+
+  <app-quiz-card
+    [questionNumber]="1"
+    [question]="'What will be the output of the following code?'"
+    [codeSnippet]="codeExample"
+    [answers]="quizAnswers"
+    [tags]="['#control']"
+    (save)="handleSave($event)"
+  />
+</div>

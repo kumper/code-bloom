@@ -1,12 +1,33 @@
-import {Component, signal} from '@angular/core';
-import {QuizCard} from './components/quiz-card/quiz-card';
+import {Component} from '@angular/core';
+import {QuizAnswer, QuizCardComponent, QuizSubmission} from './components/quiz-card/quiz-card';
 
 @Component({
   selector: 'app-root',
-  imports: [QuizCard],
+  imports: [QuizCardComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('code-bloom');
+  codeExample = `int a = 3;
+if (a > 0) {
+  System.out.println("'a' is positive");
+}`;
+
+  quizAnswers: QuizAnswer[] = [
+    {label: 'a', text: 'Output: nothing'},
+    {label: 'b', text: "Output: 'a' is positive"},
+    {label: 'c', text: 'Compilation error'}
+  ];
+
+  handleSave(submission: QuizSubmission): void {
+    console.log('Question:', submission.questionNumber);
+    console.log('Selected answer:', submission.selectedAnswer);
+
+    // Add your logic here (e.g., check answer, show result, navigate to next question)
+    if (submission.selectedAnswer === 'b') {
+      alert('✅ Correct! The output will be: \'a\' is positive');
+    } else {
+      alert('❌ Incorrect. Try again!');
+    }
+  }
 }
