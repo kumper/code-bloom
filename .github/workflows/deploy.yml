@@ -33,6 +33,10 @@ jobs:
       #        env:
       #          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+      - name: Show logs
+        if: failure()
+        run: cat /home/runner/.npm/_logs/*.log
+
       - name: Build Angular app
         run: npx ng build --configuration production --base-href /code-bloom/
 
