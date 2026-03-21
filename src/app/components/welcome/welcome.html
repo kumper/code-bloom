@@ -7,17 +7,21 @@
     </p>
   </div>
 
-  <form (submit)="onSubmit()">
+  <form>
     <div class="mb-3">
       <label for="username" class="form-label fw-semibold">Your Name</label>
       <input
         id="username"
         type="text"
         class="form-control"
+        [class.is-invalid]="usernameControl.invalid && usernameControl.touched"
         placeholder="Enter your name"
         [formControl]="usernameControl"
         autocomplete="name"
       />
+      @if (usernameControl.invalid && usernameControl.touched) {
+        <div class="invalid-feedback">Please enter your name to continue.</div>
+      }
     </div>
 
     <p class="disclaimer text-muted mb-3">
@@ -25,7 +29,8 @@
       never stored on any server or processed in any way beyond this session.
     </p>
 
-    <button type="submit" class="btn btn-welcome btn-pink text-white fw-semibold w-100 py-2 rounded-pill">
+    <button type="button" (click)="onSubmit()"
+            class="btn btn-welcome btn-pink text-white fw-semibold w-100 py-2 rounded-pill">
       Let's Start!
     </button>
   </form>

@@ -1,0 +1,114 @@
+@switch (state()) {
+
+  @case ('loading') {
+    <output class="d-block text-center py-5" aria-live="polite">
+      <div class="spinner-border text-pink" aria-hidden="true"></div>
+      <p class="mt-2 text-muted">Loading your session&hellip;</p>
+    </output>
+  }
+  @case ('daily-limit') {
+    <app-generic-frame>
+      <div class="text-center">
+        <div class="limit-icon mb-3" aria-hidden="true">🌙</div>
+        <h2 class="fw-bold limit-heading mb-2">That's all for today, {{ userName() }}!</h2>
+        <p class="text-secondary mb-3">
+          You've completed {{ dailyLimit }} exercises today. Come back tomorrow for more!
+        </p>
+        <div class="points-badge mx-auto">
+          <span class="points-value fw-bold">{{ totalPoints() }}</span>
+          <span class="points-label">total points</span>
+        </div>
+      </div>
+    </app-generic-frame>
+  }
+  @case ('all-exhausted') {
+    <app-generic-frame>
+      <div class="text-center">
+        <div class="limit-icon mb-3" aria-hidden="true">🏆</div>
+        <h2 class="fw-bold limit-heading mb-2">Incredible, {{ userName() }}!</h2>
+        <p class="text-secondary mb-3">
+          You've seen every available exercise in the last 60 days. Check back later for fresh questions!
+        </p>
+        <div class="points-badge mx-auto">
+          <span class="points-value fw-bold">{{ totalPoints() }}</span>
+          <span class="points-label">total points</span>
+        </div>
+      </div>
+    </app-generic-frame>
+  }
+  @case ('question') {
+    <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
+      <span class="quiz-greeting text-muted">
+        Hey, <strong>{{ userName() }}</strong>!
+      </span>
+      <div class="d-flex gap-3 align-items-center">
+        <span class="quiz-stat" aria-label="{{ exercisesToday() }} of {{ dailyLimit }} exercises done today">
+          📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
+        </span>
+        <span class="quiz-stat" aria-label="{{ totalPoints() }} total points">
+          ⭐ {{ totalPoints() }} pts
+        </span>
+      </div>
+    </div>
+
+    <app-generic-frame>
+      <app-question
+        [questionNumber]="currentQuestion()!.id"
+        [question]="currentQuestion()!.question"
+        [codeSnippet]="currentQuestion()!.codeSnippet"
+        [answers]="currentQuestion()!.answers"
+        [tags]="currentQuestion()!.tags ?? []"
+        (save)="onAnswerSubmitted($event.selectedAnswer)"
+      />
+    </app-generic-frame>
+  }
+  @case ('answered') {
+    <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
+      <span class="quiz-greeting text-muted">
+        Hey, <strong>{{ userName() }}</strong>!
+      </span>
+      <div class="d-flex gap-3 align-items-center">
+        <span class="quiz-stat" aria-label="{{ exercisesToday() }} of {{ dailyLimit }} exercises done today">
+          📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
+        </span>
+        <span class="quiz-stat" aria-label="{{ totalPoints() }} total points">
+          ⭐ {{ totalPoints() }} pts
+        </span>
+      </div>
+    </div>
+
+    <app-generic-frame>
+      <div class="text-center feedback-block">
+        @if (wasCorrect()) {
+          <div class="feedback-icon" aria-hidden="true">🎉</div>
+          <h3 class="fw-bold feedback-correct mb-2">Correct!</h3>
+          <p class="text-secondary mb-0">Well done, you earned a point!</p>
+        } @else {
+          <div class="feedback-icon" aria-hidden="true">💡</div>
+          <h3 class="fw-bold feedback-wrong mb-2">Not quite!</h3>
+          <p class="text-secondary mb-0">
+            The correct answer was
+            <strong>{{ currentQuestion()!.correctAnswer }}</strong>.
+          </p>
+        }
+
+        @if (exercisesToday() < dailyLimit) {
+          <button
+            class="btn btn-pink text-white fw-semibold px-4 py-2 rounded-pill mt-4"
+            type="button"
+            (click)="onNextQuestion()"
+          >
+            Next Question
+          </button>
+        } @else {
+          <p class="mt-4 text-muted fw-semibold">
+            That's your {{ dailyLimit }} for today — see you tomorrow! 🌙
+          </p>
+        }
+      </div>
+    </app-generic-frame>
+  }
+
+}
+
+
