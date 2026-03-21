@@ -1,14 +1,15 @@
 import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
-import {GenericFrameComponent} from './components/generic-frame/generic-frame';
-import {QuestionComponent, QuizSubmission} from './components/question/question';
+import {QuizSubmission} from './components/question/question';
 import {QuestionRepositoryService} from './services/question-repository.service';
+import {WelcomeComponent} from './components/welcome/welcome';
 
 @Component({
   selector: 'app-root',
-  imports: [GenericFrameComponent, QuestionComponent],
+  imports: [WelcomeComponent],
   templateUrl: './app.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true
 })
 export class App {
   private readonly questionRepository = inject(QuestionRepositoryService);
