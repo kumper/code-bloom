@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "question": "What will be the output of the following code?",
+    "codeSnippet": "int a = 3;\nif (a > 0) {\n  System.out.println(\"'a' is positive\");\n}",
+    "answers": [
+      {"label": "a", "text": "Output: nothing"},
+      {"label": "b", "text": "Output: 'a' is positive"},
+      {"label": "c", "text": "Compilation error"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#control"]
+  },
+  {
+    "id": 2,
+    "question": "What is the result of the following expression?",
+    "codeSnippet": "int x = 10 / 3;\nSystem.out.println(x);",
+    "answers": [
+      {"label": "a", "text": "3.33"},
+      {"label": "b", "text": "3"},
+      {"label": "c", "text": "Compilation error"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 3,
+    "question": "What will the following code print?",
+    "codeSnippet": "String s = \"Hello\";\nSystem.out.println(s.length());",
+    "answers": [
+      {"label": "a", "text": "4"},
+      {"label": "b", "text": "5"},
+      {"label": "c", "text": "6"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#strings"]
+  }
+]

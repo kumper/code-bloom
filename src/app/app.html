@@ -3,11 +3,11 @@
 
   <app-generic-frame>
     <app-question
-      [questionNumber]="1"
-      [question]="'What will be the output of the following code?'"
-      [codeSnippet]="codeExample"
-      [answers]="quizAnswers"
-      [tags]="['#control']"
+      [questionNumber]="currentQuestion().id"
+      [question]="currentQuestion().question"
+      [codeSnippet]="currentQuestion().codeSnippet"
+      [answers]="currentQuestion().answers"
+      [tags]="currentQuestion().tags ?? []"
       (save)="handleSave($event)"
     />
   </app-generic-frame>

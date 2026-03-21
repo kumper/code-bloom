@@ -1,35 +1,29 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
 import {GenericFrameComponent} from './components/generic-frame/generic-frame';
-import {QuestionComponent, QuizAnswer, QuizSubmission} from './components/question/question';
+import {QuestionComponent, QuizSubmission} from './components/question/question';
+import {QuestionRepositoryService} from './services/question-repository.service';
 
 @Component({
   selector: 'app-root',
   imports: [GenericFrameComponent, QuestionComponent],
   templateUrl: './app.html',
-  standalone: true,
-  styleUrl: './app.css'
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './app.css',
 })
 export class App {
-  codeExample = `int a = 3;
-if (a > 0) {
-  System.out.println("'a' is positive");
-}`;
+  private readonly questionRepository = inject(QuestionRepositoryService);
 
-  quizAnswers: QuizAnswer[] = [
-    {label: 'a', text: 'Output: nothing'},
-    {label: 'b', text: "Output: 'a' is positive"},
-    {label: 'c', text: 'Compilation error'}
-  ];
+  readonly currentQuestion = signal(this.questionRepository.getRandomQuestion());
 
   handleSave(submission: QuizSubmission): void {
     console.log('Question:', submission.questionNumber);
     console.log('Selected answer:', submission.selectedAnswer);
 
-    // Add your logic here (e.g., check answer, show result, navigate to next question)
-    if (submission.selectedAnswer === 'b') {
-      alert('✅ Correct! The output will be: \'a\' is positive');
+    if (submission.selectedAnswer === this.currentQuestion().correctAnswer) {
+      alert('✅ Correct!');
     } else {
       alert('❌ Incorrect. Try again!');
     }
   }
 }
+
