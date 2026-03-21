@@ -1,16 +1,9 @@
-:host {
-  --pink-primary: #ff6b9d;
-  --pink-light: #ffc3a0;
-  --pink-dark: #c44569;
-}
-
 .question-number {
   color: var(--pink-primary) !important;
 }
 
 .code-snippet {
   border-left: 4px solid var(--pink-primary);
-  font-family: 'Fira Code', monospace;
   font-size: 0.95rem;
   line-height: 1.6;
   overflow-x: auto;
@@ -33,25 +26,10 @@
   cursor: pointer;
 }
 
-.answer-content {
-  font-family: 'Fira Code', monospace;
-}
-
 .answer-label {
   color: var(--pink-primary);
 }
 
-.btn-submit {
-  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-dark) 100%);
-  border: none;
-  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
-  transition: all 0.3s ease;
-}
-
-.btn-submit:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
-}
 
 .btn-submit:disabled {
   opacity: 0.6;

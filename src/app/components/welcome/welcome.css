@@ -1,7 +1,3 @@
-:host {
-  --pink-primary: #ff6b9d;
-  --pink-dark: #c44569;
-}
 
 .welcome-heading {
   color: var(--pink-dark);
@@ -11,14 +7,3 @@
   font-size: 0.8rem;
 }
 
-.btn-welcome {
-  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-dark) 100%);
-  border: none;
-  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
-  transition: all 0.3s ease;
-}
-
-.btn-welcome:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
-}
