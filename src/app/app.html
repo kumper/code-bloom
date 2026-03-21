@@ -1,15 +1,17 @@
 <div class="container py-4">
   <h1 class="text-center mb-4 fw-semibold app-title">CodeBloom</h1>
 
-  <app-generic-frame>
-    <app-question
-      [questionNumber]="currentQuestion().id"
-      [question]="currentQuestion().question"
-      [codeSnippet]="currentQuestion().codeSnippet"
-      [answers]="currentQuestion().answers"
-      [tags]="currentQuestion().tags ?? []"
-      (save)="handleSave($event)"
-    />
-  </app-generic-frame>
+  <app-welcome/>
+
+  <!--  <app-generic-frame>-->
+  <!--    <app-question-->
+  <!--      [questionNumber]="currentQuestion().id"-->
+  <!--      [question]="currentQuestion().question"-->
+  <!--      [codeSnippet]="currentQuestion().codeSnippet"-->
+  <!--      [answers]="currentQuestion().answers"-->
+  <!--      [tags]="currentQuestion().tags ?? []"-->
+  <!--      (save)="handleSave($event)"-->
+  <!--    />-->
+  <!--  </app-generic-frame>-->
 
 </div>
