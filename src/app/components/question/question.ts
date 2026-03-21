@@ -13,24 +13,24 @@ export interface QuizSubmission {
 }
 
 @Component({
-  selector: 'app-quiz-card',
+  selector: 'app-question',
   imports: [CommonModule, FormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './quiz-card.html',
-  styleUrl: './quiz-card.css',
+  templateUrl: './question.html',
+  styleUrl: './question.css',
+  standalone: true
 })
-export class QuizCardComponent {
+export class QuestionComponent {
   questionNumber = input.required<number>();
   question = input.required<string>();
   codeSnippet = input.required<string>();
   answers = input.required<QuizAnswer[]>();
   tags = input<string[]>([]);
+  selectedAnswer = input<string>('');
 
   save = output<QuizSubmission>();
 
   selectedAnswerValue = '';
-
-  selectedAnswer = input<string>('');
 
   onAnswerChange(): void {
     // Update is handled by ngModel

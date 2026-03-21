@@ -1,18 +1,18 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {QuizCard} from './quiz-card';
+import {GenericFrameComponent} from './generic-frame';
 
-describe('QuizCard', () => {
-  let component: QuizCard;
-  let fixture: ComponentFixture<QuizCard>;
+describe('QuizCardComponent', () => {
+  let component: GenericFrameComponent;
+  let fixture: ComponentFixture<GenericFrameComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuizCard]
+      imports: [GenericFrameComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(QuizCard);
+    fixture = TestBed.createComponent(GenericFrameComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
