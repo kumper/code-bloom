@@ -1,8 +1,3 @@
-:host {
-  --pink-primary: #ff6b9d;
-  --pink-light: #ffc3a0;
-  --pink-dark: #c44569;
-}
 
 .quiz-card {
   border-radius: 35px;
