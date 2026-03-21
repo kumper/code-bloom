@@ -7,7 +7,8 @@ import {GenericFrameComponent} from '../generic-frame/generic-frame';
   imports: [ReactiveFormsModule, GenericFrameComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './welcome.html',
-  styleUrl: './welcome.css'
+  styleUrl: './welcome.css',
+  standalone: true
 })
 export class WelcomeComponent {
   usernameControl = new FormControl<string>('', {nonNullable: true});

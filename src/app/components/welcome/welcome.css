@@ -3,10 +3,6 @@
   --pink-dark: #c44569;
 }
 
-.app-title {
-  color: var(--pink-primary);
-}
-
 .welcome-heading {
   color: var(--pink-dark);
 }

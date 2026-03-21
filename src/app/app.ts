@@ -5,6 +5,7 @@ import {WelcomeComponent} from './components/welcome/welcome';
   selector: 'app-root',
   imports: [WelcomeComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  standalone: true
 })
 export class App {}
