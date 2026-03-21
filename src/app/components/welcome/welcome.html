@@ -1,0 +1,32 @@
+<app-generic-frame>
+  <div class="text-center mb-4">
+    <h2 class="fw-bold welcome-heading mb-2">Welcome! 👋</h2>
+    <p class="text-secondary mb-0">
+      We're glad to have you here. Learn coding in Java easily with fun interactive quizzes
+      tailored just for you!
+    </p>
+  </div>
+
+  <form (submit)="onSubmit()">
+    <div class="mb-3">
+      <label for="username" class="form-label fw-semibold">Your Name</label>
+      <input
+        id="username"
+        type="text"
+        class="form-control"
+        placeholder="Enter your name"
+        [formControl]="usernameControl"
+        autocomplete="name"
+      />
+    </div>
+
+    <p class="disclaimer text-muted mb-3">
+      Your name is only used to make your Java learning experience more personal and fun. It is
+      never stored on any server or processed in any way beyond this session.
+    </p>
+
+    <button type="submit" class="btn btn-welcome text-white fw-semibold w-100 py-2 rounded-pill">
+      Let's Start!
+    </button>
+  </form>
+</app-generic-frame>
