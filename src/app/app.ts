@@ -1,18 +1,13 @@
-import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
-import {QuestionRepositoryService} from './services/question-repository.service';
-import {WelcomeComponent} from './components/welcome/welcome';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [WelcomeComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true
 })
 export class App {
-  private readonly questionRepository = inject(QuestionRepositoryService);
-
-  readonly currentQuestion = signal(this.questionRepository.getRandomQuestion());
 }
 

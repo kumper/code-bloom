@@ -1,0 +1,34 @@
+<app-generic-frame>
+  <div class="text-center">
+    <div class="not-found-code fw-bold mb-2" aria-hidden="true">404</div>
+
+    <h2 class="fw-bold not-found-heading mb-2">Page Not Found</h2>
+
+    <p class="text-secondary mb-4">
+      Oops! The page you're looking for doesn't exist.
+    </p>
+
+    <div
+      class="timer-ring mx-auto mb-3"
+      role="timer"
+      [attr.aria-label]="'Redirecting to homepage in ' + secondsLeft() + ' seconds'"
+    >
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <circle class="timer-track" cx="22" cy="22" r="18"/>
+        <circle
+          class="timer-progress"
+          cx="22"
+          cy="22"
+          r="18"
+          [style.stroke-dashoffset]="dashOffset()"
+        />
+      </svg>
+      <span class="timer-count fw-bold" aria-hidden="true">{{ secondsLeft() }}</span>
+    </div>
+
+    <p class="text-muted redirect-hint">
+      Redirecting you to the homepage&hellip;
+    </p>
+  </div>
+</app-generic-frame>
+
