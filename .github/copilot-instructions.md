@@ -1,6 +1,59 @@
 
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
+## Project Overview
+
+CodeBloom is an Angular web application that presents interactive coding quizzes. Users are shown code snippets alongside multiple-choice answers and can submit their answers to get instant feedback. The app is deployed to GitHub Pages at `/code-bloom/`.
+
+## Tech Stack
+
+- **Framework**: Angular 21+ (standalone components, no NgModules)
+- **Language**: TypeScript 5.9 with strict mode enabled
+- **Styling**: Bootstrap 5 + component-level CSS
+- **Testing**: Vitest (via `@angular/build:unit-test`)
+- **Build**: Angular CLI (`ng build`)
+- **Package manager**: npm
+
+## Development Workflow
+
+Install dependencies:
+```bash
+npm install
+```
+
+Start the development server (http://localhost:4200):
+```bash
+npm start
+```
+
+Build the production bundle:
+```bash
+npm run build
+```
+
+Run unit tests:
+```bash
+npm test
+```
+
+Format code with Prettier:
+```bash
+npx prettier --write .
+```
+
+## Project Structure
+
+```
+src/
+  app/
+    components/       # Reusable UI components (e.g., quiz-card)
+    app.ts            # Root component
+    app.routes.ts     # Application routes
+    app.config.ts     # Application configuration
+```
+
+Each component lives in its own folder and includes a `.ts`, `.html`, `.css`, and `.spec.ts` file.
+
 ## TypeScript Best Practices
 
 - Use strict type checking
