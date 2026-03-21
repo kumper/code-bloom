@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
+import {QuestionRepositoryService} from './services/question-repository.service';
 import {WelcomeComponent} from './components/welcome/welcome';
 
 @Component({
@@ -6,6 +7,12 @@ import {WelcomeComponent} from './components/welcome/welcome';
   imports: [WelcomeComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })
-export class App {}
+export class App {
+  private readonly questionRepository = inject(QuestionRepositoryService);
+
+  readonly currentQuestion = signal(this.questionRepository.getRandomQuestion());
+}
+
