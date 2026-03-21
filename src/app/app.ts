@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
-import {QuizCardComponent} from './components/quiz-card/quiz-card';
+import {GenericFrameComponent} from './components/generic-frame/generic-frame';
 import {QuestionComponent, QuizAnswer, QuizSubmission} from './components/question/question';
 
 @Component({
   selector: 'app-root',
-  imports: [QuizCardComponent, QuestionComponent],
+  imports: [GenericFrameComponent, QuestionComponent],
   templateUrl: './app.html',
+  standalone: true,
   styleUrl: './app.css'
 })
 export class App {

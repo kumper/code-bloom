@@ -18,6 +18,7 @@ export interface QuizSubmission {
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './question.html',
   styleUrl: './question.css',
+  standalone: true
 })
 export class QuestionComponent {
   questionNumber = input.required<number>();
