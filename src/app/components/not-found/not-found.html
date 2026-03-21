@@ -9,21 +9,17 @@
     </p>
 
     <div
-      class="timer-ring mx-auto mb-3"
+      class="timer-wrapper mx-auto mb-3"
       role="timer"
       [attr.aria-label]="'Redirecting to homepage in ' + secondsLeft() + ' seconds'"
     >
-      <svg viewBox="0 0 44 44" aria-hidden="true">
+      <svg class="timer-ring" viewBox="0 0 44 44" aria-hidden="true">
         <circle class="timer-track" cx="22" cy="22" r="18"/>
-        <circle
-          class="timer-progress"
-          cx="22"
-          cy="22"
-          r="18"
-          [style.stroke-dashoffset]="dashOffset()"
-        />
+        <circle class="timer-progress" cx="22" cy="22" r="18"/>
       </svg>
-      <span class="timer-count fw-bold" aria-hidden="true">{{ secondsLeft() }}</span>
+      <p class="timer-count fw-bold mb-0" aria-hidden="true">
+        {{ secondsLeft() }}
+      </p>
     </div>
 
     <p class="text-muted redirect-hint">

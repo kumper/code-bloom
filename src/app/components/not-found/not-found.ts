@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, computed, inject, OnDestroy, OnInit, signal,} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
 import {Router} from '@angular/router';
 import {GenericFrameComponent} from '../generic-frame/generic-frame';
 
@@ -15,13 +15,6 @@ export class NotFoundComponent implements OnInit, OnDestroy {
   private readonly router = inject(Router);
 
   readonly secondsLeft = signal(REDIRECT_SECONDS);
-
-  /** SVG circle circumference = 2π × r = 2π × 18 ≈ 113.1 */
-  private readonly circumference = 2 * Math.PI * 18;
-
-  readonly dashOffset = computed(
-    () => this.circumference * (1 - this.secondsLeft() / REDIRECT_SECONDS),
-  );
 
   private intervalId: ReturnType<typeof setInterval> | null = null;
 

@@ -12,16 +12,19 @@
 }
 
 /* ── Countdown ring ── */
-.timer-ring {
-  position: relative;
-  width: 88px;
-  height: 88px;
+.timer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
 }
 
-.timer-ring svg {
-  width: 100%;
-  height: 100%;
+.timer-ring {
+  width: 88px;
+  height: 88px;
   transform: rotate(-90deg);
+  display: block;
 }
 
 .timer-track {
@@ -35,21 +38,38 @@
   stroke: var(--pink-primary);
   stroke-width: 4;
   stroke-linecap: round;
+  /* circumference = 2π × 18 ≈ 113.097 */
   stroke-dasharray: 113.097;
-  transition: stroke-dashoffset 0.9s linear;
+  stroke-dashoffset: 0;
+  animation: drain 3s linear forwards;
+}
+
+@keyframes drain {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 113.097;
+  }
 }
 
 .timer-count {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
+  font-size: 2rem;
   color: var(--pink-primary);
+  line-height: 1;
+}
+
+.timer-unit {
+  font-size: 1rem;
+  color: var(--pink-dark);
+  margin-left: 1px;
 }
 
 .redirect-hint {
   font-size: 0.9rem;
 }
+
+
+
+
 
