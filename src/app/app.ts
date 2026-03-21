@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
-import {QuizAnswer, QuizCardComponent, QuizSubmission} from './components/quiz-card/quiz-card';
+import {QuizCardComponent} from './components/quiz-card/quiz-card';
+import {QuestionComponent, QuizAnswer, QuizSubmission} from './components/question/question';
 
 @Component({
   selector: 'app-root',
-  imports: [QuizCardComponent],
+  imports: [QuizCardComponent, QuestionComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
