@@ -5,7 +5,6 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './generic-frame.html',
   styleUrl: './generic-frame.css',
-  standalone: true
 })
 export class GenericFrameComponent {
 }
