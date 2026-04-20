@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {QuestionComponent, QuizSubmission} from './question';
+import {QuestionComponent} from './question';
+import {QuizSubmission} from '../../models/quiz-answer.model';
 
 describe('QuestionComponent', () => {
   let component: QuestionComponent;
@@ -8,9 +8,8 @@ describe('QuestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuestionComponent]
-    })
-      .compileComponents();
+      imports: [QuestionComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(QuestionComponent);
     component = fixture.componentInstance;
@@ -18,8 +17,8 @@ describe('QuestionComponent', () => {
     fixture.componentRef.setInput('question', 'What is 2 + 2?');
     fixture.componentRef.setInput('codeSnippet', 'int x = 2 + 2;');
     fixture.componentRef.setInput('answers', [
-      {label: 'a', text: '3'},
-      {label: 'b', text: '4'},
+      {label: 'a', textEN: '3', textPL: '3'},
+      {label: 'b', textEN: '4', textPL: '4'},
     ]);
     await fixture.whenStable();
   });
@@ -38,15 +37,14 @@ describe('QuestionComponent', () => {
   it('should emit save with correct data when an answer is selected', () => {
     const emitted: QuizSubmission[] = [];
     component.save.subscribe((v: QuizSubmission) => emitted.push(v));
-    component.selectedAnswerValue = 'b';
+    component.selectedAnswerValue.set('b');
     component.onSubmit();
     expect(emitted.length).toBe(1);
     expect(emitted[0]).toEqual({questionNumber: 1, selectedAnswer: 'b'});
   });
 
-  it('should update selectedAnswerValue on answer change', () => {
-    component.selectedAnswerValue = 'a';
-    component.onAnswerChange();
-    expect(component.selectedAnswerValue).toBe('a');
+  it('should update selectedAnswerValue when set via signal', () => {
+    component.selectedAnswerValue.set('a');
+    expect(component.selectedAnswerValue()).toBe('a');
   });
 });

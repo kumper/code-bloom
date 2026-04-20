@@ -88,8 +88,9 @@ describe('QuizComponent', () => {
   });
 
   it('should show daily-limit state when limit is reached', async () => {
+    const today = new Date().toISOString().slice(0, 10);
     const encoded = tokenService.encode(
-      buildToken({dailyProgress: {date: '2026-03-21', exercisesCompletedToday: 5}}),
+      buildToken({dailyProgress: {date: today, exercisesCompletedToday: 5}}),
     );
     const {component} = await createFixture(encoded);
     component.onBloomDone();

@@ -31,7 +31,7 @@ describe('BloomLoaderComponent', () => {
 
   it('should render the SVG tree with 5 branches', async () => {
     await setup();
-    const branches = fixture.nativeElement.querySelectorAll('.branch');
+    const branches = fixture.nativeElement.querySelectorAll('.bloom__branch');
     expect(branches.length).toBe(5);
   });
 

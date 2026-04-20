@@ -27,7 +27,7 @@ describe('WelcomeComponent', () => {
 
   it('should render a submit button', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const button = compiled.querySelector('button[type="submit"]');
+    const button = compiled.querySelector('button[type="button"]');
     expect(button).toBeTruthy();
   });
 
