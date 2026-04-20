@@ -25,5 +25,10 @@ export class LanguageService {
     }
     return str;
   }
+
+  /** Returns the value matching the current language. */
+  pick<T>(en: T, pl: T): T {
+    return this.lang() === 'pl' ? pl : en;
+  }
 }
 

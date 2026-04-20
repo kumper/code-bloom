@@ -42,16 +42,14 @@ export class QuizComponent implements OnInit {
 
   readonly localizedQuestion = computed(() => {
     const q = this.currentQuestion();
-    const lang = this.langService.lang();
     if (!q) return null;
-    return lang === 'pl' ? q.questionPL : q.questionEN;
+    return this.langService.pick(q.questionEN, q.questionPL);
   });
 
   readonly localizedSnippet = computed(() => {
     const q = this.currentQuestion();
-    const lang = this.langService.lang();
     if (!q) return '';
-    return lang === 'pl' ? q.codeSnippetPL : q.codeSnippetEN;
+    return this.langService.pick(q.codeSnippetEN, q.codeSnippetPL);
   });
 
   ngOnInit(): void {

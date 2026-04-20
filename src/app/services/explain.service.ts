@@ -7,24 +7,21 @@ export class ExplainService {
   private readonly langService = inject(LanguageService);
 
   buildUrl(q: Question): string {
-    const lang = this.langService.lang();
-    const isPl = lang === 'pl';
+    const isPl = this.langService.lang() === 'pl';
 
-    const topics = (q.tags ?? [])
-      .map(t => t.replace('#', ''))
-      .join(', ');
+    const topics = (q.tags ?? []).map(t => t.replace('#', '')).join(', ');
 
     const answerLines = q.answers
-      .map(a => `  ${a.label}) ${isPl ? a.textPL : a.textEN}`)
+      .map(a => `  ${a.label}) ${this.langService.pick(a.textEN, a.textPL)}`)
       .join('\n');
 
     const correctOption = q.answers.find(a => a.label === q.correctAnswer);
     const correctOptionText = correctOption
-      ? (isPl ? correctOption.textPL : correctOption.textEN)
+      ? this.langService.pick(correctOption.textEN, correctOption.textPL)
       : q.correctAnswer;
     const correctText = correctOption ? `${q.correctAnswer}) ${correctOptionText}` : q.correctAnswer;
 
-    const snippet = isPl ? q.codeSnippetPL : q.codeSnippetEN;
+    const snippet = this.langService.pick(q.codeSnippetEN, q.codeSnippetPL);
 
     const prompt = isPl
       ? this.buildPolishPrompt(topics, snippet, answerLines, correctText)

@@ -21,11 +21,11 @@
         [checked]="selectedAnswerValue() === answer.label"
         (change)="selectedAnswerValue.set(answer.label)"
         class="me-2 mt-1 flex-shrink-0"
-        [attr.aria-label]="answer.label + ': ' + (langService.lang() === 'pl' ? answer.textPL : answer.textEN)"
+        [attr.aria-label]="answer.label + ': ' + langService.pick(answer.textEN, answer.textPL)"
       />
       <div class="question__answer-body">
         <span class="fw-semibold me-2 question__answer-label">{{ answer.label }})</span>
-        <span class="text-dark">{{ langService.lang() === 'pl' ? answer.textPL : answer.textEN }}</span>
+        <span class="text-dark">{{ langService.pick(answer.textEN, answer.textPL) }}</span>
       </div>
     </label>
   }
