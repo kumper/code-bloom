@@ -2,6 +2,19 @@
   font-size: 0.95rem;
 }
 
+/* ── Explain button ── */
+.btn-outline-explain {
+  border: 2px solid var(--pink-primary);
+  color: var(--pink-primary);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-explain:hover {
+  background: var(--pink-primary);
+  color: #fff;
+}
+
 .quiz-stat {
   font-size: 0.875rem;
   font-weight: 600;

@@ -81,6 +81,47 @@ export class QuizComponent implements OnInit {
     this.loadNextQuestion(token);
   }
 
+  buildExplainUrl(): string {
+    const q = this.currentQuestion();
+    if (!q) return '';
+
+    const topics = (q.tags ?? [])
+      .map(t => t.replace('#', ''))
+      .join(', ');
+
+    const answerLines = q.answers
+      .map(a => `  ${a.label}) ${a.text}`)
+      .join('\n');
+
+    const correctOption = q.answers.find(a => a.label === q.correctAnswer);
+    const correctText = correctOption ? `${q.correctAnswer}) ${correctOption.text}` : q.correctAnswer;
+
+    const prompt = [
+      `You are a friendly Java tutor for absolute beginners. Keep your answer very short — maximum 1–2 minutes to read.`,
+      ``,
+      `Topic(s): ${topics}`,
+      ``,
+      `A student was shown this Java code snippet:`,
+      `\`\`\`java`,
+      q.codeSnippet,
+      `\`\`\``,
+      ``,
+      `They had to choose from these answers:`,
+      answerLines,
+      ``,
+      `The correct answer is: ${correctText}`,
+      ``,
+      `Please explain briefly:`,
+      `1. Why the correct answer is right.`,
+      `2. Why the most tempting wrong answers are incorrect.`,
+      `3. One key concept the student should remember.`,
+      ``,
+      `Use simple language, no jargon, and keep it under 150 words.`,
+    ].join('\n');
+
+    return `https://chatgpt.com/?q=${encodeURIComponent(prompt)}`;
+  }
+
   private loadNextQuestion(token: SessionToken): void {
     if (this.tokenService.isDailyLimitReached(token)) {
       this.state.set('daily-limit');
