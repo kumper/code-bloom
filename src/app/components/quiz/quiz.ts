@@ -8,6 +8,7 @@ import {QuestionComponent} from '../question/question';
 import {GenericFrameComponent} from '../generic-frame/generic-frame';
 import {BloomLoaderComponent} from '../bloom-loader/bloom-loader';
 import {LanguageService} from '../../services/language.service';
+import {ExplainService} from '../../services/explain.service';
 
 type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'question' | 'answered';
 
@@ -24,6 +25,7 @@ export class QuizComponent implements OnInit {
   private readonly tokenService = inject(SessionTokenService);
   private readonly questionRepo = inject(QuestionRepositoryService);
   protected readonly langService = inject(LanguageService);
+  private readonly explainService = inject(ExplainService);
 
   readonly state = signal<QuizState>('blooming');
   readonly token = signal<SessionToken | null>(null);
@@ -97,71 +99,7 @@ export class QuizComponent implements OnInit {
 
   buildExplainUrl(): string {
     const q = this.currentQuestion();
-    if (!q) return '';
-
-    const lang = this.langService.lang();
-    const isPl = lang === 'pl';
-
-    const topics = (q.tags ?? [])
-      .map(t => t.replace('#', ''))
-      .join(', ');
-
-    const answerLines = q.answers
-      .map(a => `  ${a.label}) ${isPl ? a.textPL : a.textEN}`)
-      .join('\n');
-
-    const correctOption = q.answers.find(a => a.label === q.correctAnswer);
-    const correctText = correctOption
-      ? `${q.correctAnswer}) ${isPl ? correctOption.textPL : correctOption.textEN}`
-      : q.correctAnswer;
-
-    const snippet = isPl ? q.codeSnippetPL : q.codeSnippetEN;
-
-    const prompt = isPl ? [
-      `Jesteś przyjaznym nauczycielem Javy dla absolutnych początkujących. Odpowiedz bardzo krótko — maksymalnie 1–2 minuty czytania.`,
-      ``,
-      `Temat(y): ${topics}`,
-      ``,
-      `Uczniowi pokazano poniższy fragment kodu Java:`,
-      `\`\`\`java`,
-      snippet,
-      `\`\`\``,
-      ``,
-      `Musiał wybrać spośród następujących odpowiedzi:`,
-      answerLines,
-      ``,
-      `Poprawna odpowiedź to: ${correctText}`,
-      ``,
-      `Wyjaśnij krótko:`,
-      `1. Dlaczego poprawna odpowiedź jest prawidłowa.`,
-      `2. Dlaczego najbardziej kuszące błędne odpowiedzi są nieprawidłowe.`,
-      `3. Jeden kluczowy koncept, który uczeń powinien zapamiętać.`,
-      ``,
-      `Używaj prostego języka, bez żargonu. Maksymalnie 150 słów.`,
-    ].join('\n') : [
-      `You are a friendly Java tutor for absolute beginners. Keep your answer very short — maximum 1–2 minutes to read.`,
-      ``,
-      `Topic(s): ${topics}`,
-      ``,
-      `A student was shown this Java code snippet:`,
-      `\`\`\`java`,
-      snippet,
-      `\`\`\``,
-      ``,
-      `They had to choose from these answers:`,
-      answerLines,
-      ``,
-      `The correct answer is: ${correctText}`,
-      ``,
-      `Please explain briefly:`,
-      `1. Why the correct answer is right.`,
-      `2. Why the most tempting wrong answers are incorrect.`,
-      `3. One key concept the student should remember.`,
-      ``,
-      `Use simple language, no jargon, and keep it under 150 words.`,
-    ].join('\n');
-
-    return `https://chatgpt.com/?q=${encodeURIComponent(prompt)}`;
+    return q ? this.explainService.buildUrl(q) : '';
   }
 
   private loadNextQuestion(token: SessionToken): void {
