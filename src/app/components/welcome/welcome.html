@@ -18,6 +18,8 @@
         placeholder="Enter your name"
         [formControl]="usernameControl"
         autocomplete="name"
+        autofocus
+        (keydown.enter)="$event.preventDefault(); onSubmit()"
       />
       @if (usernameControl.invalid && usernameControl.touched) {
         <div class="invalid-feedback">Please enter your name to continue.</div>
