@@ -1,4 +1,4 @@
-import {QuizAnswer} from '../components/question/question';
+import {QuizAnswer} from './quiz-answer.model';
 
 export interface Question {
   id: number;

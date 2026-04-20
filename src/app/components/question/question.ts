@@ -1,16 +1,6 @@
 import {ChangeDetectionStrategy, Component, effect, inject, input, output, signal, untracked} from '@angular/core';
 import {LanguageService} from '../../services/language.service';
-
-export interface QuizAnswer {
-  label: string;
-  textEN: string;
-  textPL: string;
-}
-
-export interface QuizSubmission {
-  questionNumber: number;
-  selectedAnswer: string;
-}
+import {QuizAnswer, QuizSubmission} from '../../models/quiz-answer.model';
 
 @Component({
   selector: 'app-question',
