@@ -1,50 +1,45 @@
-.code-snippet {
+.question__snippet {
   border-left: 4px solid var(--pink-primary);
   font-size: 0.95rem;
   line-height: 1.6;
   overflow-x: auto;
 }
 
-.answer-option {
+.question__answer {
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.answer-option:hover,
-.answer-option.selected {
+.question__answer:hover,
+.question__answer--selected {
   background: #fff5f7 !important;
   border-color: var(--pink-primary) !important;
   transform: translateX(5px);
 }
 
-.answer-option input[type="radio"] {
+.question__answer input[type="radio"] {
   accent-color: var(--pink-primary);
   cursor: pointer;
 }
 
-.answer-label {
+.question__answer-label {
   color: var(--pink-primary);
 }
 
-
-.btn-submit:disabled {
+.btn--pink:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.question-tag {
+.question__tag {
   background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-light) 100%);
   font-size: 0.75rem;
 }
 
 @media (max-width: 768px) {
-  .code-snippet {
-    font-size: 0.85rem;
-  }
+  .question__snippet { font-size: 0.85rem; }
 }
 
 @media (max-width: 576px) {
-  .code-snippet {
-    font-size: 0.8rem;
-  }
+  .question__snippet { font-size: 0.8rem; }
 }

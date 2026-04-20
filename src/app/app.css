@@ -1,23 +1,20 @@
-.app-title {
+.app__title {
   color: var(--pink-primary);
+  flex: 0 0 auto;
+  text-align: center;
 }
 
-.header-bar {
+.app__header {
   display: flex;
   align-items: center;
 }
 
-.header-spacer,
-.header-actions {
+.app__header-spacer,
+.app__header-actions {
   flex: 1;
 }
 
-.header-actions {
+.app__header-actions {
   display: flex;
   justify-content: flex-end;
-}
-
-.app-title {
-  flex: 0 0 auto;
-  text-align: center;
 }

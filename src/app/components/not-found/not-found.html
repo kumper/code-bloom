@@ -1,25 +1,23 @@
 <app-generic-frame>
   <div class="text-center">
-    <div class="not-found-code fw-bold mb-2" aria-hidden="true">404</div>
+    <div class="not-found__code fw-bold mb-2" aria-hidden="true">404</div>
 
-    <h2 class="fw-bold not-found-heading mb-2">{{ langService.t('notFound.heading') }}</h2>
+    <h2 class="fw-bold not-found__heading mb-2">{{ langService.t('notFound.heading') }}</h2>
 
     <p class="text-secondary mb-4">{{ langService.t('notFound.subtitle') }}</p>
 
     <div
-      class="timer-wrapper mx-auto mb-3"
+      class="not-found__timer mx-auto mb-3"
       role="timer"
       [attr.aria-label]="langService.t('notFound.timerLabel', { n: secondsLeft().toString() })"
     >
-      <svg class="timer-ring" viewBox="0 0 44 44" aria-hidden="true">
-        <circle class="timer-track" cx="22" cy="22" r="18"/>
-        <circle class="timer-progress" cx="22" cy="22" r="18"/>
+      <svg class="not-found__timer-ring" viewBox="0 0 44 44" aria-hidden="true">
+        <circle class="not-found__timer-track" cx="22" cy="22" r="18"/>
+        <circle class="not-found__timer-progress" cx="22" cy="22" r="18"/>
       </svg>
-      <p class="timer-count fw-bold mb-0" aria-hidden="true">
-        {{ secondsLeft() }}
-      </p>
+      <p class="not-found__timer-count fw-bold mb-0" aria-hidden="true">{{ secondsLeft() }}</p>
     </div>
 
-    <p class="text-muted redirect-hint">{{ langService.t('notFound.redirectHint') }}</p>
+    <p class="text-muted not-found__hint">{{ langService.t('notFound.redirectHint') }}</p>
   </div>
 </app-generic-frame>

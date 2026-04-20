@@ -7,7 +7,7 @@ import {LanguageService} from '../../services/language.service';
   template: `
     <button
       type="button"
-      class="btn btn-lang-toggle"
+      class="lang-toggle"
       (click)="langService.toggle()"
       [attr.aria-label]="'Switch language to ' + (langService.lang() === 'pl' ? 'English' : 'Polski')"
     >
@@ -15,7 +15,7 @@ import {LanguageService} from '../../services/language.service';
     </button>
   `,
   styles: [`
-    .btn-lang-toggle {
+    .lang-toggle {
       border: 2px solid var(--pink-primary);
       color: var(--pink-primary);
       background: transparent;
@@ -25,9 +25,10 @@ import {LanguageService} from '../../services/language.service';
       border-radius: 50px;
       transition: all 0.2s ease;
       white-space: nowrap;
+      cursor: pointer;
     }
 
-    .btn-lang-toggle:hover {
+    .lang-toggle:hover {
       background: var(--pink-primary);
       color: #fff;
     }

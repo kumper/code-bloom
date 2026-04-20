@@ -1,6 +1,6 @@
 <app-generic-frame>
   <div class="text-center mb-4">
-    <h2 class="fw-bold welcome-heading mb-2">{{ langService.t('welcome.heading') }}</h2>
+    <h2 class="fw-bold welcome__heading mb-2">{{ langService.t('welcome.heading') }}</h2>
     <p class="text-secondary mb-0">{{ langService.t('welcome.subtitle') }}</p>
   </div>
 
@@ -23,10 +23,10 @@
       }
     </div>
 
-    <p class="disclaimer text-muted mb-3">{{ langService.t('welcome.disclaimer') }}</p>
+    <p class="welcome__disclaimer text-muted mb-3">{{ langService.t('welcome.disclaimer') }}</p>
 
     <button type="button" (click)="onSubmit()"
-            class="btn btn-welcome btn-pink text-white fw-semibold w-100 py-2 rounded-pill">
+            class="btn btn--pink text-white fw-semibold w-100 py-2 rounded-pill">
       {{ langService.t('welcome.startBtn') }}
     </button>
   </form>

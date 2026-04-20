@@ -1,4 +1,4 @@
-.bloom-container {
+.bloom {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,13 +6,12 @@
   padding: 2rem 0;
 }
 
-.bloom-svg {
+.bloom__svg {
   width: 180px;
   height: 260px;
 }
 
-/* ── Trunk ── */
-.trunk {
+.bloom__trunk {
   stroke: var(--pink-dark);
   stroke-width: 5;
   stroke-dasharray: 160;
@@ -20,8 +19,7 @@
   animation: drawLine 1.2s ease-out forwards;
 }
 
-/* ── Branches ── */
-.branch {
+.bloom__branch {
   stroke: var(--pink-primary);
   stroke-width: 3.5;
   stroke-dasharray: 60;
@@ -29,61 +27,59 @@
   opacity: 0;
 }
 
-.branch-1 {
+.bloom__branch--1 {
   animation: growBranch 0.5s 1.0s ease-out forwards;
 }
 
-.branch-2 {
+.bloom__branch--2 {
   animation: growBranch 0.5s 1.5s ease-out forwards;
 }
 
-.branch-3 {
+.bloom__branch--3 {
   animation: growBranch 0.5s 2.0s ease-out forwards;
 }
 
-.branch-4 {
+.bloom__branch--4 {
   animation: growBranch 0.5s 2.5s ease-out forwards;
 }
 
-.branch-5 {
+.bloom__branch--5 {
   animation: growBranch 0.5s 3.0s ease-out forwards;
 }
 
-/* ── Blossoms ── */
-.blossom {
+.bloom__blossom {
   fill: var(--pink-primary);
   opacity: 0;
   transform-origin: center;
   transform: scale(0);
 }
 
-.blossom-1 {
+.bloom__blossom--1 {
   animation: bloom 0.5s 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.blossom-2 {
+.bloom__blossom--2 {
   animation: bloom 0.5s 1.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.blossom-3 {
+.bloom__blossom--3 {
   animation: bloom 0.5s 2.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.blossom-4 {
+.bloom__blossom--4 {
   animation: bloom 0.5s 2.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.blossom-5 {
+.bloom__blossom--5 {
   animation: bloom 0.5s 3.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.blossom-crown {
+.bloom__blossom--crown {
   fill: var(--pink-dark);
   animation: bloom 0.7s 3.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* ── Text ── */
-.bloom-text {
+.bloom__text {
   margin-top: 1.5rem;
   color: var(--pink-dark);
   font-weight: 600;
@@ -91,7 +87,6 @@
   animation: fadeIn 0.8s 0.5s ease both;
 }
 
-/* ── Keyframes ── */
 @keyframes drawLine {
   to {
     stroke-dashoffset: 0;
@@ -134,4 +129,3 @@
     transform: translateY(0);
   }
 }
-

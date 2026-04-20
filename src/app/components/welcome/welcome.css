@@ -1,9 +1,7 @@
-
-.welcome-heading {
+.welcome__heading {
   color: var(--pink-dark);
 }
 
-.disclaimer {
+.welcome__disclaimer {
   font-size: 0.8rem;
 }
-

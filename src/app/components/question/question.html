@@ -2,7 +2,7 @@
   {{ question() }}
 </p>
 
-<div class="code-snippet bg-light p-3 rounded-3 mb-3">
+<div class="question__snippet bg-light p-3 rounded-3 mb-3">
   <code class="text-dark">
     <pre class="m-0">{{ codeSnippet() }}</pre>
   </code>
@@ -11,8 +11,8 @@
 <div class="d-flex flex-column gap-2 mb-3" role="radiogroup" [attr.aria-labelledby]="'question-' + questionNumber()">
   @for (answer of answers(); track answer.label) {
     <label
-      class="answer-option bg-light border border-2 rounded-3 p-3 d-flex align-items-start"
-      [class.selected]="selectedAnswerValue() === answer.label"
+      class="question__answer bg-light border border-2 rounded-3 p-3 d-flex align-items-start"
+      [class.question__answer--selected]="selectedAnswerValue() === answer.label"
     >
       <input
         type="radio"
@@ -23,16 +23,16 @@
         class="me-2 mt-1 flex-shrink-0"
         [attr.aria-label]="answer.label + ': ' + (langService.lang() === 'pl' ? answer.textPL : answer.textEN)"
       />
-      <div class="answer-content">
-        <span class="fw-semibold me-2 answer-label">{{ answer.label }})</span>
-        <span class="text-dark answer-text">{{ langService.lang() === 'pl' ? answer.textPL : answer.textEN }}</span>
+      <div class="question__answer-body">
+        <span class="fw-semibold me-2 question__answer-label">{{ answer.label }})</span>
+        <span class="text-dark">{{ langService.lang() === 'pl' ? answer.textPL : answer.textEN }}</span>
       </div>
     </label>
   }
 </div>
 
 <button
-  class="btn btn-submit btn-pink text-white fw-semibold w-100 py-2 rounded-pill"
+  class="btn btn--pink text-white fw-semibold w-100 py-2 rounded-pill"
   (click)="onSubmit()"
   [disabled]="!selectedAnswerValue()"
   type="button"
@@ -42,14 +42,11 @@
 </button>
 
 @if (tags().length > 0) {
-  <div class="mt-3 text-center" role="list" aria-label="Question tags">
+  <ul class="mt-3 text-center list-unstyled mb-0" aria-label="Question tags">
     @for (tag of tags(); track tag) {
-      <span
-        class="question-tag badge text-white px-3 py-1 rounded-pill shadow-sm me-1"
-        role="listitem"
-      >
+      <li class="question__tag badge text-white px-3 py-1 rounded-pill shadow-sm me-1 d-inline">
         {{ tag }}
-      </span>
+      </li>
     }
-  </div>
+  </ul>
 }

@@ -1,12 +1,12 @@
 
-.quiz-card {
+.frame {
   border-radius: 35px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.quiz-card::before {
+.frame::before {
   content: '';
   position: absolute;
   inset: -4px;
@@ -15,7 +15,7 @@
   z-index: -1;
 }
 
-.quiz-card::after {
+.frame::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -25,29 +25,29 @@
 }
 
 @media (max-width: 768px) {
-  .quiz-card {
+  .frame {
     border-radius: 30px;
   }
 
-  .quiz-card::before {
+  .frame::before {
     border-radius: 30px;
   }
 
-  .quiz-card::after {
+  .frame::after {
     border-radius: 26px;
   }
 }
 
 @media (max-width: 576px) {
-  .quiz-card {
+  .frame {
     border-radius: 25px;
   }
 
-  .quiz-card::before {
+  .frame::before {
     border-radius: 25px;
   }
 
-  .quiz-card::after {
+  .frame::after {
     border-radius: 21px;
   }
 }

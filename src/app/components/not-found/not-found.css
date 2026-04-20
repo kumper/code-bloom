@@ -1,4 +1,4 @@
-.not-found-code {
+.not-found__code {
   font-size: 5rem;
   line-height: 1;
   background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-dark) 100%);
@@ -7,12 +7,12 @@
   background-clip: text;
 }
 
-.not-found-heading {
+.not-found__heading {
   color: var(--pink-dark);
 }
 
 /* ── Countdown ring ── */
-.timer-wrapper {
+.not-found__timer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,20 +20,20 @@
   width: fit-content;
 }
 
-.timer-ring {
+.not-found__timer-ring {
   width: 88px;
   height: 88px;
   transform: rotate(-90deg);
   display: block;
 }
 
-.timer-track {
+.not-found__timer-track {
   fill: none;
   stroke: #f3e4ea;
   stroke-width: 4;
 }
 
-.timer-progress {
+.not-found__timer-progress {
   fill: none;
   stroke: var(--pink-primary);
   stroke-width: 4;
@@ -53,23 +53,12 @@
   }
 }
 
-.timer-count {
+.not-found__timer-count {
   font-size: 2rem;
   color: var(--pink-primary);
   line-height: 1;
 }
 
-.timer-unit {
-  font-size: 1rem;
-  color: var(--pink-dark);
-  margin-left: 1px;
-}
-
-.redirect-hint {
+.not-found__hint {
   font-size: 0.9rem;
 }
-
-
-
-
-

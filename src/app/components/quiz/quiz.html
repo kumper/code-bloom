@@ -8,13 +8,12 @@
   @case ('daily-limit') {
     <app-generic-frame>
       <div class="text-center">
-        <div class="limit-icon mb-3" aria-hidden="true">🌙</div>
-        <h2 class="fw-bold limit-heading mb-2">{{ langService.t('quiz.dailyLimit.heading', {name: userName()}) }}</h2>
-        <p
-          class="text-secondary mb-3">{{ langService.t('quiz.dailyLimit.subtitle', {limit: dailyLimit.toString()}) }}</p>
-        <div class="points-badge mx-auto">
-          <span class="points-value fw-bold">{{ totalPoints() }}</span>
-          <span class="points-label">{{ langService.t('quiz.totalPoints') }}</span>
+        <div class="quiz__limit-icon mb-3" aria-hidden="true">🌙</div>
+        <h2 class="fw-bold quiz__limit-heading mb-2">{{ langService.t('quiz.dailyLimit.heading', {name: userName()}) }}</h2>
+        <p class="text-secondary mb-3">{{ langService.t('quiz.dailyLimit.subtitle', {limit: dailyLimit.toString()}) }}</p>
+        <div class="quiz__points mx-auto">
+          <span class="quiz__points-value fw-bold">{{ totalPoints() }}</span>
+          <span class="quiz__points-label">{{ langService.t('quiz.totalPoints') }}</span>
         </div>
       </div>
     </app-generic-frame>
@@ -22,30 +21,27 @@
   @case ('all-exhausted') {
     <app-generic-frame>
       <div class="text-center">
-        <div class="limit-icon mb-3" aria-hidden="true">🏆</div>
-        <h2 class="fw-bold limit-heading mb-2">{{ langService.t('quiz.allExhausted.heading', {name: userName()}) }}</h2>
+        <div class="quiz__limit-icon mb-3" aria-hidden="true">🏆</div>
+        <h2 class="fw-bold quiz__limit-heading mb-2">{{ langService.t('quiz.allExhausted.heading', {name: userName()}) }}</h2>
         <p class="text-secondary mb-3">{{ langService.t('quiz.allExhausted.subtitle') }}</p>
-        <div class="points-badge mx-auto">
-          <span class="points-value fw-bold">{{ totalPoints() }}</span>
-          <span class="points-label">{{ langService.t('quiz.totalPoints') }}</span>
+        <div class="quiz__points mx-auto">
+          <span class="quiz__points-value fw-bold">{{ totalPoints() }}</span>
+          <span class="quiz__points-label">{{ langService.t('quiz.totalPoints') }}</span>
         </div>
       </div>
     </app-generic-frame>
   }
   @case ('question') {
-
     <app-generic-frame>
-      <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
-      <span class="quiz-greeting text-muted">
-        {{ langService.t('quiz.greeting', {name: userName()}) }}
-      </span>
+      <div class="d-flex justify-content-between align-items-center mb-3 px-1">
+        <span class="quiz__greeting text-muted">{{ langService.t('quiz.greeting', {name: userName()}) }}</span>
         <div class="d-flex gap-3 align-items-center">
-        <span class="quiz-stat" [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit + ' exercises done today'">
-          📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
-        </span>
-          <span class="quiz-stat" [attr.aria-label]="totalPoints() + ' total points'">
-          ⭐ {{ totalPoints() }} pts
-        </span>
+          <span class="quiz__stat" [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit + ' exercises done today'">
+            📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
+          </span>
+          <span class="quiz__stat" [attr.aria-label]="totalPoints() + ' total points'">
+            ⭐ {{ totalPoints() }} pts
+          </span>
         </div>
       </div>
 
@@ -61,35 +57,34 @@
   }
   @case ('answered') {
     <app-generic-frame>
-      <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
-        <span class="quiz-greeting text-muted">
-          {{ langService.t('quiz.greeting', {name: userName()}) }}
-        </span>
+      <div class="d-flex justify-content-between align-items-center mb-3 px-1">
+        <span class="quiz__greeting text-muted">{{ langService.t('quiz.greeting', {name: userName()}) }}</span>
         <div class="d-flex gap-3 align-items-center">
-          <span class="quiz-stat" [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit + ' exercises done today'">
+          <span class="quiz__stat" [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit + ' exercises done today'">
             📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
           </span>
-          <span class="quiz-stat" [attr.aria-label]="totalPoints() + ' total points'">
+          <span class="quiz__stat" [attr.aria-label]="totalPoints() + ' total points'">
             ⭐ {{ totalPoints() }} pts
           </span>
         </div>
       </div>
 
-      <div class="text-center feedback-block" [class.feedback-correct-bg]="wasCorrect()"
-           [class.feedback-wrong-bg]="!wasCorrect()">
+      <div class="text-center quiz__feedback"
+           [class.quiz__feedback--correct]="wasCorrect()"
+           [class.quiz__feedback--wrong]="!wasCorrect()">
         @if (wasCorrect()) {
-          <div class="confetti-wrapper" aria-hidden="true">
+          <div class="quiz__confetti" aria-hidden="true">
             @for (i of confettiPieces; track i) {
-              <span class="confetti-piece" [style.--i]="i"></span>
+              <span class="quiz__confetti-piece" [style.--i]="i"></span>
             }
           </div>
-          <div class="feedback-icon feedback-icon-correct" aria-hidden="true">🎉</div>
-          <h3 class="fw-bold feedback-correct mb-2 feedback-text-pop">{{ langService.t('quiz.correct.heading') }}</h3>
-          <p class="text-secondary mb-0 feedback-fade-in">{{ langService.t('quiz.correct.subtitle') }}</p>
+          <div class="quiz__feedback-icon quiz__feedback-icon--correct" aria-hidden="true">🎉</div>
+          <h3 class="fw-bold quiz__feedback-heading--correct quiz__feedback-heading--pop mb-2">{{ langService.t('quiz.correct.heading') }}</h3>
+          <p class="text-secondary mb-0 quiz__feedback-text--fade">{{ langService.t('quiz.correct.subtitle') }}</p>
         } @else {
-          <div class="feedback-icon feedback-icon-wrong" aria-hidden="true">💡</div>
-          <h3 class="fw-bold feedback-wrong mb-2 feedback-shake">{{ langService.t('quiz.wrong.heading') }}</h3>
-          <p class="text-secondary mb-0 feedback-fade-in">
+          <div class="quiz__feedback-icon quiz__feedback-icon--wrong" aria-hidden="true">💡</div>
+          <h3 class="fw-bold quiz__feedback-heading--wrong quiz__feedback-heading--shake mb-2">{{ langService.t('quiz.wrong.heading') }}</h3>
+          <p class="text-secondary mb-0 quiz__feedback-text--fade">
             {{ langService.t('quiz.wrong.prefix') }}
             <strong>{{ currentQuestion()!.correctAnswer }}</strong>.
           </p>
@@ -97,29 +92,18 @@
 
         @if (exercisesToday() < dailyLimit) {
           <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-4">
-            <a
-              [href]="buildExplainUrl()"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline-explain fw-semibold px-4 py-2 rounded-pill"
-            >
+            <a [href]="buildExplainUrl()" target="_blank" rel="noopener noreferrer"
+               class="btn btn--outline fw-semibold px-4 py-2 rounded-pill">
               {{ langService.t('quiz.explainBtn') }}
             </a>
-            <button
-              class="btn btn-pink text-white fw-semibold px-4 py-2 rounded-pill"
-              type="button"
-              (click)="onNextQuestion()"
-            >
+            <button class="btn btn--pink text-white fw-semibold px-4 py-2 rounded-pill"
+                    type="button" (click)="onNextQuestion()">
               {{ langService.t('quiz.nextBtn') }}
             </button>
           </div>
         } @else {
-          <a
-            [href]="buildExplainUrl()"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-outline-explain fw-semibold px-4 py-2 rounded-pill mt-4 d-inline-block"
-          >
+          <a [href]="buildExplainUrl()" target="_blank" rel="noopener noreferrer"
+             class="btn btn--outline fw-semibold px-4 py-2 rounded-pill mt-4 d-inline-block">
             {{ langService.t('quiz.explainBtn') }}
           </a>
           <p class="mt-3 text-muted fw-semibold">

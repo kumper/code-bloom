@@ -6,21 +6,31 @@
   --pink-dark: #c44569;
 }
 
-.btn-pink {
+.btn--pink {
   background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-dark) 100%);
   border: none;
   box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
   transition: all 0.3s ease;
 }
 
-.btn-pink:hover {
+.btn--pink:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+.btn--outline {
+  border: 2px solid var(--pink-primary);
+  color: var(--pink-primary);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.btn--outline:hover {
+  background: var(--pink-primary);
+  color: #fff;
 }
 
 code,
 pre {
   font-family: 'Fira Code', monospace;
 }
-
-
