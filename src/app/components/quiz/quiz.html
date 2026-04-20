@@ -37,21 +37,22 @@
     </app-generic-frame>
   }
   @case ('question') {
-    <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
+
+    <app-generic-frame>
+      <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
       <span class="quiz-greeting text-muted">
         Hey, <strong>{{ userName() }}</strong>!
       </span>
-      <div class="d-flex gap-3 align-items-center">
+        <div class="d-flex gap-3 align-items-center">
         <span class="quiz-stat" aria-label="{{ exercisesToday() }} of {{ dailyLimit }} exercises done today">
           📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
         </span>
-        <span class="quiz-stat" aria-label="{{ totalPoints() }} total points">
+          <span class="quiz-stat" aria-label="{{ totalPoints() }} total points">
           ⭐ {{ totalPoints() }} pts
         </span>
+        </div>
       </div>
-    </div>
 
-    <app-generic-frame>
       <app-question
         [questionNumber]="currentQuestion()!.id"
         [question]="currentQuestion()!.question"
