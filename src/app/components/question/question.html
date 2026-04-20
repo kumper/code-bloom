@@ -1,10 +1,4 @@
-<div class="mb-3">
-  <div class="text-primary fw-semibold fs-5 question-number" [id]="'question-' + questionNumber()">
-    Question {{ questionNumber() }}
-  </div>
-</div>
-
-<p class="text-secondary mb-3">
+<p class="text-secondary mb-3" [id]="'question-' + questionNumber()">
   {{ question() }}
 </p>
 

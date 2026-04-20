@@ -1,7 +1,3 @@
-.question-number {
-  color: var(--pink-primary) !important;
-}
-
 .code-snippet {
   border-left: 4px solid var(--pink-primary);
   font-size: 0.95rem;
