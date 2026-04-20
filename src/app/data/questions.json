@@ -5,10 +5,16 @@
     "codeSnippet": "int a = 3;\nif (a > 0) {\n  System.out.println(\"'a' is positive\");\n}",
     "answers": [
       {"label": "a", "text": "Output: nothing"},
-      {"label": "b", "text": "Output: 'a' is positive"},
-      {"label": "c", "text": "Compilation error"}
+      {
+        "label": "b",
+        "text": "Compilation error"
+      },
+      {
+        "label": "c",
+        "text": "Output: 'a' is positive"
+      }
     ],
-    "correctAnswer": "b",
+    "correctAnswer": "c",
     "tags": ["#control"]
   },
   {
@@ -16,11 +22,17 @@
     "question": "What is the result of the following expression?",
     "codeSnippet": "int x = 10 / 3;\nSystem.out.println(x);",
     "answers": [
-      {"label": "a", "text": "3.33"},
-      {"label": "b", "text": "3"},
+      {
+        "label": "a",
+        "text": "3"
+      },
+      {
+        "label": "b",
+        "text": "3.33"
+      },
       {"label": "c", "text": "Compilation error"}
     ],
-    "correctAnswer": "b",
+    "correctAnswer": "a",
     "tags": ["#arithmetic"]
   },
   {
@@ -29,10 +41,482 @@
     "codeSnippet": "String s = \"Hello\";\nSystem.out.println(s.length());",
     "answers": [
       {"label": "a", "text": "4"},
-      {"label": "b", "text": "5"},
-      {"label": "c", "text": "6"}
+      {
+        "label": "b",
+        "text": "6"
+      },
+      {
+        "label": "c",
+        "text": "5"
+      }
+    ],
+    "correctAnswer": "c",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 4,
+    "question": "What will the following code print?",
+    "codeSnippet": "int x = 1;\nx++;\nSystem.out.println(x);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "2"
+      },
+      {
+        "label": "b",
+        "text": "1"
+      },
+      {
+        "label": "c",
+        "text": "0"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "a",
+    "tags": [
+      "#arithmetic",
+      "#operators"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Which condition should fill the blank so that the program prints \"b is negative\"?",
+    "codeSnippet": "int b = -4;\n\nif (______) {\n  System.out.println(\"b is negative\");\n}",
+    "answers": [
+      {
+        "label": "a",
+        "text": "b > 0"
+      },
+      {
+        "label": "b",
+        "text": "b == 0"
+      },
+      {
+        "label": "c",
+        "text": "b >= 0"
+      },
+      {
+        "label": "d",
+        "text": "b < 0"
+      }
+    ],
+    "correctAnswer": "d",
+    "tags": [
+      "#control",
+      "#operators"
+    ]
+  },
+  {
+    "id": 6,
+    "question": "What will the following code print?",
+    "codeSnippet": "boolean flag1 = false;\n\nif (flag1) {\n  System.out.println(\"flag1 is enabled\");\n}",
+    "answers": [
+      {
+        "label": "a",
+        "text": "false"
+      },
+      {
+        "label": "b",
+        "text": "flag1 is enabled"
+      },
+      {
+        "label": "c",
+        "text": "Nothing — no output is produced"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "c",
+    "tags": [
+      "#control",
+      "#booleans"
+    ]
+  },
+  {
+    "id": 7,
+    "question": "What will the following code print?",
+    "codeSnippet": "for (int i = 0; i < 5; i++) {\n  System.out.println(\"1\");\n}",
+    "answers": [
+      {
+        "label": "a",
+        "text": "11111"
+      },
+      {
+        "label": "b",
+        "text": "01234"
+      },
+      {
+        "label": "c",
+        "text": "Nothing — no output is produced"
+      },
+      {
+        "label": "d",
+        "text": "It runs forever"
+      }
+    ],
+    "correctAnswer": "a",
+    "tags": [
+      "#loops"
+    ]
+  },
+  {
+    "id": 8,
+    "question": "What does the following while loop print?",
+    "codeSnippet": "int i = 0;\nwhile (i < 3) {\n  System.out.println(i);\n  i++;\n}",
+    "answers": [
+      {
+        "label": "a",
+        "text": "1, 2, 3 (each on a new line)"
+      },
+      {
+        "label": "b",
+        "text": "0, 1, 2 (each on a new line)"
+      },
+      {
+        "label": "c",
+        "text": "0, 1, 2, 3 (each on a new line)"
+      },
+      {
+        "label": "d",
+        "text": "Nothing — the condition is never true"
+      }
     ],
     "correctAnswer": "b",
-    "tags": ["#strings"]
+    "tags": [
+      "#loops"
+    ]
+  },
+  {
+    "id": 9,
+    "question": "What will the following code print?",
+    "codeSnippet": "String a = \"Hello\";\nString b = \" World\";\nSystem.out.println(a + b);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "HelloWorld"
+      },
+      {
+        "label": "b",
+        "text": "Hello + World"
+      },
+      {
+        "label": "c",
+        "text": "Hello World"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "c",
+    "tags": [
+      "#strings"
+    ]
+  },
+  {
+    "id": 10,
+    "question": "What will the following code print?",
+    "codeSnippet": "int r = 7 % 2;\nSystem.out.println(r);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "1"
+      },
+      {
+        "label": "b",
+        "text": "3"
+      },
+      {
+        "label": "c",
+        "text": "3.5"
+      },
+      {
+        "label": "d",
+        "text": "0"
+      }
+    ],
+    "correctAnswer": "a",
+    "tags": [
+      "#arithmetic",
+      "#operators"
+    ]
+  },
+  {
+    "id": 11,
+    "question": "What will the following code print?",
+    "codeSnippet": "int[] nums = {10, 20, 30};\nSystem.out.println(nums[1]);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "10"
+      },
+      {
+        "label": "b",
+        "text": "30"
+      },
+      {
+        "label": "c",
+        "text": "Compilation error"
+      },
+      {
+        "label": "d",
+        "text": "20"
+      }
+    ],
+    "correctAnswer": "d",
+    "tags": [
+      "#arrays"
+    ]
+  },
+  {
+    "id": 12,
+    "question": "What will the following code print?",
+    "codeSnippet": "double d = 3.9;\nint x = (int) d;\nSystem.out.println(x);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "4"
+      },
+      {
+        "label": "b",
+        "text": "3"
+      },
+      {
+        "label": "c",
+        "text": "3.9"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "b",
+    "tags": [
+      "#casting",
+      "#types"
+    ]
+  },
+  {
+    "id": 13,
+    "question": "What will the following code print?",
+    "codeSnippet": "String s = \"Java\";\nSystem.out.println(s.toUpperCase());",
+    "answers": [
+      {
+        "label": "a",
+        "text": "java"
+      },
+      {
+        "label": "b",
+        "text": "Java"
+      },
+      {
+        "label": "c",
+        "text": "JAVA"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "c",
+    "tags": [
+      "#strings"
+    ]
+  },
+  {
+    "id": 14,
+    "question": "What will the following code print?",
+    "codeSnippet": "int x = 5;\nSystem.out.println(++x);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "6"
+      },
+      {
+        "label": "b",
+        "text": "5"
+      },
+      {
+        "label": "c",
+        "text": "7"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "a",
+    "tags": [
+      "#operators"
+    ]
+  },
+  {
+    "id": 15,
+    "question": "What will the following code print?",
+    "codeSnippet": "int sum = 0;\nfor (int i = 1; i <= 3; i++) {\n  sum += i;\n}\nSystem.out.println(sum);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "3"
+      },
+      {
+        "label": "b",
+        "text": "0"
+      },
+      {
+        "label": "c",
+        "text": "9"
+      },
+      {
+        "label": "d",
+        "text": "6"
+      }
+    ],
+    "correctAnswer": "d",
+    "tags": [
+      "#loops",
+      "#arithmetic"
+    ]
+  },
+  {
+    "id": 16,
+    "question": "Which data type should fill the blank to store the value 3.14 without a compilation error?",
+    "codeSnippet": "______ pi = 3.14;\nSystem.out.println(pi);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "int"
+      },
+      {
+        "label": "b",
+        "text": "double"
+      },
+      {
+        "label": "c",
+        "text": "String"
+      },
+      {
+        "label": "d",
+        "text": "boolean"
+      }
+    ],
+    "correctAnswer": "b",
+    "tags": [
+      "#types"
+    ]
+  },
+  {
+    "id": 17,
+    "question": "What will the following code print?",
+    "codeSnippet": "int[] arr = new int[3];\nSystem.out.println(arr[0]);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "null"
+      },
+      {
+        "label": "b",
+        "text": "1"
+      },
+      {
+        "label": "c",
+        "text": "0"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "c",
+    "tags": [
+      "#arrays"
+    ]
+  },
+  {
+    "id": 18,
+    "question": "What will the following code print?",
+    "codeSnippet": "int n = 10;\nif (n < 5) {\n  System.out.println(\"small\");\n} else {\n  System.out.println(\"big\");\n}",
+    "answers": [
+      {
+        "label": "a",
+        "text": "big"
+      },
+      {
+        "label": "b",
+        "text": "small"
+      },
+      {
+        "label": "c",
+        "text": "small\nbig"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "a",
+    "tags": [
+      "#control"
+    ]
+  },
+  {
+    "id": 19,
+    "question": "What will the following code print?",
+    "codeSnippet": "static int triple(int n) {\n  return n * 3;\n}\n\n// called as:\nSystem.out.println(triple(4));",
+    "answers": [
+      {
+        "label": "a",
+        "text": "4"
+      },
+      {
+        "label": "b",
+        "text": "3"
+      },
+      {
+        "label": "c",
+        "text": "8"
+      },
+      {
+        "label": "d",
+        "text": "12"
+      }
+    ],
+    "correctAnswer": "d",
+    "tags": [
+      "#methods"
+    ]
+  },
+  {
+    "id": 20,
+    "question": "What will the following code print?",
+    "codeSnippet": "boolean x = true;\nboolean y = false;\nSystem.out.println(x && y);",
+    "answers": [
+      {
+        "label": "a",
+        "text": "true"
+      },
+      {
+        "label": "b",
+        "text": "false"
+      },
+      {
+        "label": "c",
+        "text": "1"
+      },
+      {
+        "label": "d",
+        "text": "Compilation error"
+      }
+    ],
+    "correctAnswer": "b",
+    "tags": [
+      "#booleans",
+      "#operators"
+    ]
   }
 ]
