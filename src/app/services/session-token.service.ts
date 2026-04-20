@@ -46,7 +46,7 @@ export class SessionTokenService {
   /**
    * Resets the daily counter if the stored date is not today.
    */
-  migrateDailyProgress(token: SessionToken): SessionToken {
+  private migrateDailyProgress(token: SessionToken): SessionToken {
     if (token.dailyProgress.date !== this.today()) {
       return {
         ...token,
@@ -121,7 +121,7 @@ export class SessionTokenService {
     };
   }
 
-  pruneHistory(token: SessionToken): SessionToken {
+  private pruneHistory(token: SessionToken): SessionToken {
     const cutoff = this.daysAgo(HISTORY_WINDOW_DAYS);
     return {
       ...token,
@@ -137,7 +137,7 @@ export class SessionTokenService {
     );
   }
 
-  today(): string {
+  private today(): string {
     return new Date().toISOString().slice(0, 10);
   }
 
