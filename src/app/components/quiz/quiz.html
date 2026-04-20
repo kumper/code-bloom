@@ -64,30 +64,36 @@
     </app-generic-frame>
   }
   @case ('answered') {
-    <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
-      <span class="quiz-greeting text-muted">
-        Hey, <strong>{{ userName() }}</strong>!
-      </span>
-      <div class="d-flex gap-3 align-items-center">
-        <span class="quiz-stat" aria-label="{{ exercisesToday() }} of {{ dailyLimit }} exercises done today">
-          📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
-        </span>
-        <span class="quiz-stat" aria-label="{{ totalPoints() }} total points">
-          ⭐ {{ totalPoints() }} pts
-        </span>
-      </div>
-    </div>
-
     <app-generic-frame>
-      <div class="text-center feedback-block">
+      <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
+        <span class="quiz-greeting text-muted">
+          Hey, <strong>{{ userName() }}</strong>!
+        </span>
+        <div class="d-flex gap-3 align-items-center">
+          <span class="quiz-stat" aria-label="{{ exercisesToday() }} of {{ dailyLimit }} exercises done today">
+            📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
+          </span>
+          <span class="quiz-stat" aria-label="{{ totalPoints() }} total points">
+            ⭐ {{ totalPoints() }} pts
+          </span>
+        </div>
+      </div>
+
+      <div class="text-center feedback-block" [class.feedback-correct-bg]="wasCorrect()"
+           [class.feedback-wrong-bg]="!wasCorrect()">
         @if (wasCorrect()) {
-          <div class="feedback-icon" aria-hidden="true">🎉</div>
-          <h3 class="fw-bold feedback-correct mb-2">Correct!</h3>
-          <p class="text-secondary mb-0">Well done, you earned a point!</p>
+          <div class="confetti-wrapper" aria-hidden="true">
+            @for (i of confettiPieces; track i) {
+              <span class="confetti-piece" [style.--i]="i"></span>
+            }
+          </div>
+          <div class="feedback-icon feedback-icon-correct" aria-hidden="true">🎉</div>
+          <h3 class="fw-bold feedback-correct mb-2 feedback-text-pop">Correct!</h3>
+          <p class="text-secondary mb-0 feedback-fade-in">Well done, you earned a point!</p>
         } @else {
-          <div class="feedback-icon" aria-hidden="true">💡</div>
-          <h3 class="fw-bold feedback-wrong mb-2">Not quite!</h3>
-          <p class="text-secondary mb-0">
+          <div class="feedback-icon feedback-icon-wrong" aria-hidden="true">💡</div>
+          <h3 class="fw-bold feedback-wrong mb-2 feedback-shake">Not quite!</h3>
+          <p class="text-secondary mb-0 feedback-fade-in">
             The correct answer was
             <strong>{{ currentQuestion()!.correctAnswer }}</strong>.
           </p>

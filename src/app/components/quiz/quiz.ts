@@ -28,6 +28,7 @@ export class QuizComponent implements OnInit {
   readonly wasCorrect = signal<boolean | null>(null);
 
   readonly dailyLimit = DAILY_LIMIT;
+  readonly confettiPieces = Array.from({length: 20}, (_, i) => i);
   readonly userName = computed(() => this.token()?.name ?? '');
   readonly totalPoints = computed(() => this.token()?.totalPoints ?? 0);
   readonly exercisesToday = computed(

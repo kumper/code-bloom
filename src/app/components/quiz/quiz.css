@@ -43,6 +43,8 @@
 /* ── Answer feedback ── */
 .feedback-block {
   padding: 0.5rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .feedback-icon {
@@ -57,5 +59,168 @@
 
 .feedback-wrong {
   color: var(--pink-dark);
+}
+
+/* ── Correct answer: green glow background ── */
+.feedback-correct-bg {
+  animation: greenGlow 0.6s ease-out;
+}
+
+@keyframes greenGlow {
+  0% {
+    background-color: rgba(25, 135, 84, 0.15);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* ── Wrong answer: red glow background ── */
+.feedback-wrong-bg {
+  animation: redGlow 0.6s ease-out;
+}
+
+@keyframes redGlow {
+  0% {
+    background-color: rgba(220, 53, 69, 0.12);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* ── Correct icon: scale bounce ── */
+.feedback-icon-correct {
+  animation: popBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popBounce {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ── Wrong icon: shake ── */
+.feedback-icon-wrong {
+  animation: wobble 0.6s ease;
+}
+
+@keyframes wobble {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(12deg);
+  }
+  60% {
+    transform: rotate(-8deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+}
+
+/* ── Text pop for correct heading ── */
+.feedback-text-pop {
+  animation: textPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes textPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ── Shake for wrong heading ── */
+.feedback-shake {
+  animation: shakeX 0.5s ease;
+}
+
+@keyframes shakeX {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-12px);
+  }
+  30% {
+    transform: translateX(10px);
+  }
+  45% {
+    transform: translateX(-8px);
+  }
+  60% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+}
+
+/* ── Fade-in for description text ── */
+.feedback-fade-in {
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ── Confetti burst (correct answer) ── */
+.confetti-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  --hue: calc(var(--i) * 18);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: hsl(var(--hue), 85%, 55%);
+  opacity: 0;
+  animation: confettiBurst 1s calc(var(--i) * 0.03s) ease-out forwards;
+}
+
+@keyframes confettiBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc((var(--i) - 10) * 18px),
+      calc(-60px + var(--i) * 8px)
+    ) rotate(calc(var(--i) * 40deg)) scale(0.4);
+  }
 }
 
