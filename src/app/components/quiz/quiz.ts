@@ -6,12 +6,13 @@ import {DAILY_LIMIT, SessionTokenService} from '../../services/session-token.ser
 import {QuestionRepositoryService} from '../../services/question-repository.service';
 import {QuestionComponent} from '../question/question';
 import {GenericFrameComponent} from '../generic-frame/generic-frame';
+import {BloomLoaderComponent} from '../bloom-loader/bloom-loader';
 
-type QuizState = 'loading' | 'daily-limit' | 'all-exhausted' | 'question' | 'answered';
+type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'question' | 'answered';
 
 @Component({
   selector: 'app-quiz',
-  imports: [QuestionComponent, GenericFrameComponent],
+  imports: [QuestionComponent, GenericFrameComponent, BloomLoaderComponent],
   templateUrl: './quiz.html',
   styleUrl: './quiz.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,10 +23,11 @@ export class QuizComponent implements OnInit {
   private readonly tokenService = inject(SessionTokenService);
   private readonly questionRepo = inject(QuestionRepositoryService);
 
-  readonly state = signal<QuizState>('loading');
+  readonly state = signal<QuizState>('blooming');
   readonly token = signal<SessionToken | null>(null);
   readonly currentQuestion = signal<Question | null>(null);
   readonly wasCorrect = signal<boolean | null>(null);
+  private pendingToken: SessionToken | null = null;
 
   readonly dailyLimit = DAILY_LIMIT;
   readonly confettiPieces = Array.from({length: 20}, (_, i) => i);
@@ -49,7 +51,13 @@ export class QuizComponent implements OnInit {
     }
 
     this.token.set(decoded);
-    this.loadNextQuestion(decoded);
+    this.pendingToken = decoded;
+  }
+
+  onBloomDone(): void {
+    const t = this.pendingToken;
+    if (!t) return;
+    this.loadNextQuestion(t);
   }
 
   onAnswerSubmitted(selectedAnswer: string): void {

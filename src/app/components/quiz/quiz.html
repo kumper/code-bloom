@@ -1,10 +1,9 @@
 @switch (state()) {
 
-  @case ('loading') {
-    <output class="d-block text-center py-5" aria-live="polite">
-      <div class="spinner-border text-pink" aria-hidden="true"></div>
-      <p class="mt-2 text-muted">Loading your session&hellip;</p>
-    </output>
+  @case ('blooming') {
+    <app-generic-frame>
+      <app-bloom-loader (done)="onBloomDone()"/>
+    </app-generic-frame>
   }
   @case ('daily-limit') {
     <app-generic-frame>
