@@ -33,17 +33,12 @@
   }
   @case ('question') {
     <app-generic-frame>
-      <div class="d-flex justify-content-between align-items-center mb-3 px-1">
-        <span class="quiz__greeting text-muted">{{ langService.t('quiz.greeting', {name: userName()}) }}</span>
-        <div class="d-flex gap-3 align-items-center">
-          <span class="quiz__stat" [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit + ' exercises done today'">
-            📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
-          </span>
-          <span class="quiz__stat" [attr.aria-label]="totalPoints() + ' total points'">
-            ⭐ {{ totalPoints() }} pts
-          </span>
-        </div>
-      </div>
+      <app-quiz-header
+        [name]="userName()"
+        [exercisesToday]="exercisesToday()"
+        [totalPoints]="totalPoints()"
+        [dailyLimit]="dailyLimit"
+      />
 
       <app-question
         [questionNumber]="currentQuestion()!.id"
@@ -57,17 +52,12 @@
   }
   @case ('answered') {
     <app-generic-frame>
-      <div class="d-flex justify-content-between align-items-center mb-3 px-1">
-        <span class="quiz__greeting text-muted">{{ langService.t('quiz.greeting', {name: userName()}) }}</span>
-        <div class="d-flex gap-3 align-items-center">
-          <span class="quiz__stat" [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit + ' exercises done today'">
-            📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
-          </span>
-          <span class="quiz__stat" [attr.aria-label]="totalPoints() + ' total points'">
-            ⭐ {{ totalPoints() }} pts
-          </span>
-        </div>
-      </div>
+      <app-quiz-header
+        [name]="userName()"
+        [exercisesToday]="exercisesToday()"
+        [totalPoints]="totalPoints()"
+        [dailyLimit]="dailyLimit"
+      />
 
       <div class="text-center quiz__feedback"
            [class.quiz__feedback--correct]="wasCorrect()"

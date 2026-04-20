@@ -9,12 +9,13 @@ import {GenericFrameComponent} from '../generic-frame/generic-frame';
 import {BloomLoaderComponent} from '../bloom-loader/bloom-loader';
 import {LanguageService} from '../../services/language.service';
 import {ExplainService} from '../../services/explain.service';
+import {QuizHeaderComponent} from '../quiz-header/quiz-header';
 
 type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'question' | 'answered';
 
 @Component({
   selector: 'app-quiz',
-  imports: [QuestionComponent, GenericFrameComponent, BloomLoaderComponent],
+  imports: [QuestionComponent, GenericFrameComponent, BloomLoaderComponent, QuizHeaderComponent],
   templateUrl: './quiz.html',
   styleUrl: './quiz.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
