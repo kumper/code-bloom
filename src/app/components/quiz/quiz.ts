@@ -29,7 +29,6 @@ export class QuizComponent implements OnInit {
   readonly token = signal<SessionToken | null>(null);
   readonly currentQuestion = signal<Question | null>(null);
   readonly wasCorrect = signal<boolean | null>(null);
-  private pendingToken: SessionToken | null = null;
 
   readonly dailyLimit = DAILY_LIMIT;
   readonly confettiPieces = Array.from({length: 20}, (_, i) => i);
@@ -67,11 +66,10 @@ export class QuizComponent implements OnInit {
     }
 
     this.token.set(decoded);
-    this.pendingToken = decoded;
   }
 
   onBloomDone(): void {
-    const t = this.pendingToken;
+    const t = this.token();
     if (!t) return;
     this.loadNextQuestion(t);
   }
