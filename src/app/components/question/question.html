@@ -12,14 +12,14 @@
   @for (answer of answers(); track answer.label) {
     <label
       class="answer-option bg-light border border-2 rounded-3 p-3 d-flex align-items-start"
-      [class.selected]="selectedAnswer() === answer.label"
+      [class.selected]="selectedAnswerValue() === answer.label"
     >
       <input
         type="radio"
         [name]="'q' + questionNumber()"
         [value]="answer.label"
-        [(ngModel)]="selectedAnswerValue"
-        (change)="onAnswerChange()"
+        [checked]="selectedAnswerValue() === answer.label"
+        (change)="selectedAnswerValue.set(answer.label)"
         class="me-2 mt-1 flex-shrink-0"
         [attr.aria-label]="answer.label + ': ' + (langService.lang() === 'pl' ? answer.textPL : answer.textEN)"
       />
@@ -34,9 +34,9 @@
 <button
   class="btn btn-submit btn-pink text-white fw-semibold w-100 py-2 rounded-pill"
   (click)="onSubmit()"
-  [disabled]="!selectedAnswerValue"
+  [disabled]="!selectedAnswerValue()"
   type="button"
-  [attr.aria-disabled]="!selectedAnswerValue"
+  [attr.aria-disabled]="!selectedAnswerValue()"
 >
   {{ langService.t('quiz.submitBtn') }}
 </button>

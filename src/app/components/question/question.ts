@@ -1,6 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, input, output} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {ChangeDetectionStrategy, Component, effect, inject, input, output, signal, untracked} from '@angular/core';
 import {LanguageService} from '../../services/language.service';
 
 export interface QuizAnswer {
@@ -16,7 +14,7 @@ export interface QuizSubmission {
 
 @Component({
   selector: 'app-question',
-  imports: [CommonModule, FormsModule],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './question.html',
   styleUrl: './question.css',
@@ -27,23 +25,26 @@ export class QuestionComponent {
   codeSnippet = input.required<string>();
   answers = input.required<QuizAnswer[]>();
   tags = input<string[]>([]);
-  selectedAnswer = input<string>('');
 
   save = output<QuizSubmission>();
 
-  selectedAnswerValue = '';
+  readonly selectedAnswerValue = signal('');
 
   protected readonly langService = inject(LanguageService);
 
-  onAnswerChange(): void {
-    // Update is handled by ngModel
+  constructor() {
+    effect(() => {
+      this.questionNumber(); // track question changes
+      untracked(() => this.selectedAnswerValue.set(''));
+    });
   }
 
   onSubmit(): void {
-    if (this.selectedAnswerValue) {
+    const answer = this.selectedAnswerValue();
+    if (answer) {
       this.save.emit({
         questionNumber: this.questionNumber(),
-        selectedAnswer: this.selectedAnswerValue
+        selectedAnswer: answer,
       });
     }
   }
