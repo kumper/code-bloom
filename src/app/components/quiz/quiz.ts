@@ -7,6 +7,7 @@ import {QuestionRepositoryService} from '../../services/question-repository.serv
 import {QuestionComponent} from '../question/question';
 import {GenericFrameComponent} from '../generic-frame/generic-frame';
 import {BloomLoaderComponent} from '../bloom-loader/bloom-loader';
+import {LanguageService} from '../../services/language.service';
 
 type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'question' | 'answered';
 
@@ -22,6 +23,7 @@ export class QuizComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly tokenService = inject(SessionTokenService);
   private readonly questionRepo = inject(QuestionRepositoryService);
+  protected readonly langService = inject(LanguageService);
 
   readonly state = signal<QuizState>('blooming');
   readonly token = signal<SessionToken | null>(null);
@@ -36,6 +38,20 @@ export class QuizComponent implements OnInit {
   readonly exercisesToday = computed(
     () => this.token()?.dailyProgress.exercisesCompletedToday ?? 0,
   );
+
+  readonly localizedQuestion = computed(() => {
+    const q = this.currentQuestion();
+    const lang = this.langService.lang();
+    if (!q) return null;
+    return lang === 'pl' ? q.questionPL : q.questionEN;
+  });
+
+  readonly localizedSnippet = computed(() => {
+    const q = this.currentQuestion();
+    const lang = this.langService.lang();
+    if (!q) return '';
+    return lang === 'pl' ? q.codeSnippetPL : q.codeSnippetEN;
+  });
 
   ngOnInit(): void {
     const raw = this.route.snapshot.queryParamMap.get('token');
@@ -85,25 +101,53 @@ export class QuizComponent implements OnInit {
     const q = this.currentQuestion();
     if (!q) return '';
 
+    const lang = this.langService.lang();
+    const isPl = lang === 'pl';
+
     const topics = (q.tags ?? [])
       .map(t => t.replace('#', ''))
       .join(', ');
 
     const answerLines = q.answers
-      .map(a => `  ${a.label}) ${a.text}`)
+      .map(a => `  ${a.label}) ${isPl ? a.textPL : a.textEN}`)
       .join('\n');
 
     const correctOption = q.answers.find(a => a.label === q.correctAnswer);
-    const correctText = correctOption ? `${q.correctAnswer}) ${correctOption.text}` : q.correctAnswer;
+    const correctText = correctOption
+      ? `${q.correctAnswer}) ${isPl ? correctOption.textPL : correctOption.textEN}`
+      : q.correctAnswer;
 
-    const prompt = [
+    const snippet = isPl ? q.codeSnippetPL : q.codeSnippetEN;
+
+    const prompt = isPl ? [
+      `Jesteś przyjaznym nauczycielem Javy dla absolutnych początkujących. Odpowiedz bardzo krótko — maksymalnie 1–2 minuty czytania.`,
+      ``,
+      `Temat(y): ${topics}`,
+      ``,
+      `Uczniowi pokazano poniższy fragment kodu Java:`,
+      `\`\`\`java`,
+      snippet,
+      `\`\`\``,
+      ``,
+      `Musiał wybrać spośród następujących odpowiedzi:`,
+      answerLines,
+      ``,
+      `Poprawna odpowiedź to: ${correctText}`,
+      ``,
+      `Wyjaśnij krótko:`,
+      `1. Dlaczego poprawna odpowiedź jest prawidłowa.`,
+      `2. Dlaczego najbardziej kuszące błędne odpowiedzi są nieprawidłowe.`,
+      `3. Jeden kluczowy koncept, który uczeń powinien zapamiętać.`,
+      ``,
+      `Używaj prostego języka, bez żargonu. Maksymalnie 150 słów.`,
+    ].join('\n') : [
       `You are a friendly Java tutor for absolute beginners. Keep your answer very short — maximum 1–2 minutes to read.`,
       ``,
       `Topic(s): ${topics}`,
       ``,
       `A student was shown this Java code snippet:`,
       `\`\`\`java`,
-      q.codeSnippet,
+      snippet,
       `\`\`\``,
       ``,
       `They had to choose from these answers:`,

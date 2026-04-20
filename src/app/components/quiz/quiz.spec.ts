@@ -8,11 +8,13 @@ import {Question} from '../../models/question.model';
 
 const mockQuestion: Question = {
   id: 1,
-  question: 'What is 1 + 1?',
-  codeSnippet: 'System.out.println(1 + 1);',
+  questionEN: 'What is 1 + 1?',
+  questionPL: 'Co to jest 1 + 1?',
+  codeSnippetEN: 'System.out.println(1 + 1);',
+  codeSnippetPL: 'System.out.println(1 + 1);',
   answers: [
-    {label: 'a', text: '1'},
-    {label: 'b', text: '2'},
+    {label: 'a', textEN: '1', textPL: '1'},
+    {label: 'b', textEN: '2', textPL: '2'},
   ],
   correctAnswer: 'b',
   tags: [],

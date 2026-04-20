@@ -18,8 +18,8 @@ describe('QuestionRepositoryService', () => {
     const question = service.getRandomQuestion();
     expect(question).toBeTruthy();
     expect(question.id).toBeDefined();
-    expect(question.question).toBeDefined();
-    expect(question.codeSnippet).toBeDefined();
+    expect(question.questionEN).toBeDefined();
+    expect(question.codeSnippetEN).toBeDefined();
     expect(question.answers.length).toBeGreaterThan(0);
     expect(question.correctAnswer).toBeDefined();
   });
@@ -28,7 +28,8 @@ describe('QuestionRepositoryService', () => {
     const question = service.getRandomQuestion();
     for (const answer of question.answers) {
       expect(answer.label).toBeDefined();
-      expect(answer.text).toBeDefined();
+      expect(answer.textEN).toBeDefined();
+      expect(answer.textPL).toBeDefined();
     }
   });
 

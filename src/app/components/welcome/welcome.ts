@@ -3,6 +3,7 @@ import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {GenericFrameComponent} from '../generic-frame/generic-frame';
 import {SessionTokenService} from '../../services/session-token.service';
+import {LanguageService} from '../../services/language.service';
 
 @Component({
   selector: 'app-welcome',
@@ -14,6 +15,7 @@ import {SessionTokenService} from '../../services/session-token.service';
 export class WelcomeComponent {
   private readonly router = inject(Router);
   private readonly tokenService = inject(SessionTokenService);
+  protected readonly langService = inject(LanguageService);
 
   readonly usernameControl = new FormControl<string>('', {
     nonNullable: true,

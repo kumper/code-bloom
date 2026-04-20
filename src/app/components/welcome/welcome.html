@@ -1,39 +1,33 @@
 <app-generic-frame>
   <div class="text-center mb-4">
-    <h2 class="fw-bold welcome-heading mb-2">Welcome! 👋</h2>
-    <p class="text-secondary mb-0">
-      We're glad to have you here. Learn coding in Java easily with fun interactive quizzes
-      tailored just for you!
-    </p>
+    <h2 class="fw-bold welcome-heading mb-2">{{ langService.t('welcome.heading') }}</h2>
+    <p class="text-secondary mb-0">{{ langService.t('welcome.subtitle') }}</p>
   </div>
 
   <form>
     <div class="mb-3">
-      <label for="username" class="form-label fw-semibold">Your Name</label>
+      <label for="username" class="form-label fw-semibold">{{ langService.t('welcome.nameLabel') }}</label>
       <input
         id="username"
         type="text"
         class="form-control"
         [class.is-invalid]="usernameControl.invalid && usernameControl.touched"
-        placeholder="Enter your name"
+        [placeholder]="langService.t('welcome.namePlaceholder')"
         [formControl]="usernameControl"
         autocomplete="name"
         autofocus
         (keydown.enter)="$event.preventDefault(); onSubmit()"
       />
       @if (usernameControl.invalid && usernameControl.touched) {
-        <div class="invalid-feedback">Please enter your name to continue.</div>
+        <div class="invalid-feedback">{{ langService.t('welcome.nameError') }}</div>
       }
     </div>
 
-    <p class="disclaimer text-muted mb-3">
-      Your name is only used to make your Java learning experience more personal and fun. It is
-      never stored on any server or processed in any way beyond this session.
-    </p>
+    <p class="disclaimer text-muted mb-3">{{ langService.t('welcome.disclaimer') }}</p>
 
     <button type="button" (click)="onSubmit()"
             class="btn btn-welcome btn-pink text-white fw-semibold w-100 py-2 rounded-pill">
-      Let's Start!
+      {{ langService.t('welcome.startBtn') }}
     </button>
   </form>
 </app-generic-frame>

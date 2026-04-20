@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, output} from '@angular/core';
+import {LanguageService} from '../../services/language.service';
 
 @Component({
   selector: 'app-bloom-loader',
@@ -14,6 +15,7 @@ export class BloomLoaderComponent implements OnInit {
   done = output<void>();
 
   private readonly destroyRef = inject(DestroyRef);
+  protected readonly langService = inject(LanguageService);
 
   ngOnInit(): void {
     const id = setTimeout(() => this.done.emit(), 5000);

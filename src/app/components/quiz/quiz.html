@@ -9,13 +9,12 @@
     <app-generic-frame>
       <div class="text-center">
         <div class="limit-icon mb-3" aria-hidden="true">🌙</div>
-        <h2 class="fw-bold limit-heading mb-2">That's all for today, {{ userName() }}!</h2>
-        <p class="text-secondary mb-3">
-          You've completed {{ dailyLimit }} exercises today. Come back tomorrow for more!
-        </p>
+        <h2 class="fw-bold limit-heading mb-2">{{ langService.t('quiz.dailyLimit.heading', {name: userName()}) }}</h2>
+        <p
+          class="text-secondary mb-3">{{ langService.t('quiz.dailyLimit.subtitle', {limit: dailyLimit.toString()}) }}</p>
         <div class="points-badge mx-auto">
           <span class="points-value fw-bold">{{ totalPoints() }}</span>
-          <span class="points-label">total points</span>
+          <span class="points-label">{{ langService.t('quiz.totalPoints') }}</span>
         </div>
       </div>
     </app-generic-frame>
@@ -24,13 +23,11 @@
     <app-generic-frame>
       <div class="text-center">
         <div class="limit-icon mb-3" aria-hidden="true">🏆</div>
-        <h2 class="fw-bold limit-heading mb-2">Incredible, {{ userName() }}!</h2>
-        <p class="text-secondary mb-3">
-          You've seen every available exercise in the last 60 days. Check back later for fresh questions!
-        </p>
+        <h2 class="fw-bold limit-heading mb-2">{{ langService.t('quiz.allExhausted.heading', {name: userName()}) }}</h2>
+        <p class="text-secondary mb-3">{{ langService.t('quiz.allExhausted.subtitle') }}</p>
         <div class="points-badge mx-auto">
           <span class="points-value fw-bold">{{ totalPoints() }}</span>
-          <span class="points-label">total points</span>
+          <span class="points-label">{{ langService.t('quiz.totalPoints') }}</span>
         </div>
       </div>
     </app-generic-frame>
@@ -40,13 +37,13 @@
     <app-generic-frame>
       <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
       <span class="quiz-greeting text-muted">
-        Hey, <strong>{{ userName() }}</strong>!
+        {{ langService.t('quiz.greeting', {name: userName()}) }}
       </span>
         <div class="d-flex gap-3 align-items-center">
-        <span class="quiz-stat" aria-label="{{ exercisesToday() }} of {{ dailyLimit }} exercises done today">
+        <span class="quiz-stat" [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit + ' exercises done today'">
           📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
         </span>
-          <span class="quiz-stat" aria-label="{{ totalPoints() }} total points">
+          <span class="quiz-stat" [attr.aria-label]="totalPoints() + ' total points'">
           ⭐ {{ totalPoints() }} pts
         </span>
         </div>
@@ -54,8 +51,8 @@
 
       <app-question
         [questionNumber]="currentQuestion()!.id"
-        [question]="currentQuestion()!.question"
-        [codeSnippet]="currentQuestion()!.codeSnippet"
+        [question]="localizedQuestion()!"
+        [codeSnippet]="localizedSnippet()"
         [answers]="currentQuestion()!.answers"
         [tags]="currentQuestion()!.tags ?? []"
         (save)="onAnswerSubmitted($event.selectedAnswer)"
@@ -66,13 +63,13 @@
     <app-generic-frame>
       <div class="quiz-header d-flex justify-content-between align-items-center mb-3 px-1">
         <span class="quiz-greeting text-muted">
-          Hey, <strong>{{ userName() }}</strong>!
+          {{ langService.t('quiz.greeting', {name: userName()}) }}
         </span>
         <div class="d-flex gap-3 align-items-center">
-          <span class="quiz-stat" aria-label="{{ exercisesToday() }} of {{ dailyLimit }} exercises done today">
+          <span class="quiz-stat" [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit + ' exercises done today'">
             📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit }}
           </span>
-          <span class="quiz-stat" aria-label="{{ totalPoints() }} total points">
+          <span class="quiz-stat" [attr.aria-label]="totalPoints() + ' total points'">
             ⭐ {{ totalPoints() }} pts
           </span>
         </div>
@@ -87,13 +84,13 @@
             }
           </div>
           <div class="feedback-icon feedback-icon-correct" aria-hidden="true">🎉</div>
-          <h3 class="fw-bold feedback-correct mb-2 feedback-text-pop">Correct!</h3>
-          <p class="text-secondary mb-0 feedback-fade-in">Well done, you earned a point!</p>
+          <h3 class="fw-bold feedback-correct mb-2 feedback-text-pop">{{ langService.t('quiz.correct.heading') }}</h3>
+          <p class="text-secondary mb-0 feedback-fade-in">{{ langService.t('quiz.correct.subtitle') }}</p>
         } @else {
           <div class="feedback-icon feedback-icon-wrong" aria-hidden="true">💡</div>
-          <h3 class="fw-bold feedback-wrong mb-2 feedback-shake">Not quite!</h3>
+          <h3 class="fw-bold feedback-wrong mb-2 feedback-shake">{{ langService.t('quiz.wrong.heading') }}</h3>
           <p class="text-secondary mb-0 feedback-fade-in">
-            The correct answer was
+            {{ langService.t('quiz.wrong.prefix') }}
             <strong>{{ currentQuestion()!.correctAnswer }}</strong>.
           </p>
         }
@@ -106,14 +103,14 @@
               rel="noopener noreferrer"
               class="btn btn-outline-explain fw-semibold px-4 py-2 rounded-pill"
             >
-              💬 Explain
+              {{ langService.t('quiz.explainBtn') }}
             </a>
             <button
               class="btn btn-pink text-white fw-semibold px-4 py-2 rounded-pill"
               type="button"
               (click)="onNextQuestion()"
             >
-              Next Question
+              {{ langService.t('quiz.nextBtn') }}
             </button>
           </div>
         } @else {
@@ -123,10 +120,10 @@
             rel="noopener noreferrer"
             class="btn btn-outline-explain fw-semibold px-4 py-2 rounded-pill mt-4 d-inline-block"
           >
-            💬 Explain
+            {{ langService.t('quiz.explainBtn') }}
           </a>
           <p class="mt-3 text-muted fw-semibold">
-            That's your {{ dailyLimit }} for today — see you tomorrow! 🌙
+            {{ langService.t('quiz.todayLimit', {limit: dailyLimit.toString()}) }}
           </p>
         }
       </div>
@@ -134,5 +131,3 @@
   }
 
 }
-
-

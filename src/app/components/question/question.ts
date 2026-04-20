@@ -1,10 +1,12 @@
-import {ChangeDetectionStrategy, Component, input, output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, input, output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {LanguageService} from '../../services/language.service';
 
 export interface QuizAnswer {
   label: string;
-  text: string;
+  textEN: string;
+  textPL: string;
 }
 
 export interface QuizSubmission {
@@ -31,6 +33,8 @@ export class QuestionComponent {
   save = output<QuizSubmission>();
 
   selectedAnswerValue = '';
+
+  protected readonly langService = inject(LanguageService);
 
   onAnswerChange(): void {
     // Update is handled by ngModel

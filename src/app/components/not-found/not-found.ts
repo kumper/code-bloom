@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
 import {Router} from '@angular/router';
 import {GenericFrameComponent} from '../generic-frame/generic-frame';
+import {LanguageService} from '../../services/language.service';
 
 const REDIRECT_SECONDS = 3;
 
@@ -13,6 +14,7 @@ const REDIRECT_SECONDS = 3;
 })
 export class NotFoundComponent implements OnInit, OnDestroy {
   private readonly router = inject(Router);
+  protected readonly langService = inject(LanguageService);
 
   readonly secondsLeft = signal(REDIRECT_SECONDS);
 

@@ -1,17 +1,25 @@
 [
   {
     "id": 1,
-    "question": "What will be the output of the following code?",
-    "codeSnippet": "int a = 3;\nif (a > 0) {\n  System.out.println(\"'a' is positive\");\n}",
+    "questionEN": "What will be the output of the following code?",
+    "questionPL": "Jaki będzie wynik działania poniższego kodu?",
+    "codeSnippetEN": "int a = 3;\nif (a > 0) {\n  System.out.println(\"'a' is positive\");\n}",
+    "codeSnippetPL": "int a = 3;\nif (a > 0) {\n  System.out.println(\"'a' jest dodatnie\");\n}",
     "answers": [
-      {"label": "a", "text": "Output: nothing"},
+      {
+        "label": "a",
+        "textEN": "Output: nothing",
+        "textPL": "Brak wyniku"
+      },
       {
         "label": "b",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       },
       {
         "label": "c",
-        "text": "Output: 'a' is positive"
+        "textEN": "Output: 'a' is positive",
+        "textPL": "Wynik: 'a' jest dodatnie"
       }
     ],
     "correctAnswer": "c",
@@ -19,35 +27,51 @@
   },
   {
     "id": 2,
-    "question": "What is the result of the following expression?",
-    "codeSnippet": "int x = 10 / 3;\nSystem.out.println(x);",
+    "questionEN": "What is the result of the following expression?",
+    "questionPL": "Jaki jest wynik poniższego wyrażenia?",
+    "codeSnippetEN": "int x = 10 / 3;\nSystem.out.println(x);",
+    "codeSnippetPL": "int x = 10 / 3;\nSystem.out.println(x);",
     "answers": [
       {
         "label": "a",
-        "text": "3"
+        "textEN": "3",
+        "textPL": "3"
       },
       {
         "label": "b",
-        "text": "3.33"
+        "textEN": "3.33",
+        "textPL": "3.33"
       },
-      {"label": "c", "text": "Compilation error"}
+      {
+        "label": "c",
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
+      }
     ],
     "correctAnswer": "a",
     "tags": ["#arithmetic"]
   },
   {
     "id": 3,
-    "question": "What will the following code print?",
-    "codeSnippet": "String s = \"Hello\";\nSystem.out.println(s.length());",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"Hello\";\nSystem.out.println(s.length());",
+    "codeSnippetPL": "String s = \"Hello\";\nSystem.out.println(s.length());",
     "answers": [
-      {"label": "a", "text": "4"},
+      {
+        "label": "a",
+        "textEN": "4",
+        "textPL": "4"
+      },
       {
         "label": "b",
-        "text": "6"
+        "textEN": "6",
+        "textPL": "6"
       },
       {
         "label": "c",
-        "text": "5"
+        "textEN": "5",
+        "textPL": "5"
       }
     ],
     "correctAnswer": "c",
@@ -55,24 +79,30 @@
   },
   {
     "id": 4,
-    "question": "What will the following code print?",
-    "codeSnippet": "int x = 1;\nx++;\nSystem.out.println(x);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int x = 1;\nx++;\nSystem.out.println(x);",
+    "codeSnippetPL": "int x = 1;\nx++;\nSystem.out.println(x);",
     "answers": [
       {
         "label": "a",
-        "text": "2"
+        "textEN": "2",
+        "textPL": "2"
       },
       {
         "label": "b",
-        "text": "1"
+        "textEN": "1",
+        "textPL": "1"
       },
       {
         "label": "c",
-        "text": "0"
+        "textEN": "0",
+        "textPL": "0"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "a",
@@ -83,24 +113,30 @@
   },
   {
     "id": 5,
-    "question": "Which condition should fill the blank so that the program prints \"b is negative\"?",
-    "codeSnippet": "int b = -4;\n\nif (______) {\n  System.out.println(\"b is negative\");\n}",
+    "questionEN": "Which condition should fill the blank so that the program prints \"b is negative\"?",
+    "questionPL": "Jakie wyrażenie należy wpisać w puste miejsce, aby program wypisał \"b jest ujemne\"?",
+    "codeSnippetEN": "int b = -4;\n\nif (______) {\n  System.out.println(\"b is negative\");\n}",
+    "codeSnippetPL": "int b = -4;\n\nif (______) {\n  System.out.println(\"b jest ujemne\");\n}",
     "answers": [
       {
         "label": "a",
-        "text": "b > 0"
+        "textEN": "b > 0",
+        "textPL": "b > 0"
       },
       {
         "label": "b",
-        "text": "b == 0"
+        "textEN": "b == 0",
+        "textPL": "b == 0"
       },
       {
         "label": "c",
-        "text": "b >= 0"
+        "textEN": "b >= 0",
+        "textPL": "b >= 0"
       },
       {
         "label": "d",
-        "text": "b < 0"
+        "textEN": "b < 0",
+        "textPL": "b < 0"
       }
     ],
     "correctAnswer": "d",
@@ -111,24 +147,30 @@
   },
   {
     "id": 6,
-    "question": "What will the following code print?",
-    "codeSnippet": "boolean flag1 = false;\n\nif (flag1) {\n  System.out.println(\"flag1 is enabled\");\n}",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean flag1 = false;\n\nif (flag1) {\n  System.out.println(\"flag1 is enabled\");\n}",
+    "codeSnippetPL": "boolean flaga1 = false;\n\nif (flaga1) {\n  System.out.println(\"flaga1 jest włączona\");\n}",
     "answers": [
       {
         "label": "a",
-        "text": "false"
+        "textEN": "false",
+        "textPL": "false"
       },
       {
         "label": "b",
-        "text": "flag1 is enabled"
+        "textEN": "flag1 is enabled",
+        "textPL": "flaga1 jest włączona"
       },
       {
         "label": "c",
-        "text": "Nothing — no output is produced"
+        "textEN": "Nothing — no output is produced",
+        "textPL": "Brak wyniku"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "c",
@@ -139,24 +181,30 @@
   },
   {
     "id": 7,
-    "question": "What will the following code print?",
-    "codeSnippet": "for (int i = 0; i < 5; i++) {\n  System.out.println(\"1\");\n}",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "for (int i = 0; i < 5; i++) {\n  System.out.println(\"1\");\n}",
+    "codeSnippetPL": "for (int i = 0; i < 5; i++) {\n  System.out.println(\"1\");\n}",
     "answers": [
       {
         "label": "a",
-        "text": "11111"
+        "textEN": "11111",
+        "textPL": "11111"
       },
       {
         "label": "b",
-        "text": "01234"
+        "textEN": "01234",
+        "textPL": "01234"
       },
       {
         "label": "c",
-        "text": "Nothing — no output is produced"
+        "textEN": "Nothing — no output is produced",
+        "textPL": "Brak wyniku"
       },
       {
         "label": "d",
-        "text": "It runs forever"
+        "textEN": "It runs forever",
+        "textPL": "Pętla działa w nieskończoność"
       }
     ],
     "correctAnswer": "a",
@@ -166,24 +214,30 @@
   },
   {
     "id": 8,
-    "question": "What does the following while loop print?",
-    "codeSnippet": "int i = 0;\nwhile (i < 3) {\n  System.out.println(i);\n  i++;\n}",
+    "questionEN": "What does the following while loop print?",
+    "questionPL": "Co wypisze poniższa pętla while?",
+    "codeSnippetEN": "int i = 0;\nwhile (i < 3) {\n  System.out.println(i);\n  i++;\n}",
+    "codeSnippetPL": "int i = 0;\nwhile (i < 3) {\n  System.out.println(i);\n  i++;\n}",
     "answers": [
       {
         "label": "a",
-        "text": "1, 2, 3 (each on a new line)"
+        "textEN": "1, 2, 3 (each on a new line)",
+        "textPL": "1, 2, 3 (każda w nowej linii)"
       },
       {
         "label": "b",
-        "text": "0, 1, 2 (each on a new line)"
+        "textEN": "0, 1, 2 (each on a new line)",
+        "textPL": "0, 1, 2 (każda w nowej linii)"
       },
       {
         "label": "c",
-        "text": "0, 1, 2, 3 (each on a new line)"
+        "textEN": "0, 1, 2, 3 (each on a new line)",
+        "textPL": "0, 1, 2, 3 (każda w nowej linii)"
       },
       {
         "label": "d",
-        "text": "Nothing — the condition is never true"
+        "textEN": "Nothing — the condition is never true",
+        "textPL": "Brak wyniku — warunek nigdy nie jest spełniony"
       }
     ],
     "correctAnswer": "b",
@@ -193,24 +247,30 @@
   },
   {
     "id": 9,
-    "question": "What will the following code print?",
-    "codeSnippet": "String a = \"Hello\";\nString b = \" World\";\nSystem.out.println(a + b);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String a = \"Hello\";\nString b = \" World\";\nSystem.out.println(a + b);",
+    "codeSnippetPL": "String a = \"Hello\";\nString b = \" World\";\nSystem.out.println(a + b);",
     "answers": [
       {
         "label": "a",
-        "text": "HelloWorld"
+        "textEN": "HelloWorld",
+        "textPL": "HelloWorld"
       },
       {
         "label": "b",
-        "text": "Hello + World"
+        "textEN": "Hello + World",
+        "textPL": "Hello + World"
       },
       {
         "label": "c",
-        "text": "Hello World"
+        "textEN": "Hello World",
+        "textPL": "Hello World"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "c",
@@ -220,24 +280,30 @@
   },
   {
     "id": 10,
-    "question": "What will the following code print?",
-    "codeSnippet": "int r = 7 % 2;\nSystem.out.println(r);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int r = 7 % 2;\nSystem.out.println(r);",
+    "codeSnippetPL": "int r = 7 % 2;\nSystem.out.println(r);",
     "answers": [
       {
         "label": "a",
-        "text": "1"
+        "textEN": "1",
+        "textPL": "1"
       },
       {
         "label": "b",
-        "text": "3"
+        "textEN": "3",
+        "textPL": "3"
       },
       {
         "label": "c",
-        "text": "3.5"
+        "textEN": "3.5",
+        "textPL": "3.5"
       },
       {
         "label": "d",
-        "text": "0"
+        "textEN": "0",
+        "textPL": "0"
       }
     ],
     "correctAnswer": "a",
@@ -248,24 +314,30 @@
   },
   {
     "id": 11,
-    "question": "What will the following code print?",
-    "codeSnippet": "int[] nums = {10, 20, 30};\nSystem.out.println(nums[1]);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] nums = {10, 20, 30};\nSystem.out.println(nums[1]);",
+    "codeSnippetPL": "int[] nums = {10, 20, 30};\nSystem.out.println(nums[1]);",
     "answers": [
       {
         "label": "a",
-        "text": "10"
+        "textEN": "10",
+        "textPL": "10"
       },
       {
         "label": "b",
-        "text": "30"
+        "textEN": "30",
+        "textPL": "30"
       },
       {
         "label": "c",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       },
       {
         "label": "d",
-        "text": "20"
+        "textEN": "20",
+        "textPL": "20"
       }
     ],
     "correctAnswer": "d",
@@ -275,24 +347,30 @@
   },
   {
     "id": 12,
-    "question": "What will the following code print?",
-    "codeSnippet": "double d = 3.9;\nint x = (int) d;\nSystem.out.println(x);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "double d = 3.9;\nint x = (int) d;\nSystem.out.println(x);",
+    "codeSnippetPL": "double d = 3.9;\nint x = (int) d;\nSystem.out.println(x);",
     "answers": [
       {
         "label": "a",
-        "text": "4"
+        "textEN": "4",
+        "textPL": "4"
       },
       {
         "label": "b",
-        "text": "3"
+        "textEN": "3",
+        "textPL": "3"
       },
       {
         "label": "c",
-        "text": "3.9"
+        "textEN": "3.9",
+        "textPL": "3.9"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "b",
@@ -303,24 +381,30 @@
   },
   {
     "id": 13,
-    "question": "What will the following code print?",
-    "codeSnippet": "String s = \"Java\";\nSystem.out.println(s.toUpperCase());",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"Java\";\nSystem.out.println(s.toUpperCase());",
+    "codeSnippetPL": "String s = \"Java\";\nSystem.out.println(s.toUpperCase());",
     "answers": [
       {
         "label": "a",
-        "text": "java"
+        "textEN": "java",
+        "textPL": "java"
       },
       {
         "label": "b",
-        "text": "Java"
+        "textEN": "Java",
+        "textPL": "Java"
       },
       {
         "label": "c",
-        "text": "JAVA"
+        "textEN": "JAVA",
+        "textPL": "JAVA"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "c",
@@ -330,24 +414,30 @@
   },
   {
     "id": 14,
-    "question": "What will the following code print?",
-    "codeSnippet": "int x = 5;\nSystem.out.println(++x);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int x = 5;\nSystem.out.println(++x);",
+    "codeSnippetPL": "int x = 5;\nSystem.out.println(++x);",
     "answers": [
       {
         "label": "a",
-        "text": "6"
+        "textEN": "6",
+        "textPL": "6"
       },
       {
         "label": "b",
-        "text": "5"
+        "textEN": "5",
+        "textPL": "5"
       },
       {
         "label": "c",
-        "text": "7"
+        "textEN": "7",
+        "textPL": "7"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "a",
@@ -357,24 +447,30 @@
   },
   {
     "id": 15,
-    "question": "What will the following code print?",
-    "codeSnippet": "int sum = 0;\nfor (int i = 1; i <= 3; i++) {\n  sum += i;\n}\nSystem.out.println(sum);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int sum = 0;\nfor (int i = 1; i <= 3; i++) {\n  sum += i;\n}\nSystem.out.println(sum);",
+    "codeSnippetPL": "int suma = 0;\nfor (int i = 1; i <= 3; i++) {\n  suma += i;\n}\nSystem.out.println(suma);",
     "answers": [
       {
         "label": "a",
-        "text": "3"
+        "textEN": "3",
+        "textPL": "3"
       },
       {
         "label": "b",
-        "text": "0"
+        "textEN": "0",
+        "textPL": "0"
       },
       {
         "label": "c",
-        "text": "9"
+        "textEN": "9",
+        "textPL": "9"
       },
       {
         "label": "d",
-        "text": "6"
+        "textEN": "6",
+        "textPL": "6"
       }
     ],
     "correctAnswer": "d",
@@ -385,24 +481,30 @@
   },
   {
     "id": 16,
-    "question": "Which data type should fill the blank to store the value 3.14 without a compilation error?",
-    "codeSnippet": "______ pi = 3.14;\nSystem.out.println(pi);",
+    "questionEN": "Which data type should fill the blank to store the value 3.14 without a compilation error?",
+    "questionPL": "Jakiego typu należy użyć w pustym miejscu, aby przechować wartość 3.14 bez błędu kompilacji?",
+    "codeSnippetEN": "______ pi = 3.14;\nSystem.out.println(pi);",
+    "codeSnippetPL": "______ pi = 3.14;\nSystem.out.println(pi);",
     "answers": [
       {
         "label": "a",
-        "text": "int"
+        "textEN": "int",
+        "textPL": "int"
       },
       {
         "label": "b",
-        "text": "double"
+        "textEN": "double",
+        "textPL": "double"
       },
       {
         "label": "c",
-        "text": "String"
+        "textEN": "String",
+        "textPL": "String"
       },
       {
         "label": "d",
-        "text": "boolean"
+        "textEN": "boolean",
+        "textPL": "boolean"
       }
     ],
     "correctAnswer": "b",
@@ -412,24 +514,30 @@
   },
   {
     "id": 17,
-    "question": "What will the following code print?",
-    "codeSnippet": "int[] arr = new int[3];\nSystem.out.println(arr[0]);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] arr = new int[3];\nSystem.out.println(arr[0]);",
+    "codeSnippetPL": "int[] arr = new int[3];\nSystem.out.println(arr[0]);",
     "answers": [
       {
         "label": "a",
-        "text": "null"
+        "textEN": "null",
+        "textPL": "null"
       },
       {
         "label": "b",
-        "text": "1"
+        "textEN": "1",
+        "textPL": "1"
       },
       {
         "label": "c",
-        "text": "0"
+        "textEN": "0",
+        "textPL": "0"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "c",
@@ -439,24 +547,30 @@
   },
   {
     "id": 18,
-    "question": "What will the following code print?",
-    "codeSnippet": "int n = 10;\nif (n < 5) {\n  System.out.println(\"small\");\n} else {\n  System.out.println(\"big\");\n}",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int n = 10;\nif (n < 5) {\n  System.out.println(\"small\");\n} else {\n  System.out.println(\"big\");\n}",
+    "codeSnippetPL": "int n = 10;\nif (n < 5) {\n  System.out.println(\"małe\");\n} else {\n  System.out.println(\"duże\");\n}",
     "answers": [
       {
         "label": "a",
-        "text": "big"
+        "textEN": "big",
+        "textPL": "duże"
       },
       {
         "label": "b",
-        "text": "small"
+        "textEN": "small",
+        "textPL": "małe"
       },
       {
         "label": "c",
-        "text": "small\nbig"
+        "textEN": "small\nbig",
+        "textPL": "małe\nduże"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "a",
@@ -466,24 +580,30 @@
   },
   {
     "id": 19,
-    "question": "What will the following code print?",
-    "codeSnippet": "static int triple(int n) {\n  return n * 3;\n}\n\n// called as:\nSystem.out.println(triple(4));",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static int triple(int n) {\n  return n * 3;\n}\n\n// called as:\nSystem.out.println(triple(4));",
+    "codeSnippetPL": "static int potroj(int n) {\n  return n * 3;\n}\n\n// wywołanie:\nSystem.out.println(potroj(4));",
     "answers": [
       {
         "label": "a",
-        "text": "4"
+        "textEN": "4",
+        "textPL": "4"
       },
       {
         "label": "b",
-        "text": "3"
+        "textEN": "3",
+        "textPL": "3"
       },
       {
         "label": "c",
-        "text": "8"
+        "textEN": "8",
+        "textPL": "8"
       },
       {
         "label": "d",
-        "text": "12"
+        "textEN": "12",
+        "textPL": "12"
       }
     ],
     "correctAnswer": "d",
@@ -493,24 +613,30 @@
   },
   {
     "id": 20,
-    "question": "What will the following code print?",
-    "codeSnippet": "boolean x = true;\nboolean y = false;\nSystem.out.println(x && y);",
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean x = true;\nboolean y = false;\nSystem.out.println(x && y);",
+    "codeSnippetPL": "boolean x = true;\nboolean y = false;\nSystem.out.println(x && y);",
     "answers": [
       {
         "label": "a",
-        "text": "true"
+        "textEN": "true",
+        "textPL": "true"
       },
       {
         "label": "b",
-        "text": "false"
+        "textEN": "false",
+        "textPL": "false"
       },
       {
         "label": "c",
-        "text": "1"
+        "textEN": "1",
+        "textPL": "1"
       },
       {
         "label": "d",
-        "text": "Compilation error"
+        "textEN": "Compilation error",
+        "textPL": "Błąd kompilacji"
       }
     ],
     "correctAnswer": "b",

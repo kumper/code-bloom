@@ -21,11 +21,11 @@
         [(ngModel)]="selectedAnswerValue"
         (change)="onAnswerChange()"
         class="me-2 mt-1 flex-shrink-0"
-        [attr.aria-label]="answer.label + ': ' + answer.text"
+        [attr.aria-label]="answer.label + ': ' + (langService.lang() === 'pl' ? answer.textPL : answer.textEN)"
       />
       <div class="answer-content">
         <span class="fw-semibold me-2 answer-label">{{ answer.label }})</span>
-        <span class="text-dark answer-text">{{ answer.text }}</span>
+        <span class="text-dark answer-text">{{ langService.lang() === 'pl' ? answer.textPL : answer.textEN }}</span>
       </div>
     </label>
   }
@@ -38,7 +38,7 @@
   type="button"
   [attr.aria-disabled]="!selectedAnswerValue"
 >
-  Submit Answer
+  {{ langService.t('quiz.submitBtn') }}
 </button>
 
 @if (tags().length > 0) {

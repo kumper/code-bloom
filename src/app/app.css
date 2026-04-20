@@ -1,3 +1,23 @@
 .app-title {
   color: var(--pink-primary);
 }
+
+.header-bar {
+  display: flex;
+  align-items: center;
+}
+
+.header-spacer,
+.header-actions {
+  flex: 1;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.app-title {
+  flex: 0 0 auto;
+  text-align: center;
+}
