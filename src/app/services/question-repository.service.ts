@@ -11,10 +11,6 @@ export class QuestionRepositoryService {
   private readonly questions: Question[] = questionsData;
   private readonly tokenService = inject(SessionTokenService);
 
-  getRandomQuestion(): Question {
-    const randomIndex = Math.floor(Math.random() * this.questions.length);
-    return this.questions[randomIndex];
-  }
 
   /**
    * Returns a random question not seen within the last 60 days.
