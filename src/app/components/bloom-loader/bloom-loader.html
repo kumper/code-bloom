@@ -1,33 +1,40 @@
 <div class="bloom">
-  <svg viewBox="0 0 200 300" class="bloom__svg" aria-hidden="true">
+  <svg viewBox="0 0 200 240" class="bloom__svg" aria-hidden="true">
 
-    <!-- Trunk: grows upward from bottom center -->
-    <line x1="100" y1="280" x2="100" y2="120" class="bloom__trunk" stroke-linecap="round"/>
+    <line x1="100" y1="260" x2="100" y2="80" pathLength="1" class="bloom1__trunk"/>
 
-    <!-- Branch 1 (right, lowest) -->
-    <line x1="100" y1="240" x2="140" y2="215" class="bloom__branch bloom__branch--1" stroke-linecap="round"/>
+    <!--branch 1-->
+    <path d="M 100 200
+              A 40 40 0 0 0 20 200"
+          class="bloom1__branch bloom1__branch--1a" pathLength="1"/>
 
-    <!-- Branch 2 (left) -->
-    <line x1="100" y1="215" x2="55"  y2="190" class="bloom__branch bloom__branch--2" stroke-linecap="round"/>
+    <path d="M 20 200
+              A 40 40 0 0 0 40 235"
+          class="bloom1__branch bloom1__branch--1b" pathLength="1"/>
 
-    <!-- Branch 3 (right) -->
-    <line x1="100" y1="190" x2="150" y2="160" class="bloom__branch bloom__branch--3" stroke-linecap="round"/>
+    <!--branch 2-->
+    <path d="M 100 180
+              A 40 40 0 0 1 180 180"
+          class="bloom1__branch bloom1__branch--2a" pathLength="1"/>
 
-    <!-- Branch 4 (left) -->
-    <line x1="100" y1="165" x2="50"  y2="135" class="bloom__branch bloom__branch--4" stroke-linecap="round"/>
+    <path d="M 180 180
+              A 40 40 0 0 1 160 215"
+          class="bloom1__branch bloom1__branch--2b" pathLength="1"/>
 
-    <!-- Branch 5 (right, top) -->
-    <line x1="100" y1="140" x2="145" y2="108" class="bloom__branch bloom__branch--5" stroke-linecap="round"/>
+    <!--branch 3-->
+    <path d="M 100 130
+              A 25 25 0 0 0 50 130"
+          class="bloom1__branch bloom1__branch--3" pathLength="1"/>
 
-    <!-- Blossoms at branch tips -->
-    <circle cx="140" cy="215" r="8"  class="bloom__blossom bloom__blossom--1"/>
-    <circle cx="55"  cy="190" r="9"  class="bloom__blossom bloom__blossom--2"/>
-    <circle cx="150" cy="160" r="10" class="bloom__blossom bloom__blossom--3"/>
-    <circle cx="50"  cy="135" r="9"  class="bloom__blossom bloom__blossom--4"/>
-    <circle cx="145" cy="108" r="11" class="bloom__blossom bloom__blossom--5"/>
+    <!--branch 4-->
+    <path d="M 100 110
+              A 25 25 0 0 1 150 110"
+          class="bloom1__branch bloom1__branch--4" pathLength="1"/>
 
-    <!-- Crown blossom at the top of the trunk -->
-    <circle cx="100" cy="110" r="13" class="bloom__blossom bloom__blossom--crown"/>
+    <!--branch 5-->
+    <path d="M 100 80
+              A 15 15 0 0 0 75 69"
+          class="bloom1__branch bloom1__branch--5" pathLength="1"/>
   </svg>
 
   <p class="bloom__text">{{ langService.t('bloom.preparing') }}</p>
