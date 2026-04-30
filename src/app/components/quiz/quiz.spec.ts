@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ActivatedRoute, provideRouter, Router} from '@angular/router';
+import {provideRouter, Router} from '@angular/router';
 import {QuizComponent} from './quiz';
 import {SessionTokenService} from '../../services/session-token.service';
 import {QuestionRepositoryService} from '../../services/question-repository.service';
@@ -40,7 +40,7 @@ function buildToken(overrides: Partial<SessionToken> = {}): SessionToken {
 }
 
 async function createFixture(
-  tokenParam: string | null,
+  token: SessionToken | null,
   questionResult: Question | null = mockQuestion,
 ): Promise<{
   fixture: ComponentFixture<QuizComponent>;
@@ -48,14 +48,18 @@ async function createFixture(
   router: Router;
   questionRepo: QuestionRepositoryService;
 }> {
+  const tokenService = new SessionTokenService();
+  if (token) {
+    tokenService.save(token);
+  } else {
+    tokenService.clear();
+  }
+
   await TestBed.configureTestingModule({
     imports: [QuizComponent],
     providers: [
       provideRouter([]),
-      {
-        provide: ActivatedRoute,
-        useValue: {snapshot: {queryParamMap: {get: () => tokenParam}}},
-      },
+      {provide: SessionTokenService, useValue: tokenService},
     ],
   }).compileComponents();
 
@@ -71,33 +75,25 @@ async function createFixture(
 }
 
 describe('QuizComponent', () => {
-  let tokenService: SessionTokenService;
-
-  beforeEach(() => {
-    tokenService = new SessionTokenService();
-  });
-
   afterEach(() => {
+    localStorage.clear();
     TestBed.resetTestingModule();
   });
 
   it('should create', async () => {
-    const encoded = tokenService.encode(buildToken());
-    const {component} = await createFixture(encoded);
+    const {component} = await createFixture(buildToken());
     expect(component).toBeTruthy();
   });
 
   it('should show question state when a question is available', async () => {
-    const encoded = tokenService.encode(buildToken({seenCategories: ['loops']}));
-    const {component} = await createFixture(encoded, categoryQuestion);
+    const {component} = await createFixture(buildToken({seenCategories: ['loops']}), categoryQuestion);
     component.onBloomDone();
     expect(component.state()).toBe('question');
     expect(component.currentQuestion()?.id).toBe(categoryQuestion.id);
   });
 
   it('should show category intro for a new category before the question', async () => {
-    const encoded = tokenService.encode(buildToken());
-    const {component} = await createFixture(encoded, categoryQuestion);
+    const {component} = await createFixture(buildToken(), categoryQuestion);
     component.onBloomDone();
 
     expect(component.state()).toBe('category-intro');
@@ -106,8 +102,7 @@ describe('QuizComponent', () => {
   });
 
   it('should mark the category as seen when intro is dismissed', async () => {
-    const encoded = tokenService.encode(buildToken());
-    const {component} = await createFixture(encoded, categoryQuestion);
+    const {component} = await createFixture(buildToken(), categoryQuestion);
     component.onBloomDone();
     component.onIntroDismissed();
 
@@ -118,8 +113,7 @@ describe('QuizComponent', () => {
   });
 
   it('should show an intro on demand when a tag is clicked', async () => {
-    const encoded = tokenService.encode(buildToken({seenCategories: ['loops']}));
-    const {component} = await createFixture(encoded, categoryQuestion);
+    const {component} = await createFixture(buildToken({seenCategories: ['loops']}), categoryQuestion);
     component.onBloomDone();
     component.onTagClicked('#loops');
 
@@ -130,24 +124,21 @@ describe('QuizComponent', () => {
 
   it('should show daily-limit state when limit is reached', async () => {
     const today = new Date().toISOString().slice(0, 10);
-    const encoded = tokenService.encode(
+    const {component} = await createFixture(
       buildToken({dailyProgress: {date: today, exercisesCompletedToday: 5}}),
     );
-    const {component} = await createFixture(encoded);
     component.onBloomDone();
     expect(component.state()).toBe('daily-limit');
   });
 
   it('should show all-exhausted state when no question is available', async () => {
-    const encoded = tokenService.encode(buildToken());
-    const {component} = await createFixture(encoded, null);
+    const {component} = await createFixture(buildToken(), null);
     component.onBloomDone();
     expect(component.state()).toBe('all-exhausted');
   });
 
   it('should award a point and set wasCorrect=true on correct answer', async () => {
-    const encoded = tokenService.encode(buildToken());
-    const {component} = await createFixture(encoded);
+    const {component} = await createFixture(buildToken());
     component.onBloomDone();
     component.onAnswerSubmitted('b');
     expect(component.wasCorrect()).toBe(true);
@@ -156,8 +147,7 @@ describe('QuizComponent', () => {
   });
 
   it('should not award a point on wrong answer', async () => {
-    const encoded = tokenService.encode(buildToken());
-    const {component} = await createFixture(encoded);
+    const {component} = await createFixture(buildToken());
     component.onBloomDone();
     component.onAnswerSubmitted('a');
     expect(component.wasCorrect()).toBe(false);
@@ -165,15 +155,10 @@ describe('QuizComponent', () => {
     expect(component.state()).toBe('answered');
   });
 
-  it('should redirect to / when no token query param is present', async () => {
+  it('should redirect to / when no token is in localStorage', async () => {
     const {router} = await createFixture(null);
     const navigateSpy = vi.spyOn(router, 'navigate').mockResolvedValue(true);
-    // ngOnInit already ran; spy captures future calls — verify via component state
-    // The component navigates away synchronously in ngOnInit, so state stays 'blooming'
     expect(navigateSpy).not.toHaveBeenCalledWith(['/quiz']);
   });
 });
-
-
-
 

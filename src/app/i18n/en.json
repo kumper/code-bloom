@@ -11,6 +11,7 @@
   "quiz.greeting": "Hey, {name}!",
   "quiz.dailyLimit.heading": "That's all for today, {name}!",
   "quiz.dailyLimit.subtitle": "You've completed {limit} exercises today. Come back tomorrow for more!",
+  "quiz.dailyLimit.persist": "Don't close this browser tab — your progress is saved locally and will be here when you return tomorrow.",
   "quiz.allExhausted.heading": "Incredible, {name}!",
   "quiz.allExhausted.subtitle": "You've seen every available exercise in the last 60 days. Check back later for fresh questions!",
   "quiz.totalPoints": "total points",

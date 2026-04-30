@@ -9,6 +9,7 @@ type SessionTokenWithOptionalCategoryFields = SessionToken & {
 export const DAILY_LIMIT = 5;
 export const HISTORY_WINDOW_DAYS = 60;
 const TOKEN_VERSION = 1;
+const STORAGE_KEY = 'codebloom_session';
 
 @Injectable({providedIn: 'root'})
 export class SessionTokenService {
@@ -166,6 +167,21 @@ export class SessionTokenService {
       ...token,
       history: token.history.filter((e) => e.lastSeenOn >= cutoff),
     };
+  }
+
+  save(token: SessionToken): void {
+    const encoded = this.encode(token);
+    localStorage.setItem(STORAGE_KEY, encoded);
+  }
+
+  load(): SessionToken | null {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return this.decode(raw);
+  }
+
+  clear(): void {
+    localStorage.removeItem(STORAGE_KEY);
   }
 
   /** Returns Set of questionIds seen within the last 60 days. */

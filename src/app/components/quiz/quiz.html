@@ -23,10 +23,11 @@
         <div class="quiz__limit-icon mb-3" aria-hidden="true">🌙</div>
         <h2 class="fw-bold quiz__limit-heading mb-2">{{ langService.t('quiz.dailyLimit.heading', {name: userName()}) }}</h2>
         <p class="text-secondary mb-3">{{ langService.t('quiz.dailyLimit.subtitle', {limit: dailyLimit.toString()}) }}</p>
-        <div class="quiz__points mx-auto">
+        <div class="quiz__points mx-auto mb-3">
           <span class="quiz__points-value fw-bold">{{ totalPoints() }}</span>
           <span class="quiz__points-label">{{ langService.t('quiz.totalPoints') }}</span>
         </div>
+        <p class="text-muted small fst-italic">{{ langService.t('quiz.dailyLimit.persist') }}</p>
       </div>
     </app-generic-frame>
   }

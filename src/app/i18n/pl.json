@@ -11,6 +11,7 @@
   "quiz.greeting": "Hej, {name}!",
   "quiz.dailyLimit.heading": "To wszystko na dziś, {name}!",
   "quiz.dailyLimit.subtitle": "Ukończyłeś/aś {limit} ćwiczeń dziś. Wróć jutro po więcej!",
+  "quiz.dailyLimit.persist": "Nie zamykaj tej karty przeglądarki — Twój postęp jest zapisany lokalnie i będzie tu, gdy wrócisz jutro.",
   "quiz.allExhausted.heading": "Niesamowite, {name}!",
   "quiz.allExhausted.subtitle": "Widziałeś/aś już wszystkie dostępne ćwiczenia z ostatnich 60 dni. Wróć później po nowe pytania!",
   "quiz.totalPoints": "punktów łącznie",

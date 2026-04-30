@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, computed, inject, OnInit, signal} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {SessionToken} from '../../models/session-token.model';
 import {Question} from '../../models/question.model';
 import {DAILY_LIMIT, SessionTokenService} from '../../services/session-token.service';
@@ -23,7 +23,6 @@ type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'category-intro'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuizComponent implements OnInit {
-  private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly tokenService = inject(SessionTokenService);
   private readonly questionRepo = inject(QuestionRepositoryService);
@@ -92,19 +91,12 @@ export class QuizComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    const raw = this.route.snapshot.queryParamMap.get('token');
-    if (!raw) {
+    const token = this.tokenService.load();
+    if (!token) {
       void this.router.navigate(['/']);
       return;
     }
-
-    const decoded = this.tokenService.decode(raw);
-    if (!decoded) {
-      void this.router.navigate(['/']);
-      return;
-    }
-
-    this.token.set(decoded);
+    this.token.set(token);
   }
 
   onBloomDone(): void {
@@ -124,7 +116,7 @@ export class QuizComponent implements OnInit {
     this.token.set(updated);
     this.wasCorrect.set(correct);
     this.state.set('answered');
-    this.updateUrlToken(updated);
+    this.persistToken(updated);
   }
 
   onNextQuestion(): void {
@@ -147,7 +139,7 @@ export class QuizComponent implements OnInit {
       updated = this.tokenService.decrementStreak(updated);
       this.token.set(updated);
       this.state.set('question');
-      this.updateUrlToken(updated);
+      this.persistToken(updated);
     } else {
       this.state.set('question');
     }
@@ -204,16 +196,11 @@ export class QuizComponent implements OnInit {
     this.token.set(updated);
     this.currentQuestion.set(question);
     this.state.set('question');
-    this.updateUrlToken(updated);
+    this.persistToken(updated);
   }
 
-  private updateUrlToken(token: SessionToken): void {
-    const encoded = this.tokenService.encode(token);
-    void this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {token: encoded},
-      replaceUrl: true,
-    });
+  private persistToken(token: SessionToken): void {
+    this.tokenService.save(token);
   }
 }
 
