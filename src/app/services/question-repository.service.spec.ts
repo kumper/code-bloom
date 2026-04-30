@@ -45,7 +45,7 @@ describe('QuestionRepositoryService', () => {
   it('should return null when all questions have been recently seen', () => {
     const allSeenToken: SessionToken = {
       ...emptyToken,
-      history: Array.from({length: 20}, (_, i) => ({
+      history: Array.from({length: 70}, (_, i) => ({
         questionId: i + 1,
         firstSeenOn: '2026-04-20',
         lastSeenOn: '2026-04-20',

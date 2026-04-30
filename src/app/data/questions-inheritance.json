@@ -1,0 +1,152 @@
+[
+  {
+    "id": 31,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Animal {\n  String sound() { return \"...\"; }\n}\nclass Cat extends Animal {\n  String sound() { return \"Meow\"; }\n}\n\nAnimal a = new Cat();\nSystem.out.println(a.sound());",
+    "codeSnippetPL": "class Zwierze {\n  String dzwiek() { return \"...\"; }\n}\nclass Kot extends Zwierze {\n  String dzwiek() { return \"Miau\"; }\n}\n\nZwierze z = new Kot();\nSystem.out.println(z.dzwiek());",
+    "answers": [
+      {"label": "a", "textEN": "...", "textPL": "..."},
+      {"label": "b", "textEN": "Meow", "textPL": "Miau"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "null", "textPL": "null"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 32,
+    "questionEN": "What does the `extends` keyword do?",
+    "questionPL": "Co robi słowo kluczowe `extends`?",
+    "codeSnippetEN": "class Vehicle {\n  int speed = 60;\n}\nclass Bike extends Vehicle {\n}\n\nBike b = new Bike();\nSystem.out.println(b.speed);",
+    "codeSnippetPL": "class Pojazd {\n  int predkosc = 60;\n}\nclass Rower extends Pojazd {\n}\n\nRower r = new Rower();\nSystem.out.println(r.predkosc);",
+    "answers": [
+      {"label": "a", "textEN": "0", "textPL": "0"},
+      {"label": "b", "textEN": "60", "textPL": "60"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "null", "textPL": "null"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 33,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Shape {\n  String type() { return \"Shape\"; }\n}\nclass Square extends Shape {\n  @Override\n  String type() { return \"Square\"; }\n}\n\nSquare s = new Square();\nSystem.out.println(s.type());",
+    "codeSnippetPL": "class Figura {\n  String typ() { return \"Figura\"; }\n}\nclass Kwadrat extends Figura {\n  @Override\n  String typ() { return \"Kwadrat\"; }\n}\n\nKwadrat k = new Kwadrat();\nSystem.out.println(k.typ());",
+    "answers": [
+      {"label": "a", "textEN": "Shape", "textPL": "Figura"},
+      {"label": "b", "textEN": "Square", "textPL": "Kwadrat"},
+      {"label": "c", "textEN": "ShapeSquare", "textPL": "FiguraKwadrat"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 34,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Parent {\n  Parent() {\n    System.out.println(\"Parent\");\n  }\n}\nclass Child extends Parent {\n  Child() {\n    System.out.println(\"Child\");\n  }\n}\n\nnew Child();",
+    "codeSnippetPL": "class Rodzic {\n  Rodzic() {\n    System.out.println(\"Rodzic\");\n  }\n}\nclass Dziecko extends Rodzic {\n  Dziecko() {\n    System.out.println(\"Dziecko\");\n  }\n}\n\nnew Dziecko();",
+    "answers": [
+      {"label": "a", "textEN": "Child", "textPL": "Dziecko"},
+      {"label": "b", "textEN": "Parent\nChild", "textPL": "Rodzic\nDziecko"},
+      {"label": "c", "textEN": "Child\nParent", "textPL": "Dziecko\nRodzic"},
+      {"label": "d", "textEN": "Parent", "textPL": "Rodzic"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 35,
+    "questionEN": "What will happen when this code is compiled?",
+    "questionPL": "Co się stanie przy kompilacji tego kodu?",
+    "codeSnippetEN": "class Base {\n  void show() { System.out.println(\"Base\"); }\n}\nclass Derived extends Base {\n  @Override\n  void show() { System.out.println(\"Derived\"); }\n}\n\nBase b = new Derived();\nb.show();",
+    "codeSnippetPL": "class Bazowa {\n  void pokaz() { System.out.println(\"Bazowa\"); }\n}\nclass Pochodna extends Bazowa {\n  @Override\n  void pokaz() { System.out.println(\"Pochodna\"); }\n}\n\nBazowa b = new Pochodna();\nb.pokaz();",
+    "answers": [
+      {"label": "a", "textEN": "Base", "textPL": "Bazowa"},
+      {"label": "b", "textEN": "Derived", "textPL": "Pochodna"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Runtime error", "textPL": "Błąd w trakcie wykonywania"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 36,
+    "questionEN": "Can a class in Java extend more than one class?",
+    "questionPL": "Czy klasa w Javie może dziedziczyć po więcej niż jednej klasie?",
+    "codeSnippetEN": "class A {}\nclass B {}\nclass C extends A, B {}",
+    "codeSnippetPL": "class A {}\nclass B {}\nclass C extends A, B {}",
+    "answers": [
+      {"label": "a", "textEN": "Yes, it compiles fine", "textPL": "Tak, kompiluje się poprawnie"},
+      {"label": "b", "textEN": "No — compilation error", "textPL": "Nie — błąd kompilacji"},
+      {"label": "c", "textEN": "Yes, but only with interfaces", "textPL": "Tak, ale tylko z interfejsami"},
+      {"label": "d", "textEN": "Yes, if both classes have no methods", "textPL": "Tak, jeśli obie klasy nie mają metod"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 37,
+    "questionEN": "What does `super()` do inside a constructor?",
+    "questionPL": "Co robi `super()` wewnątrz konstruktora?",
+    "codeSnippetEN": "class Animal {\n  String name;\n  Animal(String name) { this.name = name; }\n}\nclass Dog extends Animal {\n  Dog(String name) { super(name); }\n}\n\nDog d = new Dog(\"Rex\");\nSystem.out.println(d.name);",
+    "codeSnippetPL": "class Zwierze {\n  String imie;\n  Zwierze(String imie) { this.imie = imie; }\n}\nclass Pies extends Zwierze {\n  Pies(String imie) { super(imie); }\n}\n\nPies p = new Pies(\"Rex\");\nSystem.out.println(p.imie);",
+    "answers": [
+      {"label": "a", "textEN": "null", "textPL": "null"},
+      {"label": "b", "textEN": "Rex", "textPL": "Rex"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Runtime error", "textPL": "Błąd w trakcie wykonywania"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 38,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Fruit {\n  String color() { return \"unknown\"; }\n}\nclass Apple extends Fruit {\n  String color() { return \"red\"; }\n}\nclass GreenApple extends Apple {\n  String color() { return \"green\"; }\n}\n\nFruit f = new GreenApple();\nSystem.out.println(f.color());",
+    "codeSnippetPL": "class Owoc {\n  String kolor() { return \"nieznany\"; }\n}\nclass Jablko extends Owoc {\n  String kolor() { return \"czerwone\"; }\n}\nclass ZieloneJablko extends Jablko {\n  String kolor() { return \"zielone\"; }\n}\n\nOwoc o = new ZieloneJablko();\nSystem.out.println(o.kolor());",
+    "answers": [
+      {"label": "a", "textEN": "unknown", "textPL": "nieznany"},
+      {"label": "b", "textEN": "red", "textPL": "czerwone"},
+      {"label": "c", "textEN": "green", "textPL": "zielone"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 39,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class A {\n  int x = 10;\n}\nclass B extends A {\n  int x = 20;\n}\n\nA obj = new B();\nSystem.out.println(obj.x);",
+    "codeSnippetPL": "class A {\n  int x = 10;\n}\nclass B extends A {\n  int x = 20;\n}\n\nA obj = new B();\nSystem.out.println(obj.x);",
+    "answers": [
+      {"label": "a", "textEN": "10", "textPL": "10"},
+      {"label": "b", "textEN": "20", "textPL": "20"},
+      {"label": "c", "textEN": "0", "textPL": "0"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#inheritance"]
+  },
+  {
+    "id": 40,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Machine {\n  void start() {\n    System.out.println(\"Machine started\");\n  }\n}\nclass Robot extends Machine {\n  void start() {\n    super.start();\n    System.out.println(\"Robot ready\");\n  }\n}\n\nnew Robot().start();",
+    "codeSnippetPL": "class Maszyna {\n  void uruchom() {\n    System.out.println(\"Maszyna uruchomiona\");\n  }\n}\nclass Robot extends Maszyna {\n  void uruchom() {\n    super.uruchom();\n    System.out.println(\"Robot gotowy\");\n  }\n}\n\nnew Robot().uruchom();",
+    "answers": [
+      {"label": "a", "textEN": "Robot ready", "textPL": "Robot gotowy"},
+      {"label": "b", "textEN": "Machine started\nRobot ready", "textPL": "Maszyna uruchomiona\nRobot gotowy"},
+      {"label": "c", "textEN": "Machine started", "textPL": "Maszyna uruchomiona"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#inheritance"]
+  }
+]

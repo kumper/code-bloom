@@ -1,0 +1,152 @@
+[
+  {
+    "id": 61,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "import java.util.ArrayList;\n\nArrayList<String> list = new ArrayList<>();\nlist.add(\"A\");\nlist.add(\"B\");\nSystem.out.println(list.size());",
+    "codeSnippetPL": "import java.util.ArrayList;\n\nArrayList<String> lista = new ArrayList<>();\nlista.add(\"A\");\nlista.add(\"B\");\nSystem.out.println(lista.size());",
+    "answers": [
+      {"label": "a", "textEN": "0", "textPL": "0"},
+      {"label": "b", "textEN": "1", "textPL": "1"},
+      {"label": "c", "textEN": "2", "textPL": "2"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 62,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "import java.util.ArrayList;\n\nArrayList<Integer> nums = new ArrayList<>();\nnums.add(10);\nnums.add(20);\nnums.add(30);\nSystem.out.println(nums.get(1));",
+    "codeSnippetPL": "import java.util.ArrayList;\n\nArrayList<Integer> liczby = new ArrayList<>();\nliczby.add(10);\nliczby.add(20);\nliczby.add(30);\nSystem.out.println(liczby.get(1));",
+    "answers": [
+      {"label": "a", "textEN": "10", "textPL": "10"},
+      {"label": "b", "textEN": "20", "textPL": "20"},
+      {"label": "c", "textEN": "30", "textPL": "30"},
+      {"label": "d", "textEN": "1", "textPL": "1"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 63,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "import java.util.ArrayList;\n\nArrayList<String> colors = new ArrayList<>();\ncolors.add(\"Red\");\ncolors.add(\"Blue\");\ncolors.remove(0);\nSystem.out.println(colors.get(0));",
+    "codeSnippetPL": "import java.util.ArrayList;\n\nArrayList<String> kolory = new ArrayList<>();\nkolory.add(\"Czerwony\");\nkolory.add(\"Niebieski\");\nkolory.remove(0);\nSystem.out.println(kolory.get(0));",
+    "answers": [
+      {"label": "a", "textEN": "Red", "textPL": "Czerwony"},
+      {"label": "b", "textEN": "Blue", "textPL": "Niebieski"},
+      {"label": "c", "textEN": "null", "textPL": "null"},
+      {"label": "d", "textEN": "IndexOutOfBoundsException", "textPL": "IndexOutOfBoundsException"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 64,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "import java.util.HashMap;\n\nHashMap<String, Integer> map = new HashMap<>();\nmap.put(\"age\", 25);\nmap.put(\"age\", 30);\nSystem.out.println(map.get(\"age\"));",
+    "codeSnippetPL": "import java.util.HashMap;\n\nHashMap<String, Integer> mapa = new HashMap<>();\nmapa.put(\"wiek\", 25);\nmapa.put(\"wiek\", 30);\nSystem.out.println(mapa.get(\"wiek\"));",
+    "answers": [
+      {"label": "a", "textEN": "25", "textPL": "25"},
+      {"label": "b", "textEN": "30", "textPL": "30"},
+      {"label": "c", "textEN": "null", "textPL": "null"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 65,
+    "questionEN": "What will the following for-each loop print?",
+    "questionPL": "Co wypisze poniższa pętla for-each?",
+    "codeSnippetEN": "import java.util.ArrayList;\n\nArrayList<String> items = new ArrayList<>();\nitems.add(\"X\");\nitems.add(\"Y\");\nitems.add(\"Z\");\n\nfor (String item : items) {\n  System.out.print(item);\n}",
+    "codeSnippetPL": "import java.util.ArrayList;\n\nArrayList<String> elementy = new ArrayList<>();\nelementy.add(\"X\");\nelementy.add(\"Y\");\nelementy.add(\"Z\");\n\nfor (String el : elementy) {\n  System.out.print(el);\n}",
+    "answers": [
+      {"label": "a", "textEN": "XYZ", "textPL": "XYZ"},
+      {"label": "b", "textEN": "X Y Z", "textPL": "X Y Z"},
+      {"label": "c", "textEN": "012", "textPL": "012"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 66,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "import java.util.HashMap;\n\nHashMap<String, String> capitals = new HashMap<>();\ncapitals.put(\"France\", \"Paris\");\ncapitals.put(\"Japan\", \"Tokyo\");\nSystem.out.println(capitals.get(\"Germany\"));",
+    "codeSnippetPL": "import java.util.HashMap;\n\nHashMap<String, String> stolice = new HashMap<>();\nstolice.put(\"Francja\", \"Paryż\");\nstolice.put(\"Japonia\", \"Tokio\");\nSystem.out.println(stolice.get(\"Niemcy\"));",
+    "answers": [
+      {"label": "a", "textEN": "\"\"", "textPL": "\"\""},
+      {"label": "b", "textEN": "null", "textPL": "null"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "KeyNotFoundException", "textPL": "KeyNotFoundException"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 67,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "import java.util.ArrayList;\n\nArrayList<Integer> nums = new ArrayList<>();\nnums.add(5);\nnums.add(3);\nnums.add(8);\nSystem.out.println(nums.contains(3));",
+    "codeSnippetPL": "import java.util.ArrayList;\n\nArrayList<Integer> liczby = new ArrayList<>();\nliczby.add(5);\nliczby.add(3);\nliczby.add(8);\nSystem.out.println(liczby.contains(3));",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 68,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "import java.util.ArrayList;\nimport java.util.Collections;\n\nArrayList<Integer> nums = new ArrayList<>();\nnums.add(3);\nnums.add(1);\nnums.add(2);\nCollections.sort(nums);\nSystem.out.println(nums.get(0));",
+    "codeSnippetPL": "import java.util.ArrayList;\nimport java.util.Collections;\n\nArrayList<Integer> liczby = new ArrayList<>();\nliczby.add(3);\nliczby.add(1);\nliczby.add(2);\nCollections.sort(liczby);\nSystem.out.println(liczby.get(0));",
+    "answers": [
+      {"label": "a", "textEN": "3", "textPL": "3"},
+      {"label": "b", "textEN": "1", "textPL": "1"},
+      {"label": "c", "textEN": "2", "textPL": "2"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 69,
+    "questionEN": "What is the difference between ArrayList and a regular array?",
+    "questionPL": "Jaka jest różnica między ArrayList a zwykłą tablicą?",
+    "codeSnippetEN": "int[] arr = new int[3];\n// vs\nArrayList<Integer> list = new ArrayList<>();",
+    "codeSnippetPL": "int[] tab = new int[3];\n// vs\nArrayList<Integer> lista = new ArrayList<>();",
+    "answers": [
+      {"label": "a", "textEN": "ArrayList has a fixed size", "textPL": "ArrayList ma stały rozmiar"},
+      {"label": "b", "textEN": "Arrays can grow dynamically", "textPL": "Tablice mogą dynamicznie rosnąć"},
+      {"label": "c", "textEN": "ArrayList can grow dynamically", "textPL": "ArrayList może dynamicznie rosnąć"},
+      {"label": "d", "textEN": "There is no difference", "textPL": "Nie ma różnicy"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#collections"]
+  },
+  {
+    "id": 70,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "import java.util.HashMap;\n\nHashMap<String, Integer> scores = new HashMap<>();\nscores.put(\"Alice\", 90);\nscores.put(\"Bob\", 85);\nSystem.out.println(scores.size());",
+    "codeSnippetPL": "import java.util.HashMap;\n\nHashMap<String, Integer> wyniki = new HashMap<>();\nwyniki.put(\"Alicja\", 90);\nwyniki.put(\"Bob\", 85);\nSystem.out.println(wyniki.size());",
+    "answers": [
+      {"label": "a", "textEN": "0", "textPL": "0"},
+      {"label": "b", "textEN": "1", "textPL": "1"},
+      {"label": "c", "textEN": "2", "textPL": "2"},
+      {"label": "d", "textEN": "175", "textPL": "175"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#collections"]
+  }
+]

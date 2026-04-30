@@ -1,0 +1,32 @@
+[
+  {
+    "id": 6,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean flag1 = false;\n\nif (flag1) {\n  System.out.println(\"flag1 is enabled\");\n}",
+    "codeSnippetPL": "boolean flaga1 = false;\n\nif (flaga1) {\n  System.out.println(\"flaga1 jest włączona\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "false", "textPL": "false"},
+      {"label": "b", "textEN": "flag1 is enabled", "textPL": "flaga1 jest włączona"},
+      {"label": "c", "textEN": "Nothing — no output is produced", "textPL": "Brak wyniku"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#booleans"]
+  },
+  {
+    "id": 20,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean x = true;\nboolean y = false;\nSystem.out.println(x && y);",
+    "codeSnippetPL": "boolean x = true;\nboolean y = false;\nSystem.out.println(x && y);",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#booleans"]
+  }
+]

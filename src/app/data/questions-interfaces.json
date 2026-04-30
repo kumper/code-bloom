@@ -1,0 +1,152 @@
+[
+  {
+    "id": 41,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "interface Greetable {\n  String greet();\n}\nclass Hello implements Greetable {\n  public String greet() { return \"Hello!\"; }\n}\n\nGreetable g = new Hello();\nSystem.out.println(g.greet());",
+    "codeSnippetPL": "interface Witajacy {\n  String przywitaj();\n}\nclass Czesc implements Witajacy {\n  public String przywitaj() { return \"Cześć!\"; }\n}\n\nWitajacy w = new Czesc();\nSystem.out.println(w.przywitaj());",
+    "answers": [
+      {"label": "a", "textEN": "Hello!", "textPL": "Cześć!"},
+      {"label": "b", "textEN": "null", "textPL": "null"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Runtime error", "textPL": "Błąd w trakcie wykonywania"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 42,
+    "questionEN": "Can a class implement multiple interfaces in Java?",
+    "questionPL": "Czy klasa w Javie może implementować wiele interfejsów?",
+    "codeSnippetEN": "interface Flyable { void fly(); }\ninterface Swimmable { void swim(); }\n\nclass Duck implements Flyable, Swimmable {\n  public void fly() { System.out.println(\"Flying\"); }\n  public void swim() { System.out.println(\"Swimming\"); }\n}",
+    "codeSnippetPL": "interface Latajacy { void lataj(); }\ninterface Plywajacy { void plywaj(); }\n\nclass Kaczka implements Latajacy, Plywajacy {\n  public void lataj() { System.out.println(\"Lata\"); }\n  public void plywaj() { System.out.println(\"Pływa\"); }\n}",
+    "answers": [
+      {"label": "a", "textEN": "No — compilation error", "textPL": "Nie — błąd kompilacji"},
+      {"label": "b", "textEN": "Yes — this compiles fine", "textPL": "Tak — kompiluje się poprawnie"},
+      {"label": "c", "textEN": "Only if interfaces have no methods", "textPL": "Tylko jeśli interfejsy nie mają metod"},
+      {"label": "d", "textEN": "Only with abstract classes", "textPL": "Tylko z klasami abstrakcyjnymi"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 43,
+    "questionEN": "What happens if a class does not implement all methods of an interface?",
+    "questionPL": "Co się stanie, jeśli klasa nie zaimplementuje wszystkich metod interfejsu?",
+    "codeSnippetEN": "interface Printable {\n  void print();\n  void scan();\n}\n\nclass Printer implements Printable {\n  public void print() {\n    System.out.println(\"Printing\");\n  }\n}",
+    "codeSnippetPL": "interface Drukowalny {\n  void drukuj();\n  void skanuj();\n}\n\nclass Drukarka implements Drukowalny {\n  public void drukuj() {\n    System.out.println(\"Drukuję\");\n  }\n}",
+    "answers": [
+      {"label": "a", "textEN": "Compiles fine — missing methods return null", "textPL": "Kompiluje się — brakujące metody zwracają null"},
+      {"label": "b", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "c", "textEN": "Runtime error when calling scan()", "textPL": "Błąd w trakcie wywołania skanuj()"},
+      {"label": "d", "textEN": "Compiles if class is final", "textPL": "Kompiluje się, jeśli klasa jest final"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 44,
+    "questionEN": "What is the difference between an interface and an abstract class?",
+    "questionPL": "Jaka jest różnica między interfejsem a klasą abstrakcyjną?",
+    "codeSnippetEN": "abstract class Shape {\n  abstract double area();\n  void describe() {\n    System.out.println(\"I am a shape\");\n  }\n}",
+    "codeSnippetPL": "abstract class Figura {\n  abstract double pole();\n  void opisz() {\n    System.out.println(\"Jestem figurą\");\n  }\n}",
+    "answers": [
+      {"label": "a", "textEN": "Abstract classes cannot have any methods", "textPL": "Klasy abstrakcyjne nie mogą mieć żadnych metod"},
+      {"label": "b", "textEN": "Abstract classes can have both abstract and concrete methods", "textPL": "Klasy abstrakcyjne mogą mieć metody abstrakcyjne i konkretne"},
+      {"label": "c", "textEN": "Interfaces can have fields", "textPL": "Interfejsy mogą mieć pola"},
+      {"label": "d", "textEN": "There is no difference", "textPL": "Nie ma różnicy"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 45,
+    "questionEN": "Can you create an instance of an abstract class?",
+    "questionPL": "Czy można utworzyć instancję klasy abstrakcyjnej?",
+    "codeSnippetEN": "abstract class Animal {\n  abstract void speak();\n}\n\nAnimal a = new Animal();",
+    "codeSnippetPL": "abstract class Zwierze {\n  abstract void mow();\n}\n\nZwierze z = new Zwierze();",
+    "answers": [
+      {"label": "a", "textEN": "Yes — it creates an object with null methods", "textPL": "Tak — tworzy obiekt z metodami null"},
+      {"label": "b", "textEN": "Yes — abstract is just a suggestion", "textPL": "Tak — abstract to tylko sugestia"},
+      {"label": "c", "textEN": "No — compilation error", "textPL": "Nie — błąd kompilacji"},
+      {"label": "d", "textEN": "No — runtime error", "textPL": "Nie — błąd w trakcie wykonywania"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 46,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "interface Measurable {\n  double measure();\n}\n\nclass Ruler implements Measurable {\n  public double measure() { return 30.0; }\n}\n\nMeasurable m = new Ruler();\nSystem.out.println(m.measure());",
+    "codeSnippetPL": "interface Mierzalny {\n  double zmierz();\n}\n\nclass Linijka implements Mierzalny {\n  public double zmierz() { return 30.0; }\n}\n\nMierzalny m = new Linijka();\nSystem.out.println(m.zmierz());",
+    "answers": [
+      {"label": "a", "textEN": "30.0", "textPL": "30.0"},
+      {"label": "b", "textEN": "0.0", "textPL": "0.0"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "null", "textPL": "null"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 47,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "interface Nameable {\n  default String name() { return \"Unknown\"; }\n}\n\nclass Item implements Nameable {}\n\nItem i = new Item();\nSystem.out.println(i.name());",
+    "codeSnippetPL": "interface Nazwalny {\n  default String nazwa() { return \"Nieznany\"; }\n}\n\nclass Element implements Nazwalny {}\n\nElement e = new Element();\nSystem.out.println(e.nazwa());",
+    "answers": [
+      {"label": "a", "textEN": "null", "textPL": "null"},
+      {"label": "b", "textEN": "Unknown", "textPL": "Nieznany"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Runtime error", "textPL": "Błąd w trakcie wykonywania"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 48,
+    "questionEN": "What access modifier must interface method implementations have?",
+    "questionPL": "Jaki modyfikator dostępu muszą mieć implementacje metod interfejsu?",
+    "codeSnippetEN": "interface Doable {\n  void doIt();\n}\n\nclass Worker implements Doable {\n  void doIt() {\n    System.out.println(\"Done\");\n  }\n}",
+    "codeSnippetPL": "interface Wykonalny {\n  void wykonaj();\n}\n\nclass Pracownik implements Wykonalny {\n  void wykonaj() {\n    System.out.println(\"Gotowe\");\n  }\n}",
+    "answers": [
+      {"label": "a", "textEN": "Compiles fine — default access is OK", "textPL": "Kompiluje się — domyślny dostęp jest OK"},
+      {"label": "b", "textEN": "Compilation error — must be public", "textPL": "Błąd kompilacji — musi być public"},
+      {"label": "c", "textEN": "Compilation error — must be protected", "textPL": "Błąd kompilacji — musi być protected"},
+      {"label": "d", "textEN": "Compiles fine — any modifier works", "textPL": "Kompiluje się — dowolny modyfikator działa"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 49,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "abstract class Converter {\n  abstract int convert(int x);\n  void show(int x) {\n    System.out.println(convert(x));\n  }\n}\nclass Doubler extends Converter {\n  int convert(int x) { return x * 2; }\n}\n\nnew Doubler().show(5);",
+    "codeSnippetPL": "abstract class Konwerter {\n  abstract int konwertuj(int x);\n  void pokaz(int x) {\n    System.out.println(konwertuj(x));\n  }\n}\nclass Podwajacz extends Konwerter {\n  int konwertuj(int x) { return x * 2; }\n}\n\nnew Podwajacz().pokaz(5);",
+    "answers": [
+      {"label": "a", "textEN": "5", "textPL": "5"},
+      {"label": "b", "textEN": "10", "textPL": "10"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "0", "textPL": "0"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#interfaces"]
+  },
+  {
+    "id": 50,
+    "questionEN": "Can an interface extend another interface?",
+    "questionPL": "Czy interfejs może rozszerzać inny interfejs?",
+    "codeSnippetEN": "interface Readable {\n  String read();\n}\ninterface Writable extends Readable {\n  void write(String s);\n}",
+    "codeSnippetPL": "interface Czytelny {\n  String czytaj();\n}\ninterface Zapisywalny extends Czytelny {\n  void zapisz(String s);\n}",
+    "answers": [
+      {"label": "a", "textEN": "No — interfaces cannot extend", "textPL": "Nie — interfejsy nie mogą rozszerzać"},
+      {"label": "b", "textEN": "Yes — this compiles fine", "textPL": "Tak — kompiluje się poprawnie"},
+      {"label": "c", "textEN": "Only with the implements keyword", "textPL": "Tylko ze słowem implements"},
+      {"label": "d", "textEN": "Only abstract interfaces can extend", "textPL": "Tylko abstrakcyjne interfejsy mogą rozszerzać"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#interfaces"]
+  }
+]

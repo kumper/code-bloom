@@ -1,0 +1,46 @@
+[
+  {
+    "id": 3,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"Hello\";\nSystem.out.println(s.length());",
+    "codeSnippetPL": "String s = \"Hello\";\nSystem.out.println(s.length());",
+    "answers": [
+      {"label": "a", "textEN": "4", "textPL": "4"},
+      {"label": "b", "textEN": "6", "textPL": "6"},
+      {"label": "c", "textEN": "5", "textPL": "5"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 9,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String a = \"Hello\";\nString b = \" World\";\nSystem.out.println(a + b);",
+    "codeSnippetPL": "String a = \"Hello\";\nString b = \" World\";\nSystem.out.println(a + b);",
+    "answers": [
+      {"label": "a", "textEN": "HelloWorld", "textPL": "HelloWorld"},
+      {"label": "b", "textEN": "Hello + World", "textPL": "Hello + World"},
+      {"label": "c", "textEN": "Hello World", "textPL": "Hello World"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 13,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"Java\";\nSystem.out.println(s.toUpperCase());",
+    "codeSnippetPL": "String s = \"Java\";\nSystem.out.println(s.toUpperCase());",
+    "answers": [
+      {"label": "a", "textEN": "java", "textPL": "java"},
+      {"label": "b", "textEN": "Java", "textPL": "Java"},
+      {"label": "c", "textEN": "JAVA", "textPL": "JAVA"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#strings"]
+  }
+]

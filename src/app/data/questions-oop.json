@@ -1,0 +1,152 @@
+[
+  {
+    "id": 21,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Dog {\n  String name;\n  Dog(String name) {\n    this.name = name;\n  }\n}\n\nDog d = new Dog(\"Rex\");\nSystem.out.println(d.name);",
+    "codeSnippetPL": "class Pies {\n  String imie;\n  Pies(String imie) {\n    this.imie = imie;\n  }\n}\n\nPies p = new Pies(\"Rex\");\nSystem.out.println(p.imie);",
+    "answers": [
+      {"label": "a", "textEN": "null", "textPL": "null"},
+      {"label": "b", "textEN": "Rex", "textPL": "Rex"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Dog@1a2b3c", "textPL": "Pies@1a2b3c"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 22,
+    "questionEN": "What does the keyword `this` refer to inside a method?",
+    "questionPL": "Do czego odnosi się słowo kluczowe `this` wewnątrz metody?",
+    "codeSnippetEN": "class Car {\n  String color;\n  void setColor(String color) {\n    this.color = color;\n  }\n}",
+    "codeSnippetPL": "class Samochod {\n  String kolor;\n  void ustawKolor(String kolor) {\n    this.kolor = kolor;\n  }\n}",
+    "answers": [
+      {"label": "a", "textEN": "The class itself", "textPL": "Samą klasę"},
+      {"label": "b", "textEN": "The current object instance", "textPL": "Bieżącą instancję obiektu"},
+      {"label": "c", "textEN": "The method parameter", "textPL": "Parametr metody"},
+      {"label": "d", "textEN": "The parent class", "textPL": "Klasę nadrzędną"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 23,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Counter {\n  int count = 0;\n  void increment() {\n    count++;\n  }\n}\n\nCounter c = new Counter();\nc.increment();\nc.increment();\nSystem.out.println(c.count);",
+    "codeSnippetPL": "class Licznik {\n  int wartosc = 0;\n  void zwieksz() {\n    wartosc++;\n  }\n}\n\nLicznik l = new Licznik();\nl.zwieksz();\nl.zwieksz();\nSystem.out.println(l.wartosc);",
+    "answers": [
+      {"label": "a", "textEN": "0", "textPL": "0"},
+      {"label": "b", "textEN": "1", "textPL": "1"},
+      {"label": "c", "textEN": "2", "textPL": "2"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 24,
+    "questionEN": "What happens when you create an object without defining a constructor?",
+    "questionPL": "Co się dzieje, gdy tworzysz obiekt bez zdefiniowanego konstruktora?",
+    "codeSnippetEN": "class Point {\n  int x;\n  int y;\n}\n\nPoint p = new Point();\nSystem.out.println(p.x + \", \" + p.y);",
+    "codeSnippetPL": "class Punkt {\n  int x;\n  int y;\n}\n\nPunkt p = new Punkt();\nSystem.out.println(p.x + \", \" + p.y);",
+    "answers": [
+      {"label": "a", "textEN": "Compilation error — no constructor", "textPL": "Błąd kompilacji — brak konstruktora"},
+      {"label": "b", "textEN": "0, 0", "textPL": "0, 0"},
+      {"label": "c", "textEN": "null, null", "textPL": "null, null"},
+      {"label": "d", "textEN": "Runtime error", "textPL": "Błąd w trakcie wykonywania"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 25,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Box {\n  private int size;\n  Box(int size) { this.size = size; }\n  int getSize() { return size; }\n}\n\nBox b = new Box(5);\nSystem.out.println(b.getSize());",
+    "codeSnippetPL": "class Pudelko {\n  private int rozmiar;\n  Pudelko(int rozmiar) { this.rozmiar = rozmiar; }\n  int getRozmiar() { return rozmiar; }\n}\n\nPudelko p = new Pudelko(5);\nSystem.out.println(p.getRozmiar());",
+    "answers": [
+      {"label": "a", "textEN": "5", "textPL": "5"},
+      {"label": "b", "textEN": "0", "textPL": "0"},
+      {"label": "c", "textEN": "null", "textPL": "null"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 26,
+    "questionEN": "What will happen when you try to access a private field directly?",
+    "questionPL": "Co się stanie przy próbie bezpośredniego dostępu do prywatnego pola?",
+    "codeSnippetEN": "class Secret {\n  private String code = \"1234\";\n}\n\nSecret s = new Secret();\nSystem.out.println(s.code);",
+    "codeSnippetPL": "class Sekret {\n  private String kod = \"1234\";\n}\n\nSekret s = new Sekret();\nSystem.out.println(s.kod);",
+    "answers": [
+      {"label": "a", "textEN": "1234", "textPL": "1234"},
+      {"label": "b", "textEN": "null", "textPL": "null"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Runtime error", "textPL": "Błąd w trakcie wykonywania"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 27,
+    "questionEN": "How many objects are created in this code?",
+    "questionPL": "Ile obiektów jest tworzonych w tym kodzie?",
+    "codeSnippetEN": "class Lamp {}\n\nLamp a = new Lamp();\nLamp b = new Lamp();\nLamp c = a;",
+    "codeSnippetPL": "class Lampa {}\n\nLampa a = new Lampa();\nLampa b = new Lampa();\nLampa c = a;",
+    "answers": [
+      {"label": "a", "textEN": "3", "textPL": "3"},
+      {"label": "b", "textEN": "2", "textPL": "2"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 28,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Person {\n  String name;\n  Person(String name) {\n    this.name = name;\n  }\n  String greet() {\n    return \"Hi, I'm \" + name;\n  }\n}\n\nPerson p = new Person(\"Alice\");\nSystem.out.println(p.greet());",
+    "codeSnippetPL": "class Osoba {\n  String imie;\n  Osoba(String imie) {\n    this.imie = imie;\n  }\n  String przywitaj() {\n    return \"Cześć, jestem \" + imie;\n  }\n}\n\nOsoba o = new Osoba(\"Alice\");\nSystem.out.println(o.przywitaj());",
+    "answers": [
+      {"label": "a", "textEN": "Hi, I'm Alice", "textPL": "Cześć, jestem Alice"},
+      {"label": "b", "textEN": "Hi, I'm null", "textPL": "Cześć, jestem null"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Hi, I'm name", "textPL": "Cześć, jestem imie"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 29,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Wallet {\n  int balance = 100;\n  void spend(int amount) {\n    balance -= amount;\n  }\n}\n\nWallet w = new Wallet();\nw.spend(30);\nw.spend(20);\nSystem.out.println(w.balance);",
+    "codeSnippetPL": "class Portfel {\n  int saldo = 100;\n  void wydaj(int kwota) {\n    saldo -= kwota;\n  }\n}\n\nPortfel p = new Portfel();\np.wydaj(30);\np.wydaj(20);\nSystem.out.println(p.saldo);",
+    "answers": [
+      {"label": "a", "textEN": "100", "textPL": "100"},
+      {"label": "b", "textEN": "70", "textPL": "70"},
+      {"label": "c", "textEN": "50", "textPL": "50"},
+      {"label": "d", "textEN": "0", "textPL": "0"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#oop"]
+  },
+  {
+    "id": 30,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "class Circle {\n  double radius;\n  Circle(double r) { this.radius = r; }\n  double area() { return 3.14 * radius * radius; }\n}\n\nCircle c = new Circle(2);\nSystem.out.println(c.area());",
+    "codeSnippetPL": "class Kolo {\n  double promien;\n  Kolo(double r) { this.promien = r; }\n  double pole() { return 3.14 * promien * promien; }\n}\n\nKolo k = new Kolo(2);\nSystem.out.println(k.pole());",
+    "answers": [
+      {"label": "a", "textEN": "6.28", "textPL": "6.28"},
+      {"label": "b", "textEN": "12.56", "textPL": "12.56"},
+      {"label": "c", "textEN": "3.14", "textPL": "3.14"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#oop"]
+  }
+]

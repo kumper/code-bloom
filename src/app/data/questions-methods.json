@@ -1,0 +1,17 @@
+[
+  {
+    "id": 19,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static int triple(int n) {\n  return n * 3;\n}\n\n// called as:\nSystem.out.println(triple(4));",
+    "codeSnippetPL": "static int potroj(int n) {\n  return n * 3;\n}\n\n// wywołanie:\nSystem.out.println(potroj(4));",
+    "answers": [
+      {"label": "a", "textEN": "4", "textPL": "4"},
+      {"label": "b", "textEN": "3", "textPL": "3"},
+      {"label": "c", "textEN": "8", "textPL": "8"},
+      {"label": "d", "textEN": "12", "textPL": "12"}
+    ],
+    "correctAnswer": "d",
+    "tags": ["#methods"]
+  }
+]

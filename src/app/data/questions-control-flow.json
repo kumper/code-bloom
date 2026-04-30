@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "questionEN": "What will be the output of the following code?",
+    "questionPL": "Jaki będzie wynik działania poniższego kodu?",
+    "codeSnippetEN": "int a = 3;\nif (a > 0) {\n  System.out.println(\"'a' is positive\");\n}",
+    "codeSnippetPL": "int a = 3;\nif (a > 0) {\n  System.out.println(\"'a' jest dodatnie\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "Output: nothing", "textPL": "Brak wyniku"},
+      {"label": "b", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "c", "textEN": "Output: 'a' is positive", "textPL": "Wynik: 'a' jest dodatnie"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#control-flow"]
+  },
+  {
+    "id": 5,
+    "questionEN": "Which condition should fill the blank so that the program prints \"b is negative\"?",
+    "questionPL": "Jakie wyrażenie należy wpisać w puste miejsce, aby program wypisał \"b jest ujemne\"?",
+    "codeSnippetEN": "int b = -4;\n\nif (______) {\n  System.out.println(\"b is negative\");\n}",
+    "codeSnippetPL": "int b = -4;\n\nif (______) {\n  System.out.println(\"b jest ujemne\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "b > 0", "textPL": "b > 0"},
+      {"label": "b", "textEN": "b == 0", "textPL": "b == 0"},
+      {"label": "c", "textEN": "b >= 0", "textPL": "b >= 0"},
+      {"label": "d", "textEN": "b < 0", "textPL": "b < 0"}
+    ],
+    "correctAnswer": "d",
+    "tags": ["#control-flow"]
+  },
+  {
+    "id": 18,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int n = 10;\nif (n < 5) {\n  System.out.println(\"small\");\n} else {\n  System.out.println(\"big\");\n}",
+    "codeSnippetPL": "int n = 10;\nif (n < 5) {\n  System.out.println(\"małe\");\n} else {\n  System.out.println(\"duże\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "big", "textPL": "duże"},
+      {"label": "b", "textEN": "small", "textPL": "małe"},
+      {"label": "c", "textEN": "small\nbig", "textPL": "małe\nduże"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#control-flow"]
+  }
+]

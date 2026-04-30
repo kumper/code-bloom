@@ -1,0 +1,32 @@
+[
+  {
+    "id": 11,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] nums = {10, 20, 30};\nSystem.out.println(nums[1]);",
+    "codeSnippetPL": "int[] nums = {10, 20, 30};\nSystem.out.println(nums[1]);",
+    "answers": [
+      {"label": "a", "textEN": "10", "textPL": "10"},
+      {"label": "b", "textEN": "30", "textPL": "30"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "20", "textPL": "20"}
+    ],
+    "correctAnswer": "d",
+    "tags": ["#arrays"]
+  },
+  {
+    "id": 17,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] arr = new int[3];\nSystem.out.println(arr[0]);",
+    "codeSnippetPL": "int[] arr = new int[3];\nSystem.out.println(arr[0]);",
+    "answers": [
+      {"label": "a", "textEN": "null", "textPL": "null"},
+      {"label": "b", "textEN": "1", "textPL": "1"},
+      {"label": "c", "textEN": "0", "textPL": "0"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arrays"]
+  }
+]

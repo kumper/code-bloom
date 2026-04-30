@@ -1,0 +1,32 @@
+[
+  {
+    "id": 12,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "double d = 3.9;\nint x = (int) d;\nSystem.out.println(x);",
+    "codeSnippetPL": "double d = 3.9;\nint x = (int) d;\nSystem.out.println(x);",
+    "answers": [
+      {"label": "a", "textEN": "4", "textPL": "4"},
+      {"label": "b", "textEN": "3", "textPL": "3"},
+      {"label": "c", "textEN": "3.9", "textPL": "3.9"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#types"]
+  },
+  {
+    "id": 16,
+    "questionEN": "Which data type should fill the blank to store the value 3.14 without a compilation error?",
+    "questionPL": "Jakiego typu należy użyć w pustym miejscu, aby przechować wartość 3.14 bez błędu kompilacji?",
+    "codeSnippetEN": "______ pi = 3.14;\nSystem.out.println(pi);",
+    "codeSnippetPL": "______ pi = 3.14;\nSystem.out.println(pi);",
+    "answers": [
+      {"label": "a", "textEN": "int", "textPL": "int"},
+      {"label": "b", "textEN": "double", "textPL": "double"},
+      {"label": "c", "textEN": "String", "textPL": "String"},
+      {"label": "d", "textEN": "boolean", "textPL": "boolean"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#types"]
+  }
+]

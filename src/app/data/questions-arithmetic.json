@@ -1,0 +1,31 @@
+[
+  {
+    "id": 2,
+    "questionEN": "What is the result of the following expression?",
+    "questionPL": "Jaki jest wynik poniższego wyrażenia?",
+    "codeSnippetEN": "int x = 10 / 3;\nSystem.out.println(x);",
+    "codeSnippetPL": "int x = 10 / 3;\nSystem.out.println(x);",
+    "answers": [
+      {"label": "a", "textEN": "3", "textPL": "3"},
+      {"label": "b", "textEN": "3.33", "textPL": "3.33"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 10,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int r = 7 % 2;\nSystem.out.println(r);",
+    "codeSnippetPL": "int r = 7 % 2;\nSystem.out.println(r);",
+    "answers": [
+      {"label": "a", "textEN": "1", "textPL": "1"},
+      {"label": "b", "textEN": "3", "textPL": "3"},
+      {"label": "c", "textEN": "3.5", "textPL": "3.5"},
+      {"label": "d", "textEN": "0", "textPL": "0"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#arithmetic"]
+  }
+]

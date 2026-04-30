@@ -1,0 +1,152 @@
+[
+  {
+    "id": 51,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "try {\n  int x = 10 / 0;\n  System.out.println(x);\n} catch (ArithmeticException e) {\n  System.out.println(\"Error\");\n}",
+    "codeSnippetPL": "try {\n  int x = 10 / 0;\n  System.out.println(x);\n} catch (ArithmeticException e) {\n  System.out.println(\"Błąd\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "0", "textPL": "0"},
+      {"label": "b", "textEN": "Error", "textPL": "Błąd"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Program crashes", "textPL": "Program się kończy"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 52,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "try {\n  System.out.println(\"Start\");\n  int[] arr = new int[2];\n  arr[5] = 1;\n} catch (ArrayIndexOutOfBoundsException e) {\n  System.out.println(\"Caught\");\n}\nSystem.out.println(\"End\");",
+    "codeSnippetPL": "try {\n  System.out.println(\"Start\");\n  int[] arr = new int[2];\n  arr[5] = 1;\n} catch (ArrayIndexOutOfBoundsException e) {\n  System.out.println(\"Złapano\");\n}\nSystem.out.println(\"Koniec\");",
+    "answers": [
+      {"label": "a", "textEN": "Start\nCaught\nEnd", "textPL": "Start\nZłapano\nKoniec"},
+      {"label": "b", "textEN": "Start\nEnd", "textPL": "Start\nKoniec"},
+      {"label": "c", "textEN": "Start", "textPL": "Start"},
+      {"label": "d", "textEN": "Caught\nEnd", "textPL": "Złapano\nKoniec"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 53,
+    "questionEN": "What does the `finally` block do?",
+    "questionPL": "Co robi blok `finally`?",
+    "codeSnippetEN": "try {\n  int x = 1 / 0;\n} catch (Exception e) {\n  System.out.println(\"Caught\");\n} finally {\n  System.out.println(\"Done\");\n}",
+    "codeSnippetPL": "try {\n  int x = 1 / 0;\n} catch (Exception e) {\n  System.out.println(\"Złapano\");\n} finally {\n  System.out.println(\"Gotowe\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "Caught", "textPL": "Złapano"},
+      {"label": "b", "textEN": "Done", "textPL": "Gotowe"},
+      {"label": "c", "textEN": "Caught\nDone", "textPL": "Złapano\nGotowe"},
+      {"label": "d", "textEN": "Nothing — finally is skipped after catch", "textPL": "Nic — finally jest pomijany po catch"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 54,
+    "questionEN": "What will happen when this code runs?",
+    "questionPL": "Co się stanie, gdy ten kod zostanie uruchomiony?",
+    "codeSnippetEN": "String s = null;\nSystem.out.println(s.length());",
+    "codeSnippetPL": "String s = null;\nSystem.out.println(s.length());",
+    "answers": [
+      {"label": "a", "textEN": "0", "textPL": "0"},
+      {"label": "b", "textEN": "null", "textPL": "null"},
+      {"label": "c", "textEN": "NullPointerException", "textPL": "NullPointerException"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 55,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "try {\n  System.out.println(\"A\");\n} catch (Exception e) {\n  System.out.println(\"B\");\n} finally {\n  System.out.println(\"C\");\n}",
+    "codeSnippetPL": "try {\n  System.out.println(\"A\");\n} catch (Exception e) {\n  System.out.println(\"B\");\n} finally {\n  System.out.println(\"C\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "A\nB\nC", "textPL": "A\nB\nC"},
+      {"label": "b", "textEN": "A\nC", "textPL": "A\nC"},
+      {"label": "c", "textEN": "A", "textPL": "A"},
+      {"label": "d", "textEN": "C", "textPL": "C"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 56,
+    "questionEN": "What type of exception is `NumberFormatException`?",
+    "questionPL": "Jakiego typu wyjątkiem jest `NumberFormatException`?",
+    "codeSnippetEN": "String s = \"abc\";\nint n = Integer.parseInt(s);",
+    "codeSnippetPL": "String s = \"abc\";\nint n = Integer.parseInt(s);",
+    "answers": [
+      {"label": "a", "textEN": "Checked exception — must be caught", "textPL": "Wyjątek checked — musi być złapany"},
+      {"label": "b", "textEN": "Unchecked (runtime) exception", "textPL": "Wyjątek unchecked (runtime)"},
+      {"label": "c", "textEN": "Error — cannot be caught", "textPL": "Error — nie można go złapać"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 57,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "try {\n  int[] arr = {1, 2, 3};\n  System.out.println(arr[1]);\n} catch (Exception e) {\n  System.out.println(\"Error\");\n}",
+    "codeSnippetPL": "try {\n  int[] arr = {1, 2, 3};\n  System.out.println(arr[1]);\n} catch (Exception e) {\n  System.out.println(\"Błąd\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "1", "textPL": "1"},
+      {"label": "b", "textEN": "2", "textPL": "2"},
+      {"label": "c", "textEN": "Error", "textPL": "Błąd"},
+      {"label": "d", "textEN": "3", "textPL": "3"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 58,
+    "questionEN": "Can you have multiple catch blocks for one try?",
+    "questionPL": "Czy można mieć wiele bloków catch dla jednego try?",
+    "codeSnippetEN": "try {\n  int x = Integer.parseInt(\"abc\");\n} catch (NumberFormatException e) {\n  System.out.println(\"Bad number\");\n} catch (Exception e) {\n  System.out.println(\"Other error\");\n}",
+    "codeSnippetPL": "try {\n  int x = Integer.parseInt(\"abc\");\n} catch (NumberFormatException e) {\n  System.out.println(\"Zły numer\");\n} catch (Exception e) {\n  System.out.println(\"Inny błąd\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "Bad number", "textPL": "Zły numer"},
+      {"label": "b", "textEN": "Other error", "textPL": "Inny błąd"},
+      {"label": "c", "textEN": "Bad number\nOther error", "textPL": "Zły numer\nInny błąd"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 59,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static int divide(int a, int b) {\n  if (b == 0) throw new IllegalArgumentException(\"Zero!\");\n  return a / b;\n}\n\ntry {\n  System.out.println(divide(10, 0));\n} catch (IllegalArgumentException e) {\n  System.out.println(e.getMessage());\n}",
+    "codeSnippetPL": "static int podziel(int a, int b) {\n  if (b == 0) throw new IllegalArgumentException(\"Zero!\");\n  return a / b;\n}\n\ntry {\n  System.out.println(podziel(10, 0));\n} catch (IllegalArgumentException e) {\n  System.out.println(e.getMessage());\n}",
+    "answers": [
+      {"label": "a", "textEN": "0", "textPL": "0"},
+      {"label": "b", "textEN": "Zero!", "textPL": "Zero!"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "ArithmeticException", "textPL": "ArithmeticException"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#exceptions"]
+  },
+  {
+    "id": 60,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int result = 0;\ntry {\n  result = 10 / 2;\n} catch (ArithmeticException e) {\n  result = -1;\n} finally {\n  result += 1;\n}\nSystem.out.println(result);",
+    "codeSnippetPL": "int wynik = 0;\ntry {\n  wynik = 10 / 2;\n} catch (ArithmeticException e) {\n  wynik = -1;\n} finally {\n  wynik += 1;\n}\nSystem.out.println(wynik);",
+    "answers": [
+      {"label": "a", "textEN": "5", "textPL": "5"},
+      {"label": "b", "textEN": "6", "textPL": "6"},
+      {"label": "c", "textEN": "0", "textPL": "0"},
+      {"label": "d", "textEN": "1", "textPL": "1"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#exceptions"]
+  }
+]

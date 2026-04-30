@@ -1,0 +1,32 @@
+[
+  {
+    "id": 4,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int x = 1;\nx++;\nSystem.out.println(x);",
+    "codeSnippetPL": "int x = 1;\nx++;\nSystem.out.println(x);",
+    "answers": [
+      {"label": "a", "textEN": "2", "textPL": "2"},
+      {"label": "b", "textEN": "1", "textPL": "1"},
+      {"label": "c", "textEN": "0", "textPL": "0"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#operators"]
+  },
+  {
+    "id": 14,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int x = 5;\nSystem.out.println(++x);",
+    "codeSnippetPL": "int x = 5;\nSystem.out.println(++x);",
+    "answers": [
+      {"label": "a", "textEN": "6", "textPL": "6"},
+      {"label": "b", "textEN": "5", "textPL": "5"},
+      {"label": "c", "textEN": "7", "textPL": "7"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#operators"]
+  }
+]
