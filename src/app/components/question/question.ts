@@ -17,6 +17,7 @@ export class QuestionComponent {
   tags = input<string[]>([]);
 
   save = output<QuizSubmission>();
+  tagClick = output<string>();
 
   readonly selectedAnswerValue = signal('');
 

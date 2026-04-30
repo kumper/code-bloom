@@ -42,14 +42,28 @@ export class QuestionRepositoryService {
 
   /**
    * Returns a random question not seen within the last 60 days.
-   * Returns null if every question has been seen recently.
+   * If category is provided, only questions with that tag are considered.
+   * Returns null if no matching question is available.
    */
-  getQuestionForSession(token: SessionToken): Question | null {
+  getQuestionForSession(token: SessionToken, category?: string): Question | null {
     const recentIds = this.tokenService.getRecentQuestionIds(token);
-    const pool = this.questions.filter((q) => !recentIds.has(q.id));
+    let pool = this.questions.filter((q) => !recentIds.has(q.id));
+
+    if (category) {
+      pool = pool.filter((q) => q.tags?.includes(`#${category}`));
+    }
+
     if (pool.length === 0) {
       return null;
     }
     return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  /**
+   * Gets the category (tag without #) for a given question.
+   */
+  getQuestionCategory(question: Question): string | null {
+    const tag = question.tags?.[0];
+    return tag ? tag.replace('#', '') : null;
   }
 }

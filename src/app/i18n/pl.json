@@ -25,6 +25,9 @@
   "notFound.heading": "Strona nie znaleziona",
   "notFound.subtitle": "Ups! Strona, której szukasz, nie istnieje.",
   "notFound.redirectHint": "Zaraz nastąpi przekierowanie na stronę główną\u2026",
-  "notFound.timerLabel": "Przekierowanie za {n} sekund"
+  "notFound.timerLabel": "Przekierowanie za {n} sekund",
+  "intro.dismiss": "Rozumiem, zaczynajmy!",
+  "tag.tooltip": "Kliknij, aby zobaczyć wprowadzenie do kategorii",
+  "tag.ariaLabel": "Zobacz wprowadzenie do {tag}"
 }
 

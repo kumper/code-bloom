@@ -13,5 +13,140 @@
     ],
     "correctAnswer": "d",
     "tags": ["#methods"]
+  },
+  {
+    "id": 109,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static void sayHi() {\n  System.out.println(\"Hi!\");\n}\n\n// called as:\nsayHi();",
+    "codeSnippetPL": "static void powiedzCzesc() {\n  System.out.println(\"Cześć!\");\n}\n\n// wywołanie:\npowiedzCzesc();",
+    "answers": [
+      {"label": "a", "textEN": "Hi!", "textPL": "Cześć!"},
+      {"label": "b", "textEN": "void", "textPL": "void"},
+      {"label": "c", "textEN": "Nothing", "textPL": "Nic"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#methods"]
+  },
+  {
+    "id": 110,
+    "questionEN": "Which return type should replace the blank?",
+    "questionPL": "Jaki typ zwracany powinien zastąpić puste miejsce?",
+    "codeSnippetEN": "static ____ isEven(int n) {\n  return n % 2 == 0;\n}",
+    "codeSnippetPL": "static ____ czyParzysta(int liczba) {\n  return liczba % 2 == 0;\n}",
+    "answers": [
+      {"label": "a", "textEN": "int", "textPL": "int"},
+      {"label": "b", "textEN": "boolean", "textPL": "boolean"},
+      {"label": "c", "textEN": "String", "textPL": "String"},
+      {"label": "d", "textEN": "void", "textPL": "void"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#methods"]
+  },
+  {
+    "id": 111,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static int add(int a, int b, int c) {\n  return a + b + c;\n}\n\nSystem.out.println(add(1, 2, 3));",
+    "codeSnippetPL": "static int dodaj(int a, int b, int c) {\n  return a + b + c;\n}\n\nSystem.out.println(dodaj(1, 2, 3));",
+    "answers": [
+      {"label": "a", "textEN": "5", "textPL": "5"},
+      {"label": "b", "textEN": "6", "textPL": "6"},
+      {"label": "c", "textEN": "123", "textPL": "123"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#methods"]
+  },
+  {
+    "id": 112,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static void show(int n) {\n  System.out.println(\"number\");\n}\n\nstatic void show(String text) {\n  System.out.println(\"text\");\n}\n\nshow(5);\nshow(\"A\");",
+    "codeSnippetPL": "static void pokaz(int liczba) {\n  System.out.println(\"liczba\");\n}\n\nstatic void pokaz(String napis) {\n  System.out.println(\"tekst\");\n}\n\npokaz(5);\npokaz(\"A\");",
+    "answers": [
+      {"label": "a", "textEN": "number, then text", "textPL": "liczba, a potem tekst"},
+      {"label": "b", "textEN": "text, then number", "textPL": "tekst, a potem liczba"},
+      {"label": "c", "textEN": "number twice", "textPL": "dwa razy liczba"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#methods"]
+  },
+  {
+    "id": 113,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static int doubleIt(int n) {\n  return n * 2;\n}\n\nstatic int useMethod() {\n  return doubleIt(4);\n}\n\nSystem.out.println(useMethod());",
+    "codeSnippetPL": "static int podwoj(int liczba) {\n  return liczba * 2;\n}\n\nstatic int uzyjMetody() {\n  return podwoj(4);\n}\n\nSystem.out.println(uzyjMetody());",
+    "answers": [
+      {"label": "a", "textEN": "4", "textPL": "4"},
+      {"label": "b", "textEN": "6", "textPL": "6"},
+      {"label": "c", "textEN": "8", "textPL": "8"},
+      {"label": "d", "textEN": "16", "textPL": "16"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#methods"]
+  },
+  {
+    "id": 114,
+    "questionEN": "Which line correctly calls the static method addOne?",
+    "questionPL": "Która linia poprawnie wywołuje statyczną metodę dodajJeden?",
+    "codeSnippetEN": "class Helper {\n  static int addOne(int n) {\n    return n + 1;\n  }\n}",
+    "codeSnippetPL": "class Pomocnik {\n  static int dodajJeden(int liczba) {\n    return liczba + 1;\n  }\n}",
+    "answers": [
+      {"label": "a", "textEN": "Helper.addOne(4);", "textPL": "Pomocnik.dodajJeden(4);"},
+      {"label": "b", "textEN": "addOne.Helper(4);", "textPL": "dodajJeden.Pomocnik(4);"},
+      {"label": "c", "textEN": "4.addOne();", "textPL": "4.dodajJeden();"},
+      {"label": "d", "textEN": "Helper -> addOne(4);", "textPL": "Pomocnik -> dodajJeden(4);"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#methods"]
+  },
+  {
+    "id": 115,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static int firstValue(int[] numbers) {\n  return numbers[0];\n}\n\nint[] data = {7, 8, 9};\nSystem.out.println(firstValue(data));",
+    "codeSnippetPL": "static int pierwszaWartosc(int[] liczby) {\n  return liczby[0];\n}\n\nint[] dane = {7, 8, 9};\nSystem.out.println(pierwszaWartosc(dane));",
+    "answers": [
+      {"label": "a", "textEN": "7", "textPL": "7"},
+      {"label": "b", "textEN": "8", "textPL": "8"},
+      {"label": "c", "textEN": "9", "textPL": "9"},
+      {"label": "d", "textEN": "0", "textPL": "0"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#methods"]
+  },
+  {
+    "id": 116,
+    "questionEN": "Which line should replace the blank so the method returns a default value?",
+    "questionPL": "Która linia powinna zastąpić puste miejsce, aby metoda zwracała wartość domyślną?",
+    "codeSnippetEN": "static int getDayNumber(String day) {\n  if (day.equals(\"Monday\")) {\n    return 1;\n  }\n  ____\n}",
+    "codeSnippetPL": "static int pobierzNumerDnia(String dzien) {\n  if (dzien.equals(\"Poniedziałek\")) {\n    return 1;\n  }\n  ____\n}",
+    "answers": [
+      {"label": "a", "textEN": "return 0;", "textPL": "return 0;"},
+      {"label": "b", "textEN": "print 0;", "textPL": "print 0;"},
+      {"label": "c", "textEN": "break;", "textPL": "break;"},
+      {"label": "d", "textEN": "continue;", "textPL": "continue;"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#methods"]
+  },
+  {
+    "id": 117,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "static void countDown(int n) {\n  if (n == 0) {\n    return;\n  }\n  System.out.println(n);\n  countDown(n - 1);\n}\n\ncountDown(3);",
+    "codeSnippetPL": "static void odliczaj(int liczba) {\n  if (liczba == 0) {\n    return;\n  }\n  System.out.println(liczba);\n  odliczaj(liczba - 1);\n}\n\nodliczaj(3);",
+    "answers": [
+      {"label": "a", "textEN": "3, 2, 1 (each on a new line)", "textPL": "3, 2, 1 (każda w nowej linii)"},
+      {"label": "b", "textEN": "1, 2, 3 (each on a new line)", "textPL": "1, 2, 3 (każda w nowej linii)"},
+      {"label": "c", "textEN": "3 only", "textPL": "Tylko 3"},
+      {"label": "d", "textEN": "It runs forever", "textPL": "Działa bez końca"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#methods"]
   }
 ]

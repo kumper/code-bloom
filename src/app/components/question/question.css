@@ -32,8 +32,18 @@
 }
 
 .question__tag {
-  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-light) 100%);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background-color: var(--pink-primary);
   font-size: 0.75rem;
+}
+
+.question__tag:hover,
+.question__tag:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  outline: 2px solid var(--pink-dark);
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {

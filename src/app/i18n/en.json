@@ -25,6 +25,9 @@
   "notFound.heading": "Page Not Found",
   "notFound.subtitle": "Oops! The page you're looking for doesn't exist.",
   "notFound.redirectHint": "Redirecting you to the homepage\u2026",
-  "notFound.timerLabel": "Redirecting to homepage in {n} seconds"
+  "notFound.timerLabel": "Redirecting to homepage in {n} seconds",
+  "intro.dismiss": "Got it, let's start!",
+  "tag.tooltip": "Click to see category introduction",
+  "tag.ariaLabel": "View introduction for {tag}"
 }
 

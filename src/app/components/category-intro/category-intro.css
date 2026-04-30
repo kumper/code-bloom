@@ -1,0 +1,18 @@
+.intro {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.intro__title {
+  color: var(--pink-dark);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.intro__body {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}

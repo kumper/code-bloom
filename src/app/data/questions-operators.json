@@ -28,5 +28,125 @@
     ],
     "correctAnswer": "a",
     "tags": ["#operators"]
+  },
+  {
+    "id": 118,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int x = 2;\nSystem.out.println(x++);",
+    "codeSnippetPL": "int x = 2;\nSystem.out.println(x++);",
+    "answers": [
+      {"label": "a", "textEN": "2", "textPL": "2"},
+      {"label": "b", "textEN": "3", "textPL": "3"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#operators"]
+  },
+  {
+    "id": 119,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int x = 2;\nSystem.out.println(++x);",
+    "codeSnippetPL": "int x = 2;\nSystem.out.println(++x);",
+    "answers": [
+      {"label": "a", "textEN": "2", "textPL": "2"},
+      {"label": "b", "textEN": "3", "textPL": "3"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#operators"]
+  },
+  {
+    "id": 120,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int a = 7;\nint b = 5;\nSystem.out.println(a > b);",
+    "codeSnippetPL": "int a = 7;\nint b = 5;\nSystem.out.println(a > b);",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "7", "textPL": "7"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#operators"]
+  },
+  {
+    "id": 121,
+    "questionEN": "Which operator should replace the blank to assign the value 5 to x?",
+    "questionPL": "Który operator należy wstawić w puste miejsce, aby przypisać wartość 5 do x?",
+    "codeSnippetEN": "int x __ 5;",
+    "codeSnippetPL": "int x __ 5;",
+    "answers": [
+      {"label": "a", "textEN": "=", "textPL": "="},
+      {"label": "b", "textEN": "==", "textPL": "=="},
+      {"label": "c", "textEN": "!=", "textPL": "!="},
+      {"label": "d", "textEN": "+=", "textPL": "+="}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#operators"]
+  },
+  {
+    "id": 122,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int x = 10;\nx -= 3;\nSystem.out.println(\"x=\" + x);",
+    "codeSnippetPL": "int x = 10;\nx -= 3;\nSystem.out.println(\"x=\" + x);",
+    "answers": [
+      {"label": "a", "textEN": "x=13", "textPL": "x=13"},
+      {"label": "b", "textEN": "x=7", "textPL": "x=7"},
+      {"label": "c", "textEN": "7", "textPL": "7"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#operators"]
+  },
+  {
+    "id": 123,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int a = 6;\nint b = 3;\nSystem.out.println((a & b) + \",\" + (a | b));",
+    "codeSnippetPL": "int a = 6;\nint b = 3;\nSystem.out.println((a & b) + \",\" + (a | b));",
+    "answers": [
+      {"label": "a", "textEN": "2,7", "textPL": "2,7"},
+      {"label": "b", "textEN": "6,3", "textPL": "6,3"},
+      {"label": "c", "textEN": "7,2", "textPL": "7,2"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#operators"]
+  },
+  {
+    "id": 124,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "System.out.println(2 + 3 * 4);",
+    "codeSnippetPL": "System.out.println(2 + 3 * 4);",
+    "answers": [
+      {"label": "a", "textEN": "20", "textPL": "20"},
+      {"label": "b", "textEN": "14", "textPL": "14"},
+      {"label": "c", "textEN": "24", "textPL": "24"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#operators"]
+  },
+  {
+    "id": 125,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String text = \"Hi\";\nSystem.out.println(text instanceof String);",
+    "codeSnippetPL": "String text = \"Hi\";\nSystem.out.println(text instanceof String);",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "Hi", "textPL": "Hi"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#operators"]
   }
 ]

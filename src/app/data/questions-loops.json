@@ -43,5 +43,108 @@
     ],
     "correctAnswer": "d",
     "tags": ["#loops"]
+  },
+  {
+    "id": 102,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int i = 0;\ndo {\n  System.out.println(i);\n  i++;\n} while (i < 3);",
+    "codeSnippetPL": "int i = 0;\ndo {\n  System.out.println(i);\n  i++;\n} while (i < 3);",
+    "answers": [
+      {"label": "a", "textEN": "0, 1, 2 (each on a new line)", "textPL": "0, 1, 2 (każda w nowej linii)"},
+      {"label": "b", "textEN": "1, 2, 3 (each on a new line)", "textPL": "1, 2, 3 (każda w nowej linii)"},
+      {"label": "c", "textEN": "0 only", "textPL": "Tylko 0"},
+      {"label": "d", "textEN": "It runs forever", "textPL": "Pętla działa w nieskończoność"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#loops"]
+  },
+  {
+    "id": 103,
+    "questionEN": "How many times will the star be printed?",
+    "questionPL": "Ile razy zostanie wypisana gwiazdka?",
+    "codeSnippetEN": "for (int row = 1; row <= 2; row++) {\n  for (int col = 1; col <= 3; col++) {\n    System.out.println(\"*\");\n  }\n}",
+    "codeSnippetPL": "for (int wiersz = 1; wiersz <= 2; wiersz++) {\n  for (int kolumna = 1; kolumna <= 3; kolumna++) {\n    System.out.println(\"*\");\n  }\n}",
+    "answers": [
+      {"label": "a", "textEN": "5 times", "textPL": "5 razy"},
+      {"label": "b", "textEN": "6 times", "textPL": "6 razy"},
+      {"label": "c", "textEN": "3 times", "textPL": "3 razy"},
+      {"label": "d", "textEN": "2 times", "textPL": "2 razy"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#loops"]
+  },
+  {
+    "id": 104,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "for (int i = 0; i < 5; i++) {\n  if (i == 3) {\n    break;\n  }\n  System.out.println(i);\n}",
+    "codeSnippetPL": "for (int i = 0; i < 5; i++) {\n  if (i == 3) {\n    break;\n  }\n  System.out.println(i);\n}",
+    "answers": [
+      {"label": "a", "textEN": "0, 1, 2 (each on a new line)", "textPL": "0, 1, 2 (każda w nowej linii)"},
+      {"label": "b", "textEN": "0, 1, 2, 3 (each on a new line)", "textPL": "0, 1, 2, 3 (każda w nowej linii)"},
+      {"label": "c", "textEN": "3, 4 (each on a new line)", "textPL": "3, 4 (każda w nowej linii)"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#loops"]
+  },
+  {
+    "id": 105,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "for (int i = 1; i <= 3; i++) {\n  if (i == 2) {\n    continue;\n  }\n  System.out.println(i);\n}",
+    "codeSnippetPL": "for (int i = 1; i <= 3; i++) {\n  if (i == 2) {\n    continue;\n  }\n  System.out.println(i);\n}",
+    "answers": [
+      {"label": "a", "textEN": "1, 2, 3 (each on a new line)", "textPL": "1, 2, 3 (każda w nowej linii)"},
+      {"label": "b", "textEN": "2 only", "textPL": "Tylko 2"},
+      {"label": "c", "textEN": "1, 3 (each on a new line)", "textPL": "1, 3 (każda w nowej linii)"},
+      {"label": "d", "textEN": "Nothing", "textPL": "Nic"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#loops"]
+  },
+  {
+    "id": 106,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] numbers = {2, 4, 6};\nint sum = 0;\n\nfor (int i = 0; i < numbers.length; i++) {\n  sum += numbers[i];\n}\n\nSystem.out.println(sum);",
+    "codeSnippetPL": "int[] liczby = {2, 4, 6};\nint suma = 0;\n\nfor (int i = 0; i < liczby.length; i++) {\n  suma += liczby[i];\n}\n\nSystem.out.println(suma);",
+    "answers": [
+      {"label": "a", "textEN": "6", "textPL": "6"},
+      {"label": "b", "textEN": "10", "textPL": "10"},
+      {"label": "c", "textEN": "12", "textPL": "12"},
+      {"label": "d", "textEN": "24", "textPL": "24"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#loops"]
+  },
+  {
+    "id": 107,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "for (int i = 3; i >= 1; i--) {\n  System.out.println(i);\n}",
+    "codeSnippetPL": "for (int i = 3; i >= 1; i--) {\n  System.out.println(i);\n}",
+    "answers": [
+      {"label": "a", "textEN": "1, 2, 3 (each on a new line)", "textPL": "1, 2, 3 (każda w nowej linii)"},
+      {"label": "b", "textEN": "3, 2, 1 (each on a new line)", "textPL": "3, 2, 1 (każda w nowej linii)"},
+      {"label": "c", "textEN": "3 only", "textPL": "Tylko 3"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#loops"]
+  },
+  {
+    "id": 108,
+    "questionEN": "What happens when this code runs?",
+    "questionPL": "Co się stanie po uruchomieniu tego kodu?",
+    "codeSnippetEN": "int i = 0;\nwhile (i < 3) {\n  System.out.println(i);\n}",
+    "codeSnippetPL": "int i = 0;\nwhile (i < 3) {\n  System.out.println(i);\n}",
+    "answers": [
+      {"label": "a", "textEN": "It prints 0 once", "textPL": "Wypisze 0 jeden raz"},
+      {"label": "b", "textEN": "It prints 0, 1, 2", "textPL": "Wypisze 0, 1, 2"},
+      {"label": "c", "textEN": "It prints 0 forever", "textPL": "Wypisuje 0 bez końca"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#loops"]
   }
 ]

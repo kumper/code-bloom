@@ -42,5 +42,110 @@
     ],
     "correctAnswer": "c",
     "tags": ["#strings"]
+  },
+  {
+    "id": 126,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"Java\";\nSystem.out.println(s.charAt(1));",
+    "codeSnippetPL": "String s = \"Java\";\nSystem.out.println(s.charAt(1));",
+    "answers": [
+      {"label": "a", "textEN": "J", "textPL": "J"},
+      {"label": "b", "textEN": "a", "textPL": "a"},
+      {"label": "c", "textEN": "v", "textPL": "v"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 127,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"banana\";\nSystem.out.println(s.substring(1, 4));",
+    "codeSnippetPL": "String s = \"banana\";\nSystem.out.println(s.substring(1, 4));",
+    "answers": [
+      {"label": "a", "textEN": "ban", "textPL": "ban"},
+      {"label": "b", "textEN": "ana", "textPL": "ana"},
+      {"label": "c", "textEN": "nan", "textPL": "nan"},
+      {"label": "d", "textEN": "anana", "textPL": "anana"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 128,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String a = new String(\"Java\");\nString b = new String(\"Java\");\nSystem.out.println((a == b) + \" \" + a.equals(b));",
+    "codeSnippetPL": "String a = new String(\"Java\");\nString b = new String(\"Java\");\nSystem.out.println((a == b) + \" \" + a.equals(b));",
+    "answers": [
+      {"label": "a", "textEN": "true true", "textPL": "true true"},
+      {"label": "b", "textEN": "false false", "textPL": "false false"},
+      {"label": "c", "textEN": "false true", "textPL": "false true"},
+      {"label": "d", "textEN": "true false", "textPL": "true false"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 129,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"hello\";\nSystem.out.println(s.indexOf(\"l\"));",
+    "codeSnippetPL": "String s = \"hello\";\nSystem.out.println(s.indexOf(\"l\"));",
+    "answers": [
+      {"label": "a", "textEN": "2", "textPL": "2"},
+      {"label": "b", "textEN": "3", "textPL": "3"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "-1", "textPL": "-1"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 130,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"cat\";\nSystem.out.println(s.replace(\"c\", \"b\"));",
+    "codeSnippetPL": "String s = \"cat\";\nSystem.out.println(s.replace(\"c\", \"b\"));",
+    "answers": [
+      {"label": "a", "textEN": "cat", "textPL": "cat"},
+      {"label": "b", "textEN": "bat", "textPL": "bat"},
+      {"label": "c", "textEN": "cbt", "textPL": "cbt"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 131,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String s = \"   \";\nSystem.out.println(s.trim().isEmpty());",
+    "codeSnippetPL": "String s = \"   \";\nSystem.out.println(s.trim().isEmpty());",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "0", "textPL": "0"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#strings"]
+  },
+  {
+    "id": 132,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int number = 7;\nString text = String.valueOf(number);\nSystem.out.println(text + 3);",
+    "codeSnippetPL": "int number = 7;\nString text = String.valueOf(number);\nSystem.out.println(text + 3);",
+    "answers": [
+      {"label": "a", "textEN": "10", "textPL": "10"},
+      {"label": "b", "textEN": "73", "textPL": "73"},
+      {"label": "c", "textEN": "7", "textPL": "7"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#strings"]
   }
 ]

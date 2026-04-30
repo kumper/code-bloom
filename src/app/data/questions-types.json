@@ -28,5 +28,125 @@
     ],
     "correctAnswer": "b",
     "tags": ["#types"]
+  },
+  {
+    "id": 133,
+    "questionEN": "Which variable below is a reference type?",
+    "questionPL": "Która z poniższych zmiennych ma typ referencyjny?",
+    "codeSnippetEN": "int a = 5;\nString b = \"Hi\";",
+    "codeSnippetPL": "int a = 5;\nString b = \"Hi\";",
+    "answers": [
+      {"label": "a", "textEN": "a", "textPL": "a"},
+      {"label": "b", "textEN": "b", "textPL": "b"},
+      {"label": "c", "textEN": "Both a and b", "textPL": "Zarówno a, jak i b"},
+      {"label": "d", "textEN": "Neither a nor b", "textPL": "Ani a, ani b"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#types"]
+  },
+  {
+    "id": 134,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "Integer number = 5;\nint x = number;\nSystem.out.println(x);",
+    "codeSnippetPL": "Integer number = 5;\nint x = number;\nSystem.out.println(x);",
+    "answers": [
+      {"label": "a", "textEN": "5", "textPL": "5"},
+      {"label": "b", "textEN": "null", "textPL": "null"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "Integer", "textPL": "Integer"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#types"]
+  },
+  {
+    "id": 135,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "char letter = 'A';\nSystem.out.println(letter);",
+    "codeSnippetPL": "char letter = 'A';\nSystem.out.println(letter);",
+    "answers": [
+      {"label": "a", "textEN": "65", "textPL": "65"},
+      {"label": "b", "textEN": "A", "textPL": "A"},
+      {"label": "c", "textEN": "\"A\"", "textPL": "\"A\""},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#types"]
+  },
+  {
+    "id": 136,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int a = 5;\ndouble b = 2;\nSystem.out.println(a + b);",
+    "codeSnippetPL": "int a = 5;\ndouble b = 2;\nSystem.out.println(a + b);",
+    "answers": [
+      {"label": "a", "textEN": "7", "textPL": "7"},
+      {"label": "b", "textEN": "7.0", "textPL": "7.0"},
+      {"label": "c", "textEN": "52", "textPL": "52"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#types"]
+  },
+  {
+    "id": 137,
+    "questionEN": "What happens in the following code?",
+    "questionPL": "Co stanie się w poniższym kodzie?",
+    "codeSnippetEN": "final int x = 3;\nx = 4;",
+    "codeSnippetPL": "final int x = 3;\nx = 4;",
+    "answers": [
+      {"label": "a", "textEN": "x becomes 4", "textPL": "x zmieni się na 4"},
+      {"label": "b", "textEN": "x stays 3 and the code works", "textPL": "x pozostanie 3 i kod zadziała"},
+      {"label": "c", "textEN": "Compilation error", "textPL": "Błąd kompilacji"},
+      {"label": "d", "textEN": "It prints 4", "textPL": "Wypisze 4"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#types"]
+  },
+  {
+    "id": 138,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "var name = \"Java\";\nSystem.out.println(name);",
+    "codeSnippetPL": "var name = \"Java\";\nSystem.out.println(name);",
+    "answers": [
+      {"label": "a", "textEN": "var", "textPL": "var"},
+      {"label": "b", "textEN": "name", "textPL": "name"},
+      {"label": "c", "textEN": "Java", "textPL": "Java"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#types"]
+  },
+  {
+    "id": 139,
+    "questionEN": "What is the default value of a boolean field in a class?",
+    "questionPL": "Jaka jest domyślna wartość pola typu boolean w klasie?",
+    "codeSnippetEN": "class Test {\n  boolean ready;\n}",
+    "codeSnippetPL": "class Test {\n  boolean ready;\n}",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "null", "textPL": "null"},
+      {"label": "d", "textEN": "It has no default value", "textPL": "Nie ma wartości domyślnej"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#types"]
+  },
+  {
+    "id": 140,
+    "questionEN": "Which line is an example of narrowing conversion?",
+    "questionPL": "Która linia jest przykładem konwersji zawężającej?",
+    "codeSnippetEN": "Choose one line:",
+    "codeSnippetPL": "Wybierz jedną linię:",
+    "answers": [
+      {"label": "a", "textEN": "double d = 5;", "textPL": "double d = 5;"},
+      {"label": "b", "textEN": "long n = 10;", "textPL": "long n = 10;"},
+      {"label": "c", "textEN": "int x = (int) 3.8;", "textPL": "int x = (int) 3.8;"},
+      {"label": "d", "textEN": "float f = 2;", "textPL": "float f = 2;"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#types"]
   }
 ]

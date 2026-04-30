@@ -27,5 +27,125 @@
     ],
     "correctAnswer": "a",
     "tags": ["#arithmetic"]
+  },
+  {
+    "id": 71,
+    "questionEN": "What is the result of the following expression?",
+    "questionPL": "Jaki jest wynik poniższego wyrażenia?",
+    "codeSnippetEN": "int result = 9 / 2;\nSystem.out.println(result);",
+    "codeSnippetPL": "int wynik = 9 / 2;\nSystem.out.println(wynik);",
+    "answers": [
+      {"label": "a", "textEN": "4", "textPL": "4"},
+      {"label": "b", "textEN": "4.5", "textPL": "4.5"},
+      {"label": "c", "textEN": "5", "textPL": "5"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 72,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int value = 2 + 3 * 4;\nSystem.out.println(value);",
+    "codeSnippetPL": "int wartosc = 2 + 3 * 4;\nSystem.out.println(wartosc);",
+    "answers": [
+      {"label": "a", "textEN": "20", "textPL": "20"},
+      {"label": "b", "textEN": "14", "textPL": "14"},
+      {"label": "c", "textEN": "24", "textPL": "24"},
+      {"label": "d", "textEN": "9", "textPL": "9"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 73,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int score = 5;\nscore += 3;\nSystem.out.println(score);",
+    "codeSnippetPL": "int wynik = 5;\nwynik += 3;\nSystem.out.println(wynik);",
+    "answers": [
+      {"label": "a", "textEN": "2", "textPL": "2"},
+      {"label": "b", "textEN": "5", "textPL": "5"},
+      {"label": "c", "textEN": "8", "textPL": "8"},
+      {"label": "d", "textEN": "15", "textPL": "15"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 74,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int number = -5 + 2;\nSystem.out.println(number);",
+    "codeSnippetPL": "int liczba = -5 + 2;\nSystem.out.println(liczba);",
+    "answers": [
+      {"label": "a", "textEN": "-7", "textPL": "-7"},
+      {"label": "b", "textEN": "-3", "textPL": "-3"},
+      {"label": "c", "textEN": "3", "textPL": "3"},
+      {"label": "d", "textEN": "7", "textPL": "7"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 75,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int max = 2147483647;\nmax = max + 1;\nSystem.out.println(max);",
+    "codeSnippetPL": "int maks = 2147483647;\nmaks = maks + 1;\nSystem.out.println(maks);",
+    "answers": [
+      {"label": "a", "textEN": "2147483648", "textPL": "2147483648"},
+      {"label": "b", "textEN": "0", "textPL": "0"},
+      {"label": "c", "textEN": "-2147483648", "textPL": "-2147483648"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 76,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int value = Math.abs(-8);\nSystem.out.println(value);",
+    "codeSnippetPL": "int wartosc = Math.abs(-8);\nSystem.out.println(wartosc);",
+    "answers": [
+      {"label": "a", "textEN": "-8", "textPL": "-8"},
+      {"label": "b", "textEN": "8", "textPL": "8"},
+      {"label": "c", "textEN": "0", "textPL": "0"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 77,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "double result = 5 + 2.0;\nSystem.out.println(result);",
+    "codeSnippetPL": "double wynik = 5 + 2.0;\nSystem.out.println(wynik);",
+    "answers": [
+      {"label": "a", "textEN": "7", "textPL": "7"},
+      {"label": "b", "textEN": "7.0", "textPL": "7.0"},
+      {"label": "c", "textEN": "2.5", "textPL": "2.5"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#arithmetic"]
+  },
+  {
+    "id": 78,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int result = (2 + 3) * 4;\nSystem.out.println(result);",
+    "codeSnippetPL": "int wynik = (2 + 3) * 4;\nSystem.out.println(wynik);",
+    "answers": [
+      {"label": "a", "textEN": "14", "textPL": "14"},
+      {"label": "b", "textEN": "20", "textPL": "20"},
+      {"label": "c", "textEN": "24", "textPL": "24"},
+      {"label": "d", "textEN": "9", "textPL": "9"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#arithmetic"]
   }
 ]

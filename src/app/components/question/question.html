@@ -44,8 +44,15 @@
 @if (tags().length > 0) {
   <ul class="mt-3 text-center list-unstyled mb-0" aria-label="Question tags">
     @for (tag of tags(); track tag) {
-      <li class="question__tag badge text-white px-3 py-1 rounded-pill shadow-sm me-1 d-inline">
-        {{ tag }}
+      <li class="d-inline">
+        <button
+          type="button"
+          class="question__tag badge text-white px-3 py-1 rounded-pill shadow-sm me-1 border-0"
+          [title]="langService.t('tag.tooltip')"
+          [attr.aria-label]="langService.t('tag.ariaLabel', {tag: tag})"
+          (click)="tagClick.emit(tag)">
+          {{ tag }}
+        </button>
       </li>
     }
   </ul>

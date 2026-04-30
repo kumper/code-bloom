@@ -27,6 +27,8 @@ function buildToken(overrides: Partial<SessionToken> = {}): SessionToken {
     totalPoints: 0,
     dailyProgress: {date: '2026-03-21', exercisesCompletedToday: 0},
     history: [],
+    seenCategories: [],
+    categoryStreak: null,
     ...overrides,
   };
 }

@@ -42,5 +42,108 @@
     ],
     "correctAnswer": "a",
     "tags": ["#control-flow"]
+  },
+  {
+    "id": 95,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int score = 72;\n\nif (score >= 90) {\n  System.out.println(\"A\");\n} else if (score >= 70) {\n  System.out.println(\"B\");\n} else {\n  System.out.println(\"C\");\n}",
+    "codeSnippetPL": "int wynik = 72;\n\nif (wynik >= 90) {\n  System.out.println(\"A\");\n} else if (wynik >= 70) {\n  System.out.println(\"B\");\n} else {\n  System.out.println(\"C\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "A", "textPL": "A"},
+      {"label": "b", "textEN": "B", "textPL": "B"},
+      {"label": "c", "textEN": "C", "textPL": "C"},
+      {"label": "d", "textEN": "Nothing", "textPL": "Nic"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#control-flow"]
+  },
+  {
+    "id": 96,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int number = 4;\n\nif (number > 0) {\n  if (number % 2 == 0) {\n    System.out.println(\"even positive\");\n  } else {\n    System.out.println(\"odd positive\");\n  }\n}",
+    "codeSnippetPL": "int liczba = 4;\n\nif (liczba > 0) {\n  if (liczba % 2 == 0) {\n    System.out.println(\"dodatnia parzysta\");\n  } else {\n    System.out.println(\"dodatnia nieparzysta\");\n  }\n}",
+    "answers": [
+      {"label": "a", "textEN": "even positive", "textPL": "dodatnia parzysta"},
+      {"label": "b", "textEN": "odd positive", "textPL": "dodatnia nieparzysta"},
+      {"label": "c", "textEN": "0", "textPL": "0"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#control-flow"]
+  },
+  {
+    "id": 97,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int day = 2;\n\nswitch (day) {\n  case 1:\n    System.out.println(\"Monday\");\n    break;\n  case 2:\n    System.out.println(\"Tuesday\");\n    break;\n  default:\n    System.out.println(\"Other\");\n}",
+    "codeSnippetPL": "int dzien = 2;\n\nswitch (dzien) {\n  case 1:\n    System.out.println(\"Poniedziałek\");\n    break;\n  case 2:\n    System.out.println(\"Wtorek\");\n    break;\n  default:\n    System.out.println(\"Inny\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "Monday", "textPL": "Poniedziałek"},
+      {"label": "b", "textEN": "Tuesday", "textPL": "Wtorek"},
+      {"label": "c", "textEN": "Other", "textPL": "Inny"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#control-flow"]
+  },
+  {
+    "id": 98,
+    "questionEN": "What value will be stored in message?",
+    "questionPL": "Jaka wartość zostanie zapisana w zmiennej komunikat?",
+    "codeSnippetEN": "int age = 20;\nString message = (age >= 18) ? \"adult\" : \"child\";",
+    "codeSnippetPL": "int wiek = 20;\nString komunikat = (wiek >= 18) ? \"dorosły\" : \"dziecko\";",
+    "answers": [
+      {"label": "a", "textEN": "adult", "textPL": "dorosły"},
+      {"label": "b", "textEN": "child", "textPL": "dziecko"},
+      {"label": "c", "textEN": "18", "textPL": "18"},
+      {"label": "d", "textEN": "null", "textPL": "null"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#control-flow"]
+  },
+  {
+    "id": 99,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String word = \"cat\";\n\nif (word.equals(\"cat\")) {\n  System.out.println(\"match\");\n} else {\n  System.out.println(\"no match\");\n}",
+    "codeSnippetPL": "String slowo = \"kot\";\n\nif (slowo.equals(\"kot\")) {\n  System.out.println(\"zgadza się\");\n} else {\n  System.out.println(\"nie zgadza się\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "match", "textPL": "zgadza się"},
+      {"label": "b", "textEN": "no match", "textPL": "nie zgadza się"},
+      {"label": "c", "textEN": "cat", "textPL": "kot"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#control-flow"]
+  },
+  {
+    "id": 100,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String text = null;\n\nif (text == null) {\n  System.out.println(\"empty\");\n} else {\n  System.out.println(text);\n}",
+    "codeSnippetPL": "String napis = null;\n\nif (napis == null) {\n  System.out.println(\"pusty\");\n} else {\n  System.out.println(napis);\n}",
+    "answers": [
+      {"label": "a", "textEN": "empty", "textPL": "pusty"},
+      {"label": "b", "textEN": "null", "textPL": "null"},
+      {"label": "c", "textEN": "Nothing", "textPL": "Nic"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#control-flow"]
+  },
+  {
+    "id": 101,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int age = 19;\nboolean hasTicket = true;\n\nif (age >= 18 && hasTicket) {\n  System.out.println(\"enter\");\n} else {\n  System.out.println(\"wait\");\n}",
+    "codeSnippetPL": "int wiek = 19;\nboolean maBilet = true;\n\nif (wiek >= 18 && maBilet) {\n  System.out.println(\"wejdź\");\n} else {\n  System.out.println(\"poczekaj\");\n}",
+    "answers": [
+      {"label": "a", "textEN": "enter", "textPL": "wejdź"},
+      {"label": "b", "textEN": "wait", "textPL": "poczekaj"},
+      {"label": "c", "textEN": "true", "textPL": "true"},
+      {"label": "d", "textEN": "false", "textPL": "false"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#control-flow"]
   }
 ]

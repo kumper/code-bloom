@@ -28,5 +28,125 @@
     ],
     "correctAnswer": "c",
     "tags": ["#arrays"]
+  },
+  {
+    "id": 79,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] numbers = {4, 8, 12, 16};\nSystem.out.println(numbers.length);",
+    "codeSnippetPL": "int[] liczby = {4, 8, 12, 16};\nSystem.out.println(liczby.length);",
+    "answers": [
+      {"label": "a", "textEN": "3", "textPL": "3"},
+      {"label": "b", "textEN": "4", "textPL": "4"},
+      {"label": "c", "textEN": "5", "textPL": "5"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#arrays"]
+  },
+  {
+    "id": 80,
+    "questionEN": "What happens when this code runs?",
+    "questionPL": "Co się stanie po uruchomieniu tego kodu?",
+    "codeSnippetEN": "int[] values = {1, 2, 3};\nSystem.out.println(values[3]);",
+    "codeSnippetPL": "int[] wartosci = {1, 2, 3};\nSystem.out.println(wartosci[3]);",
+    "answers": [
+      {"label": "a", "textEN": "It prints 3", "textPL": "Wypisze 3"},
+      {"label": "b", "textEN": "It prints 0", "textPL": "Wypisze 0"},
+      {"label": "c", "textEN": "ArrayIndexOutOfBoundsException", "textPL": "ArrayIndexOutOfBoundsException"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arrays"]
+  },
+  {
+    "id": 81,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] nums = {2, 4, 6, 8};\nSystem.out.println(nums[2]);",
+    "codeSnippetPL": "int[] liczby = {2, 4, 6, 8};\nSystem.out.println(liczby[2]);",
+    "answers": [
+      {"label": "a", "textEN": "2", "textPL": "2"},
+      {"label": "b", "textEN": "4", "textPL": "4"},
+      {"label": "c", "textEN": "6", "textPL": "6"},
+      {"label": "d", "textEN": "8", "textPL": "8"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arrays"]
+  },
+  {
+    "id": 82,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] scores = {5, 7, 9};\nscores[1] = 10;\nSystem.out.println(scores[1]);",
+    "codeSnippetPL": "int[] punkty = {5, 7, 9};\npunkty[1] = 10;\nSystem.out.println(punkty[1]);",
+    "answers": [
+      {"label": "a", "textEN": "7", "textPL": "7"},
+      {"label": "b", "textEN": "9", "textPL": "9"},
+      {"label": "c", "textEN": "10", "textPL": "10"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arrays"]
+  },
+  {
+    "id": 83,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] numbers = {1, 2, 3};\nint sum = 0;\nfor (int i = 0; i < numbers.length; i++) {\n  sum += numbers[i];\n}\nSystem.out.println(sum);",
+    "codeSnippetPL": "int[] liczby = {1, 2, 3};\nint suma = 0;\nfor (int i = 0; i < liczby.length; i++) {\n  suma += liczby[i];\n}\nSystem.out.println(suma);",
+    "answers": [
+      {"label": "a", "textEN": "3", "textPL": "3"},
+      {"label": "b", "textEN": "5", "textPL": "5"},
+      {"label": "c", "textEN": "6", "textPL": "6"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arrays"]
+  },
+  {
+    "id": 84,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] numbers = {3, 7, 5};\nint max = numbers[0];\nfor (int i = 1; i < numbers.length; i++) {\n  if (numbers[i] > max) {\n    max = numbers[i];\n  }\n}\nSystem.out.println(max);",
+    "codeSnippetPL": "int[] liczby = {3, 7, 5};\nint maks = liczby[0];\nfor (int i = 1; i < liczby.length; i++) {\n  if (liczby[i] > maks) {\n    maks = liczby[i];\n  }\n}\nSystem.out.println(maks);",
+    "answers": [
+      {"label": "a", "textEN": "3", "textPL": "3"},
+      {"label": "b", "textEN": "5", "textPL": "5"},
+      {"label": "c", "textEN": "7", "textPL": "7"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arrays"]
+  },
+  {
+    "id": 85,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[][] grid = {{1, 2}, {3, 4}};\nSystem.out.println(grid[1][0]);",
+    "codeSnippetPL": "int[][] siatka = {{1, 2}, {3, 4}};\nSystem.out.println(siatka[1][0]);",
+    "answers": [
+      {"label": "a", "textEN": "1", "textPL": "1"},
+      {"label": "b", "textEN": "2", "textPL": "2"},
+      {"label": "c", "textEN": "3", "textPL": "3"},
+      {"label": "d", "textEN": "4", "textPL": "4"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arrays"]
+  },
+  {
+    "id": 86,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int[] first = {1, 2};\nint[] second = first;\nsecond[0] = 9;\nSystem.out.println(first[0]);",
+    "codeSnippetPL": "int[] pierwsza = {1, 2};\nint[] druga = pierwsza;\ndruga[0] = 9;\nSystem.out.println(pierwsza[0]);",
+    "answers": [
+      {"label": "a", "textEN": "1", "textPL": "1"},
+      {"label": "b", "textEN": "2", "textPL": "2"},
+      {"label": "c", "textEN": "9", "textPL": "9"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "c",
+    "tags": ["#arrays"]
   }
 ]

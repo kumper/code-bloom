@@ -1,6 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HistoryEntry, SessionToken} from '../models/session-token.model';
 
+type SessionTokenWithOptionalCategoryFields = SessionToken & {
+  seenCategories?: string[];
+  categoryStreak?: SessionToken['categoryStreak'];
+};
+
 export const DAILY_LIMIT = 5;
 export const HISTORY_WINDOW_DAYS = 60;
 const TOKEN_VERSION = 1;
@@ -17,6 +22,8 @@ export class SessionTokenService {
         exercisesCompletedToday: 0,
       },
       history: [],
+      seenCategories: [],
+      categoryStreak: null,
     };
   }
 
@@ -33,10 +40,12 @@ export class SessionTokenService {
       const binary = atob(raw);
       const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
       const json = new TextDecoder().decode(bytes);
-      const parsed = JSON.parse(json) as SessionToken;
+      const parsed = JSON.parse(json) as SessionTokenWithOptionalCategoryFields;
       if (parsed.version !== TOKEN_VERSION) {
         return null;
       }
+      if (!parsed.seenCategories) parsed.seenCategories = [];
+      if (parsed.categoryStreak === undefined) parsed.categoryStreak = null;
       return this.migrateDailyProgress(parsed);
     } catch {
       return null;
@@ -61,6 +70,36 @@ export class SessionTokenService {
 
   isDailyLimitReached(token: SessionToken): boolean {
     return token.dailyProgress.exercisesCompletedToday >= DAILY_LIMIT;
+  }
+
+  isCategoryNew(token: SessionToken, category: string): boolean {
+    return !token.seenCategories.includes(category);
+  }
+
+  markCategorySeen(token: SessionToken, category: string): SessionToken {
+    if (token.seenCategories.includes(category)) return token;
+    return {
+      ...token,
+      seenCategories: [...token.seenCategories, category],
+    };
+  }
+
+  startCategoryStreak(token: SessionToken, category: string): SessionToken {
+    return {
+      ...token,
+      categoryStreak: {category, remaining: 3},
+    };
+  }
+
+  decrementStreak(token: SessionToken): SessionToken {
+    if (!token.categoryStreak) return token;
+    const remaining = token.categoryStreak.remaining - 1;
+    return {
+      ...token,
+      categoryStreak: remaining > 0
+        ? {...token.categoryStreak, remaining}
+        : null,
+    };
   }
 
   /**

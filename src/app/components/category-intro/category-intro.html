@@ -1,0 +1,12 @@
+<div class="intro" role="region" aria-label="Category introduction">
+  <h3 class="intro__title">{{ title() }}</h3>
+  <p class="intro__body">{{ body() }}</p>
+  @if (dismissible()) {
+    <button
+      class="btn btn--pink text-white fw-semibold px-4 py-2 rounded-pill"
+      type="button"
+      (click)="dismiss.emit()">
+      {{ langService.t('intro.dismiss') }}
+    </button>
+  }
+</div>

@@ -1,5 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {vi} from 'vitest';
+import {Question} from '../models/question.model';
 import {QuestionRepositoryService} from './question-repository.service';
 import {SessionToken} from '../models/session-token.model';
 
@@ -9,6 +10,8 @@ const emptyToken: SessionToken = {
   totalPoints: 0,
   dailyProgress: {date: '2026-04-20', exercisesCompletedToday: 0},
   history: [],
+  seenCategories: [],
+  categoryStreak: null,
 };
 
 describe('QuestionRepositoryService', () => {
@@ -43,10 +46,11 @@ describe('QuestionRepositoryService', () => {
   });
 
   it('should return null when all questions have been recently seen', () => {
+    const allQuestions = (service as unknown as {questions: Question[]}).questions;
     const allSeenToken: SessionToken = {
       ...emptyToken,
-      history: Array.from({length: 70}, (_, i) => ({
-        questionId: i + 1,
+      history: allQuestions.map((question) => ({
+        questionId: question.id,
         firstSeenOn: '2026-04-20',
         lastSeenOn: '2026-04-20',
         correctCount: 0,
@@ -68,5 +72,13 @@ describe('QuestionRepositoryService', () => {
 
     vi.restoreAllMocks();
     expect(results.size).toBeGreaterThan(1);
+  });
+
+  it('should return only questions from the requested category', () => {
+    const question = service.getQuestionForSession(emptyToken, 'arrays');
+
+    expect(question).toBeTruthy();
+    expect(question!.tags).toContain('#arrays');
+    expect(service.getQuestionCategory(question!)).toBe('arrays');
   });
 });

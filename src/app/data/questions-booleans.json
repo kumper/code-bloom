@@ -28,5 +28,125 @@
     ],
     "correctAnswer": "b",
     "tags": ["#booleans"]
+  },
+  {
+    "id": 87,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean isWeekend = false;\nboolean isHoliday = true;\nSystem.out.println(isWeekend || isHoliday);",
+    "codeSnippetPL": "boolean jestWeekend = false;\nboolean jestSwieto = true;\nSystem.out.println(jestWeekend || jestSwieto);",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#booleans"]
+  },
+  {
+    "id": 88,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean flag = true;\nSystem.out.println(!flag);",
+    "codeSnippetPL": "boolean flaga = true;\nSystem.out.println(!flaga);",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "!true", "textPL": "!true"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#booleans"]
+  },
+  {
+    "id": 89,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "int x = 0;\nboolean result = true || (x++ > 0);\nSystem.out.println(x);",
+    "codeSnippetPL": "int x = 0;\nboolean wynik = true || (x++ > 0);\nSystem.out.println(x);",
+    "answers": [
+      {"label": "a", "textEN": "0", "textPL": "0"},
+      {"label": "b", "textEN": "1", "textPL": "1"},
+      {"label": "c", "textEN": "true", "textPL": "true"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "a",
+    "tags": ["#booleans"]
+  },
+  {
+    "id": 90,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "System.out.println(5 > 3 && 2 < 1);",
+    "codeSnippetPL": "System.out.println(5 > 3 && 2 < 1);",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#booleans"]
+  },
+  {
+    "id": 91,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean isSunny = false;\nString message = isSunny ? \"Go outside\" : \"Stay home\";\nSystem.out.println(message);",
+    "codeSnippetPL": "boolean jestSlonecznie = false;\nString komunikat = jestSlonecznie ? \"Idź na spacer\" : \"Zostań w domu\";\nSystem.out.println(komunikat);",
+    "answers": [
+      {"label": "a", "textEN": "Go outside", "textPL": "Idź na spacer"},
+      {"label": "b", "textEN": "Stay home", "textPL": "Zostań w domu"},
+      {"label": "c", "textEN": "false", "textPL": "false"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#booleans"]
+  },
+  {
+    "id": 92,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "String text = \"Java\";\nboolean empty = text.isEmpty();\nSystem.out.println(empty);",
+    "codeSnippetPL": "String tekst = \"Java\";\nboolean pusty = tekst.isEmpty();\nSystem.out.println(pusty);",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "Java", "textPL": "Java"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#booleans"]
+  },
+  {
+    "id": 93,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean result = false || true && false;\nSystem.out.println(result);",
+    "codeSnippetPL": "boolean wynik = false || true && false;\nSystem.out.println(wynik);",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "0", "textPL": "0"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#booleans"]
+  },
+  {
+    "id": 94,
+    "questionEN": "What will the following code print?",
+    "questionPL": "Co wypisze poniższy kod?",
+    "codeSnippetEN": "boolean hasTicket = false;\nboolean isGuest = true;\nSystem.out.println(!(hasTicket || isGuest));",
+    "codeSnippetPL": "boolean maBilet = false;\nboolean jestGosciem = true;\nSystem.out.println(!(maBilet || jestGosciem));",
+    "answers": [
+      {"label": "a", "textEN": "true", "textPL": "true"},
+      {"label": "b", "textEN": "false", "textPL": "false"},
+      {"label": "c", "textEN": "1", "textPL": "1"},
+      {"label": "d", "textEN": "Compilation error", "textPL": "Błąd kompilacji"}
+    ],
+    "correctAnswer": "b",
+    "tags": ["#booleans"]
   }
 ]

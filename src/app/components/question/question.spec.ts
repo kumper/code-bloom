@@ -47,4 +47,17 @@ describe('QuestionComponent', () => {
     component.selectedAnswerValue.set('a');
     expect(component.selectedAnswerValue()).toBe('a');
   });
+
+  it('should emit tagClick when a tag button is clicked', async () => {
+    const emitted: string[] = [];
+    component.tagClick.subscribe(tag => emitted.push(tag));
+    fixture.componentRef.setInput('tags', ['Arrays']);
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    const tagButton = fixture.nativeElement.querySelector('.question__tag') as HTMLButtonElement;
+    tagButton.click();
+
+    expect(emitted).toEqual(['Arrays']);
+  });
 });
