@@ -38,7 +38,7 @@ describe('CategoryIntroComponent', () => {
 
   it('should emit dismiss on button click', async () => {
     const spy = vi.fn();
-    await setup({title: 'T', body: 'B'});
+    await setup({title: 'T', body: 'B', dismissible: true});
     fixture.componentInstance.dismiss.subscribe(spy);
     fixture.nativeElement.querySelector('button').click();
     expect(spy).toHaveBeenCalled();

@@ -7,6 +7,16 @@
       <app-bloom-loader (done)="onBloomDone()"/>
     </app-generic-frame>
   }
+  @case ('category-intro') {
+    <app-generic-frame>
+      <app-category-intro
+        [title]="introTitle()"
+        [body]="introBody()"
+        [dismissible]="true"
+        (dismiss)="onIntroDismissed()"
+      />
+    </app-generic-frame>
+  }
   @case ('daily-limit') {
     <app-generic-frame>
       <div class="text-center">
@@ -49,6 +59,7 @@
         [answers]="currentQuestion()!.answers"
         [tags]="currentQuestion()!.tags ?? []"
         (save)="onAnswerSubmitted($event.selectedAnswer)"
+        (tagClick)="onTagClicked($event)"
       />
     </app-generic-frame>
   }

@@ -20,6 +20,12 @@ const mockQuestion: Question = {
   tags: [],
 };
 
+const categoryQuestion: Question = {
+  ...mockQuestion,
+  id: 2,
+  tags: ['#loops'],
+};
+
 function buildToken(overrides: Partial<SessionToken> = {}): SessionToken {
   return {
     version: 1,
@@ -82,11 +88,44 @@ describe('QuizComponent', () => {
   });
 
   it('should show question state when a question is available', async () => {
-    const encoded = tokenService.encode(buildToken());
-    const {component} = await createFixture(encoded);
+    const encoded = tokenService.encode(buildToken({seenCategories: ['loops']}));
+    const {component} = await createFixture(encoded, categoryQuestion);
     component.onBloomDone();
     expect(component.state()).toBe('question');
-    expect(component.currentQuestion()?.id).toBe(mockQuestion.id);
+    expect(component.currentQuestion()?.id).toBe(categoryQuestion.id);
+  });
+
+  it('should show category intro for a new category before the question', async () => {
+    const encoded = tokenService.encode(buildToken());
+    const {component} = await createFixture(encoded, categoryQuestion);
+    component.onBloomDone();
+
+    expect(component.state()).toBe('category-intro');
+    expect(component.showingIntroCategory()).toBe('loops');
+    expect(component.introTitle()).toBeTruthy();
+  });
+
+  it('should mark the category as seen when intro is dismissed', async () => {
+    const encoded = tokenService.encode(buildToken());
+    const {component} = await createFixture(encoded, categoryQuestion);
+    component.onBloomDone();
+    component.onIntroDismissed();
+
+    expect(component.state()).toBe('question');
+    expect(component.token()?.seenCategories).toContain('loops');
+    expect(component.showingIntroCategory()).toBeNull();
+    expect(component.introOnDemand()).toBe(false);
+  });
+
+  it('should show an intro on demand when a tag is clicked', async () => {
+    const encoded = tokenService.encode(buildToken({seenCategories: ['loops']}));
+    const {component} = await createFixture(encoded, categoryQuestion);
+    component.onBloomDone();
+    component.onTagClicked('#loops');
+
+    expect(component.state()).toBe('category-intro');
+    expect(component.introOnDemand()).toBe(true);
+    expect(component.showingIntroCategory()).toBe('loops');
   });
 
   it('should show daily-limit state when limit is reached', async () => {

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, computed, inject, OnInit, signal,} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, inject, OnInit, signal} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SessionToken} from '../../models/session-token.model';
 import {Question} from '../../models/question.model';
@@ -10,12 +10,14 @@ import {BloomLoaderComponent} from '../bloom-loader/bloom-loader';
 import {LanguageService} from '../../services/language.service';
 import {ExplainService} from '../../services/explain.service';
 import {QuizHeaderComponent} from '../quiz-header/quiz-header';
+import {CategoryIntroComponent} from '../category-intro/category-intro';
+import {CATEGORY_INTROS} from '../../data/category-intros';
 
-type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'question' | 'answered';
+type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'category-intro' | 'question' | 'answered';
 
 @Component({
   selector: 'app-quiz',
-  imports: [QuestionComponent, GenericFrameComponent, BloomLoaderComponent, QuizHeaderComponent],
+  imports: [QuestionComponent, GenericFrameComponent, BloomLoaderComponent, QuizHeaderComponent, CategoryIntroComponent],
   templateUrl: './quiz.html',
   styleUrl: './quiz.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,6 +34,8 @@ export class QuizComponent implements OnInit {
   readonly token = signal<SessionToken | null>(null);
   readonly currentQuestion = signal<Question | null>(null);
   readonly wasCorrect = signal<boolean | null>(null);
+  readonly showingIntroCategory = signal<string | null>(null);
+  readonly introOnDemand = signal(false);
 
   readonly dailyLimit = DAILY_LIMIT;
   readonly confettiPieces = Array.from({length: 20}, (_, i) => i);
@@ -53,6 +57,24 @@ export class QuizComponent implements OnInit {
     return this.langService.pick(q.codeSnippetEN, q.codeSnippetPL);
   });
 
+  readonly introTitle = computed(() => {
+    const category = this.showingIntroCategory();
+    if (!category || !CATEGORY_INTROS[category]) {
+      return '';
+    }
+
+    return this.langService.pick(CATEGORY_INTROS[category].titleEN, CATEGORY_INTROS[category].titlePL);
+  });
+
+  readonly introBody = computed(() => {
+    const category = this.showingIntroCategory();
+    if (!category || !CATEGORY_INTROS[category]) {
+      return '';
+    }
+
+    return this.langService.pick(CATEGORY_INTROS[category].bodyEN, CATEGORY_INTROS[category].bodyPL);
+  });
+
   readonly liveAnnouncement = computed(() => {
     switch (this.state()) {
       case 'answered':
@@ -63,6 +85,7 @@ export class QuizComponent implements OnInit {
         return this.langService.t('quiz.dailyLimit.heading', {name: this.userName()});
       case 'all-exhausted':
         return this.langService.t('quiz.allExhausted.heading', {name: this.userName()});
+      case 'category-intro':
       default:
         return '';
     }
@@ -111,6 +134,35 @@ export class QuizComponent implements OnInit {
     this.loadNextQuestion(token);
   }
 
+  onIntroDismissed(): void {
+    const token = this.token();
+    const category = this.showingIntroCategory();
+    const question = this.currentQuestion();
+    if (!token || !category || !question) return;
+
+    if (!this.introOnDemand()) {
+      let updated = this.tokenService.markCategorySeen(token, category);
+      updated = this.tokenService.startCategoryStreak(updated, category);
+      updated = this.tokenService.recordQuestionSeen(updated, question.id);
+      updated = this.tokenService.decrementStreak(updated);
+      this.token.set(updated);
+      this.state.set('question');
+      this.updateUrlToken(updated);
+    } else {
+      this.state.set('question');
+    }
+
+    this.showingIntroCategory.set(null);
+    this.introOnDemand.set(false);
+  }
+
+  onTagClicked(tag: string): void {
+    const category = tag.replace('#', '');
+    this.showingIntroCategory.set(category);
+    this.introOnDemand.set(true);
+    this.state.set('category-intro');
+  }
+
   buildExplainUrl(): string {
     const q = this.currentQuestion();
     return q ? this.explainService.buildUrl(q) : '';
@@ -122,13 +174,33 @@ export class QuizComponent implements OnInit {
       return;
     }
 
-    const question = this.questionRepo.getQuestionForSession(token);
+    const streakCategory = token.categoryStreak?.category;
+    const question = this.questionRepo.getQuestionForSession(token, streakCategory ?? undefined);
+
     if (!question) {
+      if (streakCategory) {
+        const clearedToken = {...token, categoryStreak: null};
+        this.token.set(clearedToken);
+        this.loadNextQuestion(clearedToken);
+        return;
+      }
+
       this.state.set('all-exhausted');
       return;
     }
 
-    const updated = this.tokenService.recordQuestionSeen(token, question.id);
+    const category = this.questionRepo.getQuestionCategory(question);
+    if (category && this.tokenService.isCategoryNew(token, category)) {
+      this.showingIntroCategory.set(category);
+      this.currentQuestion.set(question);
+      this.state.set('category-intro');
+      return;
+    }
+
+    let updated = this.tokenService.recordQuestionSeen(token, question.id);
+    if (token.categoryStreak) {
+      updated = this.tokenService.decrementStreak(updated);
+    }
     this.token.set(updated);
     this.currentQuestion.set(question);
     this.state.set('question');

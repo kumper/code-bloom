@@ -10,7 +10,7 @@ import {LanguageService} from '../../services/language.service';
 export class CategoryIntroComponent {
   title = input.required<string>();
   body = input.required<string>();
-  dismissible = input(true);
+  dismissible = input(false);
 
   dismiss = output<void>();
 
