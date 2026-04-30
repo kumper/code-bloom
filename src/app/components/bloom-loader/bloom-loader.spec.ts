@@ -29,10 +29,10 @@ describe('BloomLoaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the SVG tree with 5 branches', async () => {
+  it('should render the SVG tree with all branch paths', async () => {
     await setup();
     const branches = fixture.nativeElement.querySelectorAll('.bloom__branch');
-    expect(branches.length).toBe(5);
+    expect(branches.length).toBe(7);
   });
 
   it('should emit done after 5 seconds', async () => {

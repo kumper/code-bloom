@@ -12,11 +12,11 @@ import {LanguageService} from '../../services/language.service';
       <div class="d-flex gap-3 align-items-center">
         <span class="quiz__stat"
               [attr.aria-label]="exercisesToday() + ' of ' + dailyLimit() + ' exercises done today'">
-          📝 {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit() }}
+          <span aria-hidden="true">📝</span> {{ exercisesToday() }}&nbsp;/&nbsp;{{ dailyLimit() }}
         </span>
         <span class="quiz__stat"
               [attr.aria-label]="totalPoints() + ' total points'">
-          ⭐ {{ totalPoints() }} pts
+          <span aria-hidden="true">⭐</span> {{ totalPoints() }} pts
         </span>
       </div>
     </div>

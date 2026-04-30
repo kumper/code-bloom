@@ -1,6 +1,6 @@
-import { Injectable, inject } from '@angular/core';
-import { Question } from '../models/question.model';
-import { LanguageService } from './language.service';
+import {inject, Injectable} from '@angular/core';
+import {Question} from '../models/question.model';
+import {LanguageService} from './language.service';
 
 @Injectable({ providedIn: 'root' })
 export class ExplainService {
@@ -90,6 +90,3 @@ export class ExplainService {
     ].join('\n');
   }
 }
-
-
-

@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, effect, inject} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
 import {LanguageService} from './services/language.service';
 import {LangToggleComponent} from './components/lang-toggle/lang-toggle';
@@ -12,4 +13,11 @@ import {LangToggleComponent} from './components/lang-toggle/lang-toggle';
 })
 export class App {
   protected readonly langService = inject(LanguageService);
+  private readonly document = inject(DOCUMENT);
+
+  constructor() {
+    effect(() => {
+      this.document.documentElement.lang = this.langService.lang();
+    });
+  }
 }

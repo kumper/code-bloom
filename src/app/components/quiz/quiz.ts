@@ -53,6 +53,21 @@ export class QuizComponent implements OnInit {
     return this.langService.pick(q.codeSnippetEN, q.codeSnippetPL);
   });
 
+  readonly liveAnnouncement = computed(() => {
+    switch (this.state()) {
+      case 'answered':
+        return this.wasCorrect()
+          ? this.langService.t('quiz.correct.heading')
+          : this.langService.t('quiz.wrong.heading');
+      case 'daily-limit':
+        return this.langService.t('quiz.dailyLimit.heading', {name: this.userName()});
+      case 'all-exhausted':
+        return this.langService.t('quiz.allExhausted.heading', {name: this.userName()});
+      default:
+        return '';
+    }
+  });
+
   ngOnInit(): void {
     const raw = this.route.snapshot.queryParamMap.get('token');
     if (!raw) {
