@@ -18,19 +18,36 @@ import interfaces from '../data/questions-interfaces.json';
 import exceptions from '../data/questions-exceptions.json';
 import collections from '../data/questions-collections.json';
 
+export const CATEGORY_ORDER: string[] = [
+  'types',
+  'booleans',
+  'arithmetic',
+  'operators',
+  'strings',
+  'control-flow',
+  'loops',
+  'arrays',
+  'methods',
+  'oop',
+  'inheritance',
+  'interfaces',
+  'exceptions',
+  'collections',
+];
+
 @Injectable({
   providedIn: 'root',
 })
 export class QuestionRepositoryService {
   private readonly questions: Question[] = [
-    ...controlFlow,
-    ...arithmetic,
-    ...strings,
-    ...operators,
+    ...types,
     ...booleans,
+    ...arithmetic,
+    ...operators,
+    ...strings,
+    ...controlFlow,
     ...loops,
     ...arrays,
-    ...types,
     ...methods,
     ...oop,
     ...inheritance,
@@ -41,22 +58,31 @@ export class QuestionRepositoryService {
   private readonly tokenService = inject(SessionTokenService);
 
   /**
-   * Returns a random question not seen within the last 60 days.
-   * If category is provided, only questions with that tag are considered.
-   * Returns null if no matching question is available.
+   * Returns a question for the session. When category is specified, picks randomly
+   * from that category. Otherwise follows difficulty progression — serves from the
+   * lowest-difficulty category that still has unseen questions.
    */
   getQuestionForSession(token: SessionToken, category?: string): Question | null {
     const recentIds = this.tokenService.getRecentQuestionIds(token);
-    let pool = this.questions.filter((q) => !recentIds.has(q.id));
 
     if (category) {
-      pool = pool.filter((q) => q.tags?.includes(`#${category}`));
+      const pool = this.questions.filter(
+        (q) => !recentIds.has(q.id) && q.tags?.includes(`#${category}`),
+      );
+      return pool.length > 0 ? pool[Math.floor(Math.random() * pool.length)] : null;
     }
 
-    if (pool.length === 0) {
-      return null;
+    // Progressive difficulty: find first category with available questions
+    for (const cat of CATEGORY_ORDER) {
+      const pool = this.questions.filter(
+        (q) => !recentIds.has(q.id) && q.tags?.includes(`#${cat}`),
+      );
+      if (pool.length > 0) {
+        return pool[Math.floor(Math.random() * pool.length)];
+      }
     }
-    return pool[Math.floor(Math.random() * pool.length)];
+
+    return null;
   }
 
   /**

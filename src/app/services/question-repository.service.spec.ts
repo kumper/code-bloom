@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {vi} from 'vitest';
 import {Question} from '../models/question.model';
-import {QuestionRepositoryService} from './question-repository.service';
+import {CATEGORY_ORDER, QuestionRepositoryService} from './question-repository.service';
 import {SessionToken} from '../models/session-token.model';
 
 const emptyToken: SessionToken = {
@@ -80,5 +80,34 @@ describe('QuestionRepositoryService', () => {
     expect(question).toBeTruthy();
     expect(question!.tags).toContain('#arrays');
     expect(service.getQuestionCategory(question!)).toBe('arrays');
+  });
+
+  it('should serve questions from the first category in difficulty order', () => {
+    const question = service.getQuestionForSession(emptyToken);
+    expect(question).toBeTruthy();
+    // First category is 'types'
+    expect(question!.tags).toContain(`#${CATEGORY_ORDER[0]}`);
+  });
+
+  it('should advance to next category when current is exhausted', () => {
+    const allQuestions = (service as unknown as {questions: Question[]}).questions;
+    const typesQuestions = allQuestions.filter((q) => q.tags?.includes('#types'));
+
+    // Mark all 'types' questions as seen
+    const tokenWithTypesSeen: SessionToken = {
+      ...emptyToken,
+      history: typesQuestions.map((q) => ({
+        questionId: q.id,
+        firstSeenOn: '2026-04-20',
+        lastSeenOn: '2026-04-20',
+        correctCount: 0,
+        wrongCount: 0,
+      })),
+    };
+
+    const question = service.getQuestionForSession(tokenWithTypesSeen);
+    expect(question).toBeTruthy();
+    // Should serve from second category ('booleans')
+    expect(question!.tags).toContain(`#${CATEGORY_ORDER[1]}`);
   });
 });
