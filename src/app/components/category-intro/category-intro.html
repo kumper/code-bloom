@@ -1,6 +1,6 @@
 <div class="intro" role="region" aria-label="Category introduction">
   <h3 class="intro__title">{{ title() }}</h3>
-  <p class="intro__body">{{ body() }}</p>
+  <div class="intro__body" [innerHTML]="body()"></div>
   @if (dismissible()) {
     <button
       class="btn btn--pink text-white fw-semibold px-4 py-2 rounded-pill"
