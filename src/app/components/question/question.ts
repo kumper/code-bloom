@@ -1,4 +1,14 @@
-import {ChangeDetectionStrategy, Component, effect, inject, input, output, signal, untracked} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+  untracked
+} from '@angular/core';
 import {LanguageService} from '../../services/language.service';
 import {QuizAnswer, QuizSubmission} from '../../models/quiz-answer.model';
 
@@ -22,6 +32,12 @@ export class QuestionComponent {
   readonly selectedAnswerValue = signal('');
 
   protected readonly langService = inject(LanguageService);
+
+  readonly feedbackHref = computed(() => {
+    const subject = encodeURIComponent('CodeBloom Feedback');
+    const body = encodeURIComponent(this.langService.t('quiz.feedback.body'));
+    return `mailto:kumper@op.pl?subject=${subject}&body=${body}`;
+  });
 
   constructor() {
     effect(() => {

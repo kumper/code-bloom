@@ -60,4 +60,21 @@ describe('QuestionComponent', () => {
 
     expect(emitted).toEqual(['#arrays']);
   });
+
+  it('should always render the feedback link regardless of tags', async () => {
+    fixture.componentRef.setInput('tags', []);
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    const feedbackLink = fixture.nativeElement.querySelector('a[aria-label="Send feedback about CodeBloom"]') as HTMLAnchorElement;
+    expect(feedbackLink).toBeTruthy();
+  });
+
+  it('should render feedback link with a valid mailto href', async () => {
+    fixture.detectChanges();
+    const feedbackLink = fixture.nativeElement.querySelector('a[aria-label="Send feedback about CodeBloom"]') as HTMLAnchorElement;
+    expect(feedbackLink.href).toContain('mailto:');
+    expect(feedbackLink.href).toContain('subject=');
+    expect(feedbackLink.href).toContain('body=');
+  });
 });
