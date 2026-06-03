@@ -1,0 +1,45 @@
+<div class="text-center answer-feedback"
+     [class.answer-feedback--correct]="isCorrect()"
+     [class.answer-feedback--wrong]="!isCorrect()">
+  @if (isCorrect()) {
+    <div class="answer-feedback__confetti" aria-hidden="true">
+      @for (i of confettiPieces; track i) {
+        <span class="answer-feedback__confetti-piece" [style.--i]="i"></span>
+      }
+    </div>
+    <div class="answer-feedback__icon answer-feedback__icon--correct" aria-hidden="true">🎉</div>
+    <h3
+      class="fw-bold answer-feedback__heading--correct answer-feedback__heading--pop mb-2">{{ langService.t('quiz.correct.heading') }}</h3>
+    <p class="text-secondary mb-0 answer-feedback__text--fade">{{ langService.t('quiz.correct.subtitle') }}</p>
+  } @else {
+    <div class="answer-feedback__icon answer-feedback__icon--wrong" aria-hidden="true">💡</div>
+    <h3
+      class="fw-bold answer-feedback__heading--wrong answer-feedback__heading--shake mb-2">{{ langService.t('quiz.wrong.heading') }}</h3>
+    <p class="text-secondary mb-0 answer-feedback__text--fade">
+      {{ langService.t('quiz.wrong.prefix') }} <strong>{{ correctAnswer() }}</strong>.
+    </p>
+  }
+
+  @if (showNextButton()) {
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-4">
+      <a [href]="explainUrl()" target="_blank" rel="noopener noreferrer"
+         class="btn btn--outline fw-semibold px-4 py-2 rounded-pill">
+        {{ langService.t('quiz.explainBtn') }}
+      </a>
+      <button class="btn btn--pink text-white fw-semibold px-4 py-2 rounded-pill"
+              type="button" (click)="nextQuestion.emit()">
+        {{ langService.t('quiz.nextBtn') }}
+      </button>
+    </div>
+  } @else {
+    <a [href]="explainUrl()" target="_blank" rel="noopener noreferrer"
+       class="btn btn--outline fw-semibold px-4 py-2 rounded-pill mt-4 d-inline-block">
+      {{ langService.t('quiz.explainBtn') }}
+    </a>
+    <p class="mt-3 text-muted fw-semibold">
+      {{ langService.t('quiz.todayLimit', {limit: dailyLimit().toString()}) }}
+    </p>
+  }
+</div>
+
+

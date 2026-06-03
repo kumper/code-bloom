@@ -6,7 +6,7 @@ type SessionTokenWithOptionalCategoryFields = SessionToken & {
   categoryStreak?: SessionToken['categoryStreak'];
 };
 
-export const DAILY_LIMIT = 5;
+export const DAILY_LIMIT = 10;
 export const HISTORY_WINDOW_DAYS = 60;
 const TOKEN_VERSION = 1;
 const STORAGE_KEY = 'codebloom_session';

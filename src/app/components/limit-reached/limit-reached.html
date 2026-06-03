@@ -1,0 +1,33 @@
+<div class="text-center">
+  <div class="limit-reached__icon mb-3" aria-hidden="true">
+    @if (isDailyLimit()) {
+      🌙
+    } @else {
+      🏆
+    }
+  </div>
+
+  <h2 class="fw-bold limit-reached__heading mb-2">
+    @if (isDailyLimit()) {
+      {{ langService.t('quiz.dailyLimit.heading', {name: userName()}) }}
+    } @else {
+      {{ langService.t('quiz.allExhausted.heading', {name: userName()}) }}
+    }
+  </h2>
+
+  <p class="text-secondary mb-3">
+    @if (isDailyLimit()) {
+      {{ langService.t('quiz.dailyLimit.subtitle', {limit: dailyLimit().toString()}) }}
+    } @else {
+      {{ langService.t('quiz.allExhausted.subtitle') }}
+    }
+  </p>
+
+  <div class="limit-reached__points mx-auto">
+    <span class="limit-reached__points-value fw-bold">{{ totalPoints() }}</span>
+    <span class="limit-reached__points-label">{{ langService.t('quiz.totalPoints') }}</span>
+  </div>
+</div>
+
+
+

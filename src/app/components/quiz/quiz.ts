@@ -2,9 +2,11 @@ import {ChangeDetectionStrategy, Component, computed, inject, OnInit, signal} fr
 import {Router} from '@angular/router';
 import {SessionToken} from '../../models/session-token.model';
 import {Question} from '../../models/question.model';
-import {DAILY_LIMIT, SessionTokenService} from '../../services/session-token.service';
-import {QuestionRepositoryService} from '../../services/question-repository.service';
-import {QuestionComponent} from '../question/question';
+import {SessionTokenService} from '../../services/session-token.service';
+import {QuizService, QuizState} from '../../services/quiz.service';
+import {QuestionCardComponent} from '../question-card/question-card';
+import {AnswerFeedbackComponent} from '../answer-feedback/answer-feedback';
+import {LimitReachedComponent} from '../limit-reached/limit-reached';
 import {GenericFrameComponent} from '../generic-frame/generic-frame';
 import {BloomLoaderComponent} from '../bloom-loader/bloom-loader';
 import {LanguageService} from '../../services/language.service';
@@ -13,11 +15,17 @@ import {QuizHeaderComponent} from '../quiz-header/quiz-header';
 import {CategoryIntroComponent} from '../category-intro/category-intro';
 import {CATEGORY_INTROS} from '../../data/category-intros';
 
-type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'category-intro' | 'question' | 'answered';
-
 @Component({
   selector: 'app-quiz',
-  imports: [QuestionComponent, GenericFrameComponent, BloomLoaderComponent, QuizHeaderComponent, CategoryIntroComponent],
+  imports: [
+    QuestionCardComponent,
+    AnswerFeedbackComponent,
+    LimitReachedComponent,
+    GenericFrameComponent,
+    BloomLoaderComponent,
+    QuizHeaderComponent,
+    CategoryIntroComponent,
+  ],
   templateUrl: './quiz.html',
   styleUrl: './quiz.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,7 +33,7 @@ type QuizState = 'blooming' | 'daily-limit' | 'all-exhausted' | 'category-intro'
 export class QuizComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly tokenService = inject(SessionTokenService);
-  private readonly questionRepo = inject(QuestionRepositoryService);
+  private readonly quizService = inject(QuizService);
   protected readonly langService = inject(LanguageService);
   private readonly explainService = inject(ExplainService);
 
@@ -35,14 +43,14 @@ export class QuizComponent implements OnInit {
   readonly wasCorrect = signal<boolean | null>(null);
   readonly showingIntroCategory = signal<string | null>(null);
   readonly introOnDemand = signal(false);
+  readonly limitIsDailyLimit = signal(false);
 
-  readonly dailyLimit = DAILY_LIMIT;
-  readonly confettiPieces = Array.from({length: 20}, (_, i) => i);
   readonly userName = computed(() => this.token()?.name ?? '');
   readonly totalPoints = computed(() => this.token()?.totalPoints ?? 0);
   readonly exercisesToday = computed(
     () => this.token()?.dailyProgress.exercisesCompletedToday ?? 0,
   );
+  readonly dailyLimit = computed(() => this.quizService.dailyLimit);
 
   readonly localizedQuestion = computed(() => {
     const q = this.currentQuestion();
@@ -61,7 +69,6 @@ export class QuizComponent implements OnInit {
     if (!category || !CATEGORY_INTROS[category]) {
       return '';
     }
-
     return this.langService.pick(CATEGORY_INTROS[category].titleEN, CATEGORY_INTROS[category].titlePL);
   });
 
@@ -70,7 +77,6 @@ export class QuizComponent implements OnInit {
     if (!category || !CATEGORY_INTROS[category]) {
       return '';
     }
-
     return this.langService.pick(CATEGORY_INTROS[category].bodyEN, CATEGORY_INTROS[category].bodyPL);
   });
 
@@ -80,10 +86,10 @@ export class QuizComponent implements OnInit {
         return this.wasCorrect()
           ? this.langService.t('quiz.correct.heading')
           : this.langService.t('quiz.wrong.heading');
-      case 'daily-limit':
-        return this.langService.t('quiz.dailyLimit.heading', {name: this.userName()});
-      case 'all-exhausted':
-        return this.langService.t('quiz.allExhausted.heading', {name: this.userName()});
+      case 'limit-reached':
+        return this.limitIsDailyLimit()
+          ? this.langService.t('quiz.dailyLimit.heading', {name: this.userName()})
+          : this.langService.t('quiz.allExhausted.heading', {name: this.userName()});
       case 'category-intro':
       default:
         return '';
@@ -110,9 +116,7 @@ export class QuizComponent implements OnInit {
     const question = this.currentQuestion();
     if (!token || !question) return;
 
-    const correct = selectedAnswer === question.correctAnswer;
-    const updated = this.tokenService.recordAnswer(token, question.id, correct);
-
+    const {updated, correct} = this.quizService.processAnswer(token, question, selectedAnswer);
     this.token.set(updated);
     this.wasCorrect.set(correct);
     this.state.set('answered');
@@ -128,24 +132,18 @@ export class QuizComponent implements OnInit {
 
   onIntroDismissed(): void {
     const token = this.token();
-    const category = this.showingIntroCategory();
     const question = this.currentQuestion();
-    if (!token || !category || !question) return;
+    if (!token || !question) return;
 
-    if (!this.introOnDemand()) {
-      let updated = this.tokenService.markCategorySeen(token, category);
-      updated = this.tokenService.startCategoryStreak(updated, category);
-      updated = this.tokenService.recordQuestionSeen(updated, question.id);
-      updated = this.tokenService.decrementStreak(updated);
+    const updated = this.quizService.processCategoryIntroDismissal(token, question, this.introOnDemand());
+    if (updated !== token) {
       this.token.set(updated);
-      this.state.set('question');
       this.persistToken(updated);
-    } else {
-      this.state.set('question');
     }
 
     this.showingIntroCategory.set(null);
     this.introOnDemand.set(false);
+    this.state.set('question');
   }
 
   onTagClicked(tag: string): void {
@@ -161,38 +159,36 @@ export class QuizComponent implements OnInit {
   }
 
   private loadNextQuestion(token: SessionToken): void {
-    if (this.tokenService.isDailyLimitReached(token)) {
-      this.state.set('daily-limit');
+    const {question, limitReached, updatedToken} = this.quizService.loadNextQuestion(
+      token,
+      token.categoryStreak?.category,
+    );
+
+    // Limit reached
+    if (limitReached) {
+      this.token.set(updatedToken);
+      this.limitIsDailyLimit.set(limitReached.isDailyLimit);
+      this.state.set('limit-reached');
       return;
     }
 
-    const streakCategory = token.categoryStreak?.category;
-    const question = this.questionRepo.getQuestionForSession(token, streakCategory ?? undefined);
-
+    // No question found (shouldn't happen with current logic but good to handle)
     if (!question) {
-      if (streakCategory) {
-        const clearedToken = {...token, categoryStreak: null};
-        this.token.set(clearedToken);
-        this.loadNextQuestion(clearedToken);
-        return;
-      }
-
-      this.state.set('all-exhausted');
+      this.state.set('limit-reached');
+      this.limitIsDailyLimit.set(false);
       return;
     }
 
-    const category = this.questionRepo.getQuestionCategory(question);
-    if (category && this.tokenService.isCategoryNew(token, category)) {
-      this.showingIntroCategory.set(category);
+    // Check if category intro should be shown
+    if (this.quizService.isCategoryNew(token, question)) {
+      this.showingIntroCategory.set(this.quizService.getQuestionCategory(question));
       this.currentQuestion.set(question);
       this.state.set('category-intro');
       return;
     }
 
-    let updated = this.tokenService.recordQuestionSeen(token, question.id);
-    if (token.categoryStreak) {
-      updated = this.tokenService.decrementStreak(updated);
-    }
+    // Record question view and update token
+    const updated = this.quizService.recordQuestionView(updatedToken, question);
     this.token.set(updated);
     this.currentQuestion.set(question);
     this.state.set('question');

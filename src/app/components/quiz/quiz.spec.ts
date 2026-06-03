@@ -5,6 +5,7 @@ import {SessionTokenService} from '../../services/session-token.service';
 import {QuestionRepositoryService} from '../../services/question-repository.service';
 import {SessionToken} from '../../models/session-token.model';
 import {Question} from '../../models/question.model';
+import {vi} from 'vitest';
 
 const mockQuestion: Question = {
   id: 1,
@@ -122,19 +123,21 @@ describe('QuizComponent', () => {
     expect(component.showingIntroCategory()).toBe('loops');
   });
 
-  it('should show daily-limit state when limit is reached', async () => {
+  it('should show limit-reached state when daily limit is reached', async () => {
     const today = new Date().toISOString().slice(0, 10);
     const {component} = await createFixture(
       buildToken({dailyProgress: {date: today, exercisesCompletedToday: 5}}),
     );
     component.onBloomDone();
-    expect(component.state()).toBe('daily-limit');
+    expect(component.state()).toBe('limit-reached');
+    expect(component.limitIsDailyLimit()).toBe(true);
   });
 
-  it('should show all-exhausted state when no question is available', async () => {
+  it('should show limit-reached state when no question is available', async () => {
     const {component} = await createFixture(buildToken(), null);
     component.onBloomDone();
-    expect(component.state()).toBe('all-exhausted');
+    expect(component.state()).toBe('limit-reached');
+    expect(component.limitIsDailyLimit()).toBe(false);
   });
 
   it('should award a point and set wasCorrect=true on correct answer', async () => {
