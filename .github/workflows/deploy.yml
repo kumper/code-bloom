@@ -36,16 +36,16 @@ jobs:
         run: cat /home/runner/.npm/_logs/*.log
 
       - name: Build Angular app
-        run: npx ng build --configuration production --base-href /code-bloom/
+        run: npx ng build --configuration production
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: 'dist/code-bloom/browser'  # Angular 17+ output path
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
